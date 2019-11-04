@@ -9,12 +9,25 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="文件" />
+          <Menu mnemonicParsing="false" text="文件">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="保存" />
+                  <MenuItem mnemonicParsing="false" text="退出" />
+               </items></Menu>
           <Menu mnemonicParsing="false" text="编辑">
             <items>
-              <MenuItem mnemonicParsing="false" text="新建" />
-                  <MenuItem mnemonicParsing="false" text="查询/修改" />
-              <MenuItem mnemonicParsing="false" text="删除" />
+                  <Menu mnemonicParsing="false" text="新建需求计划">
+                     <items>
+                    <MenuItem mnemonicParsing="false" text="年度计划" />
+                        <MenuItem mnemonicParsing="false" text="月度计划" />
+                    <MenuItem mnemonicParsing="false" text="紧急计划" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="新建采购计划">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="帮助">
