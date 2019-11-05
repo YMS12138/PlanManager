@@ -76,6 +76,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
+                    <include>**/*.fxml</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
