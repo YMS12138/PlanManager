@@ -10,7 +10,7 @@ package pro.Entity;/*
  * @create: 2019-11-04 19:42
  **/
 
-public class demand {
+public class Demand {
     Long demandPlanCode;//需求计划编码
     int demandPlanType;//需求计划类型
     String demandPlanName;//需求计划名称
@@ -115,7 +115,7 @@ public class demand {
      * @param demandMonth
      * @param orderCode
      */
-    public demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, int demandMonth, Long orderCode) {
+    public Demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, int demandMonth, Long orderCode) {
         this.demandPlanCode = demandPlanCode;
         this.demandPlanType = demandPlanType;
         this.demandPlanName = demandPlanName;
@@ -140,7 +140,7 @@ public class demand {
      * @param approval
      * @param orderCode
      */
-    public demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, Long orderCode) {
+    public Demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, Long orderCode) {
         this.demandPlanCode = demandPlanCode;
         this.demandPlanType = demandPlanType;
         this.demandPlanName = demandPlanName;
@@ -155,12 +155,12 @@ public class demand {
     /**
      * 默认构造函数
      */
-    public demand() {
+    public Demand() {
     }
 
     @Override
     public String toString() {
-        return "demand{" +
+        return "Demand{" +
                 "demandPlanCode=" + demandPlanCode +
                 ", demandPlanType=" + demandPlanType +
                 ", demandPlanName='" + demandPlanName + '\'' +

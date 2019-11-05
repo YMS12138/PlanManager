@@ -12,7 +12,7 @@ import java.util.Date;
  * @create: 2019-11-04 19:53
  **/
 
-public class order {
+public class Order {
     Long oderCode;//订单编码主键
     int materialTypeCode;//物料分类编码
     String materialTypeName;//物料分类名称
@@ -33,10 +33,10 @@ public class order {
     /**
      * 默认构造函数
      */
-    public order() {
+    public Order() {
     }
 
-    public order(Long oderCode, int materialTypeCode, String materialTypeName, Long materialCode, Long materialName, String materialSpe, String materialType, String materialUnit, int materialNum, int materialDemandMoth, Date materialDemandDate, Boolean sourceSure, String expectedSup, String fixedSup, String remarks, Long materialTrackCode) {
+    public Order(Long oderCode, int materialTypeCode, String materialTypeName, Long materialCode, Long materialName, String materialSpe, String materialType, String materialUnit, int materialNum, int materialDemandMoth, Date materialDemandDate, Boolean sourceSure, String expectedSup, String fixedSup, String remarks, Long materialTrackCode) {
         this.oderCode = oderCode;
         this.materialTypeCode = materialTypeCode;
         this.materialTypeName = materialTypeName;
@@ -57,7 +57,7 @@ public class order {
 
     @Override
     public String toString() {
-        return "order{" +
+        return "Order{" +
                 "oderCode=" + oderCode +
                 ", materialTypeCode=" + materialTypeCode +
                 ", materialTypeName='" + materialTypeName + '\'' +

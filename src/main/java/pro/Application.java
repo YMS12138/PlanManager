@@ -1,19 +1,15 @@
 package pro;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import pro.controller.RequirementController;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class Main extends Application {
+public class Application extends javafx.application.Application {
 
     private Stage page;
     private BorderPane root;
@@ -27,7 +23,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getClassLoader().getResource("pro/view/main.fxml"));
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/application.fxml"));
         root = loader.load();
 
         page = primaryStage;
@@ -53,7 +49,7 @@ public class Main extends Application {
         //创建加载器
         FXMLLoader loader = new FXMLLoader();
         //设置加载器所加载的文件
-        loader.setLocation(Main.class.getClassLoader().getResource("pro/view/requirement.fxml"));
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/requirement.fxml"));
         //将加载的子页面文件返回
         GridPane requirement = loader.load();
 
@@ -72,7 +68,7 @@ public class Main extends Application {
      */
     private void showYears() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getClassLoader().getResource("pro/view/years.fxml"));
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/years.fxml"));
         AnchorPane info = loader.load();
 
         GridPane center = (GridPane) root.getCenter();

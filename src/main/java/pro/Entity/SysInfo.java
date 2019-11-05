@@ -12,7 +12,7 @@ import java.util.Date;
  * @create: 2019-11-04 20:33
  **/
 
-public class sysInfo {
+public class SysInfo {
     String drawingPeo;//绘制人
     Date drawingDate;//绘制时间
     String modifier;//修改人
@@ -20,10 +20,10 @@ public class sysInfo {
     String reason;//原因
     Long orderCode;//外键订单编码
 
-    public sysInfo() {
+    public SysInfo() {
     }
 
-    public sysInfo(String drawingPeo, Date drawingDate, String modifier, Date modifierDate, String reason, Long orderCode) {
+    public SysInfo(String drawingPeo, Date drawingDate, String modifier, Date modifierDate, String reason, Long orderCode) {
         this.drawingPeo = drawingPeo;
         this.drawingDate = drawingDate;
         this.modifier = modifier;
@@ -34,7 +34,7 @@ public class sysInfo {
 
     @Override
     public String toString() {
-        return "sysInfo{" +
+        return "SysInfo{" +
                 "drawingPeo='" + drawingPeo + '\'' +
                 ", drawingDate=" + drawingDate +
                 ", modifier='" + modifier + '\'' +

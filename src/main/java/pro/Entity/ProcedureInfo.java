@@ -12,7 +12,7 @@ import java.util.Date;
  * @create: 2019-11-04 20:25
  **/
 
-public class procedureInfo {
+public class ProcedureInfo {
     String approver;//审批人
     Date approvalTime;//审批时间
     String aprovalOpinion;//审批意见
