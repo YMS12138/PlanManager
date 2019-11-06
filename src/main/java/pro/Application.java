@@ -5,7 +5,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import sun.applet.Main;
 
 import java.io.IOException;
 
@@ -35,7 +37,7 @@ public class Application extends javafx.application.Application {
 
         requirement();
 
-        showYears();
+        showLogin();
 
         page.show();
     }
@@ -73,6 +75,17 @@ public class Application extends javafx.application.Application {
 
         GridPane center = (GridPane) root.getCenter();
         center.add(info, 1, 2);
+    }
+
+    /**
+     * 加载登录页面
+     */
+    private void showLogin() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/login.fxml"));
+        Pane login = loader.load();
+
+        root.setCenter(login);
     }
 
     public static void main(String[] args) {

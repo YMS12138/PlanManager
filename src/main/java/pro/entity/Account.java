@@ -1,4 +1,4 @@
-package pro.Entity;/*
+package pro.entity;/*
  *@author LeeXy
  *@date 2019/10/21 14:37
  */
