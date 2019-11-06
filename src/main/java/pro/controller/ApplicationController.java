@@ -15,11 +15,10 @@ public class ApplicationController {
         this.application = application;
     }
 
-    @FXML
-    private void init() {
 
-    }
-
+    /**
+     * 加载年度计划子页面
+     */
     @FXML
     private void showYears() {
         try {
@@ -30,6 +29,9 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * 加载月度计划子页面
+     */
     @FXML
     private void showMonth() {
         try {
@@ -40,6 +42,9 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * 加载紧急计划子页面
+     */
     @FXML
     private void showUrgent() {
         try {
@@ -50,13 +55,32 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * 加载登录子页面
+     */
     @FXML
     private void showLogin() {
-
         try {
             application.showLogin();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 加载登录子页面
+     */
+    @FXML
+    private void showUserList() {
+        try {
+            application.showUserList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void exit() {
+        System.exit(0);
     }
 }

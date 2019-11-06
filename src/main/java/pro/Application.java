@@ -8,14 +8,18 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pro.controller.ApplicationController;
-import sun.applet.Main;
+import pro.entity.User;
 
 import java.io.IOException;
 
+/**
+ * 程序主窗口
+ */
 public class Application extends javafx.application.Application {
 
     private Stage page;
     private BorderPane root;
+    private User user;
 
     /**
      * 窗口框架
@@ -101,7 +105,6 @@ public class Application extends javafx.application.Application {
      * @throws IOException
      */
     public void showUrgent() throws IOException {
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/urgent.fxml"));
         AnchorPane info = loader.load();
@@ -116,6 +119,17 @@ public class Application extends javafx.application.Application {
     public void showLogin() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/login.fxml"));
+        Pane login = loader.load();
+
+        root.setCenter(login);
+    }
+
+    /**
+     * 加载用户列表页面
+     */
+    public void showUserList() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/userList.fxml"));
         Pane login = loader.load();
 
         root.setCenter(login);
