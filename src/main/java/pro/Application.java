@@ -135,6 +135,19 @@ public class Application extends javafx.application.Application {
         root.setCenter(login);
     }
 
+    /**
+     * 加载需求计划查询页面
+     */
+    public void showFindPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/findAndFix.fxml"));
+        AnchorPane info = loader.load();
+
+        GridPane center = (GridPane) root.getCenter();
+        center.add(info, 1, 2);
+    }
+
+
     public static void main(String[] args) {
         launch(args);
     }

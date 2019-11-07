@@ -68,12 +68,25 @@ public class ApplicationController {
     }
 
     /**
-     * 加载登录子页面
+     * 加载用户列表子页面
      */
     @FXML
     private void showUserList() {
         try {
             application.showUserList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 加载需求计划查询子页面
+     */
+    @FXML
+    private void showFindPage() {
+        try {
+            application.requirement();
+            application.showFindPage();
         } catch (IOException e) {
             e.printStackTrace();
         }

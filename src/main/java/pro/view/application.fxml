@@ -25,7 +25,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#showUrgent" text="紧急计划" />
                     </items>
                   </Menu>
-                  <MenuItem mnemonicParsing="false" text="查询/修改" />
+                  <MenuItem mnemonicParsing="false" onAction="#showFindPage" text="查询/修改" />
                   <MenuItem mnemonicParsing="false" text="审批" />
               </items>
             </Menu>
