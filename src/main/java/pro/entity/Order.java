@@ -13,7 +13,7 @@ import java.util.Date;
  **/
 
 public class Order {
-    Long oderCode;//订单编码主键
+
     int materialTypeCode;//物料分类编码
     String materialTypeName;//物料分类名称
     Long materialCode;//物料编码
@@ -29,37 +29,15 @@ public class Order {
     String fixedSup;//固定供应商
     String remarks;//备注
     Long materialTrackCode;//物料追踪码
+    Long demandPlanCode;//需求计划编码
 
-    /**
-     * 默认构造函数
-     */
     public Order() {
-    }
-
-    public Order(Long oderCode, int materialTypeCode, String materialTypeName, Long materialCode, Long materialName, String materialSpe, String materialType, String materialUnit, int materialNum, int materialDemandMoth, Date materialDemandDate, Boolean sourceSure, String expectedSup, String fixedSup, String remarks, Long materialTrackCode) {
-        this.oderCode = oderCode;
-        this.materialTypeCode = materialTypeCode;
-        this.materialTypeName = materialTypeName;
-        this.materialCode = materialCode;
-        this.materialName = materialName;
-        this.materialSpe = materialSpe;
-        this.materialType = materialType;
-        this.materialUnit = materialUnit;
-        this.materialNum = materialNum;
-        this.materialDemandMoth = materialDemandMoth;
-        this.materialDemandDate = materialDemandDate;
-        this.sourceSure = sourceSure;
-        this.expectedSup = expectedSup;
-        this.fixedSup = fixedSup;
-        this.remarks = remarks;
-        this.materialTrackCode = materialTrackCode;
     }
 
     @Override
     public String toString() {
         return "Order{" +
-                "oderCode=" + oderCode +
-                ", materialTypeCode=" + materialTypeCode +
+                "materialTypeCode=" + materialTypeCode +
                 ", materialTypeName='" + materialTypeName + '\'' +
                 ", materialCode=" + materialCode +
                 ", materialName=" + materialName +
@@ -74,6 +52,135 @@ public class Order {
                 ", fixedSup='" + fixedSup + '\'' +
                 ", remarks='" + remarks + '\'' +
                 ", materialTrackCode=" + materialTrackCode +
+                ", demandPlanCode=" + demandPlanCode +
                 '}';
+    }
+
+    public int getMaterialTypeCode() {
+        return materialTypeCode;
+    }
+
+    public void setMaterialTypeCode(int materialTypeCode) {
+        this.materialTypeCode = materialTypeCode;
+    }
+
+    public String getMaterialTypeName() {
+        return materialTypeName;
+    }
+
+    public void setMaterialTypeName(String materialTypeName) {
+        this.materialTypeName = materialTypeName;
+    }
+
+    public Long getMaterialCode() {
+        return materialCode;
+    }
+
+    public void setMaterialCode(Long materialCode) {
+        this.materialCode = materialCode;
+    }
+
+    public Long getMaterialName() {
+        return materialName;
+    }
+
+    public void setMaterialName(Long materialName) {
+        this.materialName = materialName;
+    }
+
+    public String getMaterialSpe() {
+        return materialSpe;
+    }
+
+    public void setMaterialSpe(String materialSpe) {
+        this.materialSpe = materialSpe;
+    }
+
+    public String getMaterialType() {
+        return materialType;
+    }
+
+    public void setMaterialType(String materialType) {
+        this.materialType = materialType;
+    }
+
+    public String getMaterialUnit() {
+        return materialUnit;
+    }
+
+    public void setMaterialUnit(String materialUnit) {
+        this.materialUnit = materialUnit;
+    }
+
+    public int getMaterialNum() {
+        return materialNum;
+    }
+
+    public void setMaterialNum(int materialNum) {
+        this.materialNum = materialNum;
+    }
+
+    public int getMaterialDemandMoth() {
+        return materialDemandMoth;
+    }
+
+    public void setMaterialDemandMoth(int materialDemandMoth) {
+        this.materialDemandMoth = materialDemandMoth;
+    }
+
+    public Date getMaterialDemandDate() {
+        return materialDemandDate;
+    }
+
+    public void setMaterialDemandDate(Date materialDemandDate) {
+        this.materialDemandDate = materialDemandDate;
+    }
+
+    public Boolean getSourceSure() {
+        return sourceSure;
+    }
+
+    public void setSourceSure(Boolean sourceSure) {
+        this.sourceSure = sourceSure;
+    }
+
+    public String getExpectedSup() {
+        return expectedSup;
+    }
+
+    public void setExpectedSup(String expectedSup) {
+        this.expectedSup = expectedSup;
+    }
+
+    public String getFixedSup() {
+        return fixedSup;
+    }
+
+    public void setFixedSup(String fixedSup) {
+        this.fixedSup = fixedSup;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public Long getMaterialTrackCode() {
+        return materialTrackCode;
+    }
+
+    public void setMaterialTrackCode(Long materialTrackCode) {
+        this.materialTrackCode = materialTrackCode;
+    }
+
+    public Long getDemandPlanCode() {
+        return demandPlanCode;
+    }
+
+    public void setDemandPlanCode(Long demandPlanCode) {
+        this.demandPlanCode = demandPlanCode;
     }
 }

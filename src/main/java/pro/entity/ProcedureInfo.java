@@ -17,5 +17,59 @@ public class ProcedureInfo {
     Date approvalTime;//审批时间
     String aprovalOpinion;//审批意见
     String explain;//说明
-    Long orderCode;//外键订单信息
+    Long demandPlanCode;//外键需求计划编码
+
+    public String getApprover() {
+        return approver;
+    }
+
+    public void setApprover(String approver) {
+        this.approver = approver;
+    }
+
+    public Date getApprovalTime() {
+        return approvalTime;
+    }
+
+    public void setApprovalTime(Date approvalTime) {
+        this.approvalTime = approvalTime;
+    }
+
+    public String getAprovalOpinion() {
+        return aprovalOpinion;
+    }
+
+    public void setAprovalOpinion(String aprovalOpinion) {
+        this.aprovalOpinion = aprovalOpinion;
+    }
+
+    public String getExplain() {
+        return explain;
+    }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
+    }
+
+    public Long getDemandPlanCode() {
+        return demandPlanCode;
+    }
+
+    public void setDemandPlanCode(Long demandPlanCode) {
+        this.demandPlanCode = demandPlanCode;
+    }
+
+    public ProcedureInfo() {
+    }
+
+    @Override
+    public String toString() {
+        return "ProcedureInfo{" +
+                "approver='" + approver + '\'' +
+                ", approvalTime=" + approvalTime +
+                ", aprovalOpinion='" + aprovalOpinion + '\'' +
+                ", explain='" + explain + '\'' +
+                ", demandPlanCode=" + demandPlanCode +
+                '}';
+    }
 }

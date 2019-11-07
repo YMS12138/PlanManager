@@ -20,7 +20,9 @@ public class Demand {
     int demandState;//需求状态
     int approval;//审批状态
     int demandMonth;//月度需求计划月份 年度需求计划可为空
-    Long orderCode;//订单编码 外键
+
+    public Demand() {
+    }
 
     public Long getDemandPlanCode() {
         return demandPlanCode;
@@ -94,70 +96,6 @@ public class Demand {
         this.demandMonth = demandMonth;
     }
 
-    public Long getOrderCode() {
-        return orderCode;
-    }
-
-    public void setOrderCode(Long orderCode) {
-        this.orderCode = orderCode;
-    }
-
-    /**
-     * 月度需求构造函数
-     * @param demandPlanCode
-     * @param demandPlanType
-     * @param demandPlanName
-     * @param demandRemarks
-     * @param demanddepartment
-     * @param demandPersonne
-     * @param demandState
-     * @param approval
-     * @param demandMonth
-     * @param orderCode
-     */
-    public Demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, int demandMonth, Long orderCode) {
-        this.demandPlanCode = demandPlanCode;
-        this.demandPlanType = demandPlanType;
-        this.demandPlanName = demandPlanName;
-        this.demandRemarks = demandRemarks;
-        this.demanddepartment = demanddepartment;
-        this.demandPersonne = demandPersonne;
-        this.demandState = demandState;
-        this.approval = approval;
-        this.demandMonth = demandMonth;
-        this.orderCode = orderCode;
-    }
-
-    /**
-     * 年度需求构造函数
-     * @param demandPlanCode
-     * @param demandPlanType
-     * @param demandPlanName
-     * @param demandRemarks
-     * @param demanddepartment
-     * @param demandPersonne
-     * @param demandState
-     * @param approval
-     * @param orderCode
-     */
-    public Demand(Long demandPlanCode, int demandPlanType, String demandPlanName, String demandRemarks, int demanddepartment, String demandPersonne, int demandState, int approval, Long orderCode) {
-        this.demandPlanCode = demandPlanCode;
-        this.demandPlanType = demandPlanType;
-        this.demandPlanName = demandPlanName;
-        this.demandRemarks = demandRemarks;
-        this.demanddepartment = demanddepartment;
-        this.demandPersonne = demandPersonne;
-        this.demandState = demandState;
-        this.approval = approval;
-        this.orderCode = orderCode;
-    }
-
-    /**
-     * 默认构造函数
-     */
-    public Demand() {
-    }
-
     @Override
     public String toString() {
         return "Demand{" +
@@ -170,7 +108,6 @@ public class Demand {
                 ", demandState=" + demandState +
                 ", approval=" + approval +
                 ", demandMonth=" + demandMonth +
-                ", orderCode=" + orderCode +
                 '}';
     }
 }

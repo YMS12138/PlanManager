@@ -7,20 +7,5 @@ public class MonthController {
     public void createMonth(){
 
     }
-    @FXML
-    public void selectMonthByCode(){
 
-    }
-    @FXML
-    public void selectMonthAll(){
-
-    }
-    @FXML
-    public void deleteMonth(){
-
-    }
-    @FXML
-    public void updateMonth(){
-
-    }
 }

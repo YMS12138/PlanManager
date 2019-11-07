@@ -2,31 +2,23 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 
+import java.awt.*;
+
 public class YearsController {
-
     @FXML
-    private void init(){
+    private TextField id;
 
-    }
+    /**
+     * 增，创建一个年度计划表
+     */
     @FXML
-    public void createYear(){
+    public void save(){
+        //获取计划表信息
+        //...id,type,...
 
-    }
-    @FXML
-    public void selectYearByCode(){
-
-    }
-    @FXML
-    public void selectYearAll(){
-
-    }
-    @FXML
-    public void deleteYear(){
-
-    }
-    @FXML
-    public void updateYear(){
-
+        //调底层逻辑
+        //...GoodsLogic logic =  Factory.getBean("");
+        //goodsLogic.create(...);
     }
 
 }
