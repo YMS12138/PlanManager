@@ -8,4 +8,25 @@ public class YearsController {
     private void init(){
 
     }
+    @FXML
+    public void createYear(){
+
+    }
+    @FXML
+    public void selectYearByCode(){
+
+    }
+    @FXML
+    public void selectYearAll(){
+
+    }
+    @FXML
+    public void deleteYear(){
+
+    }
+    @FXML
+    public void updateYear(){
+
+    }
+
 }

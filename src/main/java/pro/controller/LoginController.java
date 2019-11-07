@@ -27,6 +27,30 @@ public class LoginController {
      */
     @FXML
     private void test() {
-        password.setText(username.getText());
+        username.setText(password.getText());
     }
+
+    /**
+     * 登陆方法 登陆成功根据不同身份切换不同页面（需要判断身份）
+     */
+    @FXML
+    public void login(){
+
+    }
+
+    /**
+     * 退出方法
+     */
+    @FXML
+    public void exit(){
+    }
+
+    /**
+     * 切换用户 点击切换用户按钮将也换切换到登录页面
+     */
+    @FXML
+    public void switchUser(){
+
+    }
+
 }
