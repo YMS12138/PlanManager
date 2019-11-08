@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pro.entity.Account;
+import pro.entity.User;
 import pro.mapper.IAccountService;
+import pro.mapper.IUser;
 
 import java.util.List;
 
@@ -19,13 +21,13 @@ import java.util.List;
 @ContextConfiguration("classpath:bean.xml")
 public class test01 {
     @Autowired
-    IAccountService accountService;
+    IUser iUser;
     @Test
     public void test01() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-        List<Account> accounts = accountService.findAll();
-        for (Account ac : accounts) {
+        List<User> users = iUser.findAll();
+        for (User ac : users) {
             System.out.println(ac);
         }
     }

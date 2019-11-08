@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.mapper.IUser">
+    <select id="findAll" resultMap="resultDept">
+        select * from user
+    </select>
+    <!--Long id;//员工工号-->
+    <!--String userName;//员工姓名-->
+    <!--String userPwd;//员工密码-->
+    <!--int userJob;//员工职位-->
+    <!--String department;//员工部门-->
+    <resultMap id="resultDept" type="pro.entity.User">
+        <id property="id" column="id" javaType="Long"></id>
+        <result property="userName" column="user_name" javaType="String"></result>
+        <result property="userPwd" column="user_pwd" javaType="String"></result>
+        <result property="userJob" column="user_job" javaType="int"></result>
+        <result property="department" column="department" javaType="String"></result>
+    </resultMap>
+
+</mapper>

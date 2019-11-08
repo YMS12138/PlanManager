@@ -10,7 +10,7 @@
     <!--使用SSM需要把mybatis的控制权交给Spring-->
     <context:annotation-config></context:annotation-config>
     <!--扫描包-->
-    <context:component-scan base-package="pro.mapper"/>
+    <context:component-scan base-package="pro"/>
     <!--导入的datasource文件-->
     <context:property-placeholder location="classpath:Datasource.properties"></context:property-placeholder>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -28,5 +28,4 @@
     <bean id="account" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="pro/mapper"/>
     </bean>
-
 </beans>
