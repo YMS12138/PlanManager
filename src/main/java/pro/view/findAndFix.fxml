@@ -88,7 +88,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="取消">
+            <Button mnemonicParsing="false" onAction="#showQueryResult" prefHeight="50.0" prefWidth="150.0" text="取消">
                <font>
                   <Font size="18.0" />
                </font>

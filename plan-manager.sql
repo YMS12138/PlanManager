@@ -62,7 +62,7 @@ CREATE TABLE `order`  (
 DROP TABLE IF EXISTS `proinfo`;
 CREATE TABLE `proinfo`  (
   `approver` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '审批人',
-  `approval_time` datetime(0) NULL DEFAULT NULL COMMENT '审批时间',
+  `approval_time` date NULL DEFAULT NULL COMMENT '审批时间',
   `approval_op` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '审批意见',
   `explain` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '说明',
   `demand_code` bigint(255) NULL DEFAULT NULL COMMENT '计划编码'
@@ -76,7 +76,7 @@ CREATE TABLE `sysinfo`  (
   `drawing_people` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '绘制人',
   `drawing_date` date NULL DEFAULT NULL COMMENT '绘制时间',
   `modifier` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '修改人',
-  `modifier_date` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
+  `modifier_date` date NULL DEFAULT NULL COMMENT '修改时间',
   `reason` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '原因',
   `demand_code` bigint(255) NULL DEFAULT NULL COMMENT '计划编码'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;

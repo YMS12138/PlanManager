@@ -20,6 +20,7 @@ public class Application extends javafx.application.Application {
     private Stage page;
     private BorderPane root;
     private User user;
+    public static Application application;
 
     /**
      * 窗口框架
@@ -34,6 +35,7 @@ public class Application extends javafx.application.Application {
         root = loader.load();
 
         page = primaryStage;
+        application = this;
 
         page.setResizable(false);
 
@@ -141,6 +143,18 @@ public class Application extends javafx.application.Application {
     public void showFindPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/findAndFix.fxml"));
+        AnchorPane info = loader.load();
+
+        GridPane center = (GridPane) root.getCenter();
+        center.add(info, 1, 2);
+    }
+
+    /**
+     * 加载需求计划查询结果页面
+     */
+    public void showQueryResult() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/queryResult.fxml"));
         AnchorPane info = loader.load();
 
         GridPane center = (GridPane) root.getCenter();

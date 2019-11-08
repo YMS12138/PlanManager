@@ -1,12 +1,12 @@
 package pro.controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import pro.Application;
+
+import java.io.IOException;
 
 /**
  * 需求查改子页面
@@ -33,5 +33,20 @@ public class FindAndFixController {
 
         //设置当前选项的值
 //        comboBox.setValue("123");
+    }
+
+
+
+    /**
+     * 加载需求计划查询结果子页面
+     */
+    @FXML
+    private void showQueryResult() {
+        try {
+            Application.application.requirement();
+            Application.application.showQueryResult();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

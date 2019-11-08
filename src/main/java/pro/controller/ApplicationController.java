@@ -9,6 +9,9 @@ import java.io.IOException;
  * 主窗口
  */
 public class ApplicationController {
+    /**
+     * 程序窗口对象
+     */
     private Application application;
 
     public void setApplication(Application application) {
