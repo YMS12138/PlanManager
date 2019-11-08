@@ -44,6 +44,9 @@ public class QueryResultController {
     private TableColumn<Demand, Integer> month;
 
 
+    /**
+     * 在控制器（此类）被构造时，自动调用initialize()
+     */
     @FXML
     private void initialize() {
         //设置表格中的内容（填充）

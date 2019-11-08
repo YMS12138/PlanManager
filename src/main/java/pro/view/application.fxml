@@ -26,7 +26,7 @@
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#showFindPage" text="查询/修改" />
-                  <MenuItem mnemonicParsing="false" text="审批" />
+                  <MenuItem mnemonicParsing="false" onAction="#showApproval" text="审批" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="采购计划">

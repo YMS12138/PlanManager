@@ -95,6 +95,19 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * 加载需求计划审批子页面
+     */
+    @FXML
+    private void showApproval() {
+        try {
+            application.requirement();
+            application.showApproval();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void exit() {
         System.exit(0);
