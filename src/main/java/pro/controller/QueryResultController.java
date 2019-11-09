@@ -4,12 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import pro.Application;
 import pro.entity.Demand;
 
@@ -79,14 +81,24 @@ public class QueryResultController {
     }
 
     /**
-     * 根据提供Code查询
+     * 加载打印预览及导出页面
      */
     @FXML
-    public void selectByCode(){
-
+    private void showExport() {
+        try {
+            Application.application.showExport();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    @FXML
-    public void updateBy(){
 
+    @FXML
+    private void showSummary() {
+        try {
+            Application.application.requirement();
+            Application.application.showSummary();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

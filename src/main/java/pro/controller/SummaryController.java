@@ -1,8 +1,7 @@
 package pro.controller;
 
 /**
- * @Author: zz
- * @Date: 2019/11/8 17:31
+ * 加载汇总页面
  */
 public class SummaryController {
 }

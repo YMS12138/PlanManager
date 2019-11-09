@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 
 import java.awt.*;
 
+/**
+ * 加载年度计划页面
+ */
 public class YearsController {
     @FXML
     private TextField id;

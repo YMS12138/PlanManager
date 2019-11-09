@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -26,7 +27,7 @@
             <children>
                 <HBox alignment="CENTER" prefWidth="932.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#test" prefHeight="30.0" prefWidth="90.0" text="保存" />
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="保存" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="复制" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="提交" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="打印" />
@@ -103,21 +104,21 @@
                                         <Insets right="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <TextField fx:id="demandPlanType" GridPane.columnIndex="1" />
-                                <TextField fx:id="demandDepartment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <TextField fx:id="demandPlanCode" GridPane.columnIndex="3" />
-                                <TextField fx:id="demandPerson" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                <TextField fx:id="demandPlanName" GridPane.columnIndex="5" />
-                                <TextField fx:id="demandState" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                                <TextField fx:id="demandRemarks" GridPane.columnIndex="7" />
-                                <TextField GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                <TextField editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="1" />
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="3" />
+                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <TextField GridPane.columnIndex="5" />
+                                <TextField style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                <TextField GridPane.columnIndex="7" />
+                                <TextField style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                                 <CheckBox mnemonicParsing="false" prefHeight="16.0" prefWidth="159.0" text="是否预算内计划" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                 <Label text="需求计划月份" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets right="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <TextField fx:id="approval" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <ComboBox prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                             </children>
                             <GridPane.margin>
                                 <Insets right="30.0" />

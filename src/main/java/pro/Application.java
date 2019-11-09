@@ -1,6 +1,7 @@
 package pro;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -176,6 +177,32 @@ public class Application extends javafx.application.Application {
 
         FXMLLoader loader1 = new FXMLLoader();
         loader1.setLocation(Application.class.getClassLoader().getResource("pro/view/approvalLeft.fxml"));
+        AnchorPane left = loader1.load();
+
+        center.add(left, 0, 2);
+    }
+
+    /**
+     * 加载打印预览及导出页面
+     */
+    public void showExport() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/printAndExport.fxml"));
+        GridPane need = loader.load();
+
+        root.setCenter(need);
+    }
+
+    public void showSummary() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/summary.fxml"));
+        AnchorPane info = loader.load();
+
+        GridPane center = (GridPane) root.getCenter();
+        center.add(info, 1, 2);
+
+        FXMLLoader loader1 = new FXMLLoader();
+        loader1.setLocation(Application.class.getClassLoader().getResource("pro/view/summaryLeft.fxml"));
         AnchorPane left = loader1.load();
 
         center.add(left, 0, 2);

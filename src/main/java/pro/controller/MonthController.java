@@ -13,6 +13,9 @@ import pro.entity.Order;
 import pro.logic.GoodsLogic;
 
 
+/**
+ * 加载月度计划页面
+ */
 public class MonthController {
 
     /**
