@@ -1,6 +1,8 @@
 package pro.controller;
 
 import javafx.fxml.FXML;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import pro.Application;
 
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.io.IOException;
 /**
  * 主窗口
  */
+@Controller
 public class ApplicationController {
     /**
      * 程序窗口对象
@@ -98,5 +101,14 @@ public class ApplicationController {
     @FXML
     private void exit() {
         System.exit(0);
+    }
+
+    public void showyyyy() {
+        try {
+            application.requirement();
+            application.showYears();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

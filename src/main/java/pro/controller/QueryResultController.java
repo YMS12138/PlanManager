@@ -68,4 +68,16 @@ public class QueryResultController {
 
         demands.addAll(test);
     }
+
+    /**
+     * 根据提供Code查询
+     */
+    @FXML
+    public void selectByCode(){
+
+    }
+    @FXML
+    public void updateBy(){
+
+    }
 }

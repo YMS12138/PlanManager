@@ -2,6 +2,10 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
+import pro.Application;
+
+import java.io.IOException;
 
 
 /**
@@ -20,14 +24,12 @@ public class LoginController {
      */
     @FXML
     private TextField password;
-
-
     /**
      * 测试获取页面控件属性
      */
     @FXML
-    private void test() {
-        username.setText(password.getText());
+    private void test()  {
+
     }
 
     /**
@@ -43,6 +45,7 @@ public class LoginController {
      */
     @FXML
     public void exit(){
+
     }
 
     /**

@@ -7,5 +7,11 @@ public class MonthController {
     public void createMonth(){
 
     }
+    @FXML
+    public void updateMonth(){
+
+    }
+    @FXML
+    public void delete(){}
 
 }
