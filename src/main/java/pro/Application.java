@@ -7,6 +7,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pro.controller.ApplicationController;
 import pro.entity.User;
 
@@ -16,7 +18,7 @@ import java.io.IOException;
  * 程序主窗口
  */
 public class Application extends javafx.application.Application {
-
+    public static ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
     private Stage page;
     private BorderPane root;
     private User user;

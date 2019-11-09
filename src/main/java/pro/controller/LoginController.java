@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import pro.Application;
+import pro.logic.UserLogic;
 
 import java.io.IOException;
 
@@ -29,7 +30,9 @@ public class LoginController {
      */
     @FXML
     private void test()  {
+        String ss =username.getText();
 
+        System.out.println(ss);
     }
 
     /**

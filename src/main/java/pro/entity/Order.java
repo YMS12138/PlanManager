@@ -3,6 +3,8 @@ package pro.entity;/*
  *@date 2019/11/4 19:53
  */
 
+import org.springframework.stereotype.Repository;
+
 import java.util.Date;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Date;
  * @author: LeeXy
  * @create: 2019-11-04 19:53
  **/
-
+@Repository
 public class Order {
 
     int materialTypeCode;//物料分类编码

@@ -5,5 +5,6 @@
     <mappers>
         <mapper resource="pro/mapper/accountMapper.xml"></mapper>
         <mapper resource="pro/mapper/userMapper.xml"></mapper>
+        <mapper resource="pro/mapper/iMonthMapper.xml"></mapper>
     </mappers>
 </configuration>

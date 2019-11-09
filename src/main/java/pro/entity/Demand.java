@@ -4,6 +4,7 @@ package pro.entity;/*
  */
 
 import javafx.beans.property.*;
+import org.springframework.stereotype.Repository;
 
 /**
  * @program: PlanManager
@@ -11,7 +12,7 @@ import javafx.beans.property.*;
  * @author: LeeXy
  * @create: 2019-11-04 19:42
  **/
-
+@Repository
 public class Demand {
     /**
      * 需求计划编码

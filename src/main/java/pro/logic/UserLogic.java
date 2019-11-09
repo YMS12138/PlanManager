@@ -1,10 +1,12 @@
 package pro.logic;
 
+import org.springframework.stereotype.Service;
 import pro.entity.User;
 
 /**
  * 用户逻辑
  */
+@Service
 public class UserLogic {
     /**
      * 判断用户身份
