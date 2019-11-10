@@ -19,7 +19,7 @@ public class Order {
     int materialTypeCode;//物料分类编码
     String materialTypeName;//物料分类名称
     Long materialCode;//物料编码
-    Long materialName;//物料名称
+    String materialName;//物料名称
     String materialSpe;//物料规格
     String materialType;//物料型号
     String materialUnit;//物料单位
@@ -82,11 +82,11 @@ public class Order {
         this.materialCode = materialCode;
     }
 
-    public Long getMaterialName() {
+    public String getMaterialName() {
         return materialName;
     }
 
-    public void setMaterialName(Long materialName) {
+    public void setMaterialName(String materialName) {
         this.materialName = materialName;
     }
 

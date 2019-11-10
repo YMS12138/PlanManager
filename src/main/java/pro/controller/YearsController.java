@@ -23,5 +23,7 @@ public class YearsController {
         //...GoodsLogic logic =  Factory.getBean("");
         //goodsLogic.create(...);
     }
+    @FXML
+    public void test(){}
 
 }
