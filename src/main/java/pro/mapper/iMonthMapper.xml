@@ -2,46 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pro.mapper.IMonth">
-    <!--/**-->
-    <!--* 需求计划编码-->
-    <!--*/-->
-    <!--LongProperty demandPlanCode;-->
-    <!--/**-->
-    <!--* 需求计划类型-->
-    <!--*/-->
-    <!--IntegerProperty demandPlanType;-->
-    <!--/**-->
-    <!--* 需求计划名称-->
-    <!--*/-->
-    <!--StringProperty demandPlanName;-->
-    <!--/**-->
-    <!--* 备注-->
-    <!--*/-->
-    <!--StringProperty demandRemarks;-->
-    <!--/**-->
-    <!--* 需求部门-->
-    <!--*/-->
-    <!--StringProperty demandDepartment;-->
-    <!--/**-->
-    <!--* 需求人员-->
-    <!--*/-->
-    <!--StringProperty demandPerson;-->
-    <!--/**-->
-    <!--* 需求状态-->
-    <!--*/-->
-    <!--IntegerProperty demandState;-->
-    <!--/**-->
-    <!--* 审批状态-->
-    <!--*/-->
-    <!--IntegerProperty approval;-->
-    <!--/**-->
-    <!--* 月度需求计划月份 年度需求计划可为空-->
-    <!--*/-->
-    <!--IntegerProperty demandMonth;-->
-    <!--/**-->
-    <!--* 订单编码 外键-->
-    <!--*/-->
-    <!--LongProperty orderCode;-->
     <insert id="insertMDemand" parameterType="pro.entity.Demand">
         insert into demand(demand_plancode,demand_plantype,demand_planname,demand_remarks,demand_department,
        demand_personne,demand_state,approval_status,demand_month,order_code) values(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
@@ -49,7 +9,7 @@
 
     </insert>
 
-    <resultMap id="resultDept" type="pro.entity.Demand">
+    <resultMap id="resultDemand" type="pro.entity.Demand">
         <id property="demandPlanCode" column="demand_plancode" javaType="Long"></id>
         <result property="demandPlanType" column="demand_plantype" javaType="int"></result>
         <result property="demandPlanName" column="demand_planname" javaType="String"></result>

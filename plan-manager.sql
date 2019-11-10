@@ -3,15 +3,15 @@
 
  Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 80015
+ Source Server Version : 50562
  Source Host           : localhost:3306
  Source Schema         : plan-manager
 
  Target Server Type    : MySQL
- Target Server Version : 80015
+ Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 07/11/2019 23:13:33
+ Date: 11/11/2019 00:30:41
 */
 
 SET NAMES utf8mb4;
@@ -33,15 +33,23 @@ CREATE TABLE `demand`  (
   `demand_month` int(255) NULL DEFAULT NULL COMMENT '月度需求计划月份',
   `order_code` bigint(255) NULL DEFAULT NULL COMMENT '订单编码',
   PRIMARY KEY (`demand_plancode`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for order
+-- Records of demand
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order`  (
+INSERT INTO `demand` VALUES (2, 1, '3', '4', '5', '6', '0', 0, 0, 0);
+INSERT INTO `demand` VALUES (33, 1, '3', '4', '555', '4', '0', 0, 0, 0);
+INSERT INTO `demand` VALUES (1111111, 1, '1', '2', '34', '4', '0', 0, 0, 0);
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`  (
   `material_typecode` int(255) NULL DEFAULT NULL COMMENT '物料分类编码',
   `material_typename` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物料分类名称',
+  `material_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物料编码',
   `material_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物料名称',
   `material_spe` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物料规格',
   `material_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物料型号',
@@ -54,7 +62,12 @@ CREATE TABLE `order`  (
   `fixed_sup` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '固定供应商',
   `remarks` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '备注',
   `material_tracode` bigint(255) NULL DEFAULT NULL COMMENT '物料追踪码'
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` VALUES (1, '2', '3', '4', '5', '6', '6', 6, '9', '2019-11-06', NULL, '2', '3', '2', 1);
 
 -- ----------------------------
 -- Table structure for proinfo
@@ -66,7 +79,7 @@ CREATE TABLE `proinfo`  (
   `approval_op` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '审批意见',
   `explain` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '说明',
   `demand_code` bigint(255) NULL DEFAULT NULL COMMENT '计划编码'
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for sysinfo
@@ -79,7 +92,7 @@ CREATE TABLE `sysinfo`  (
   `modifier_date` date NULL DEFAULT NULL COMMENT '修改时间',
   `reason` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '原因',
   `demand_code` bigint(255) NULL DEFAULT NULL COMMENT '计划编码'
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user
@@ -92,6 +105,6 @@ CREATE TABLE `user`  (
   `user_job` int(1) NULL DEFAULT NULL COMMENT '1是普通员工2是管理员',
   `department` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '待定 可以不填',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;

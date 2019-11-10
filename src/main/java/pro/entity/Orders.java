@@ -14,7 +14,7 @@ import java.util.Date;
  * @create: 2019-11-04 19:53
  **/
 @Repository
-public class Order {
+public class Orders {
 
     int materialTypeCode;//物料分类编码
     String materialTypeName;//物料分类名称
@@ -33,7 +33,7 @@ public class Order {
     Long materialTrackCode;//物料追踪码
     Long demandPlanCode;//需求计划编码
 
-    public Order() {
+    public Orders() {
     }
 
     @Override

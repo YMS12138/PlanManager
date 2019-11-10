@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 
 import pro.Application;
 import pro.entity.Demand;
-import pro.entity.Order;
+import pro.entity.Orders;
 import pro.logic.GoodsLogic;
 
 import java.text.ParseException;
@@ -133,9 +133,9 @@ public class MonthController {
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd");
         Demand demand = Application.ac.getBean("demand",Demand.class);
         GoodsLogic goodsLogic =Application.ac.getBean("goodsLogic",GoodsLogic.class);
-        Order order = Application.ac.getBean("order",Order.class);
+        Orders order = Application.ac.getBean("orders",Orders.class);
         //获取计划
-        demand.setDemandPlanCode(1111111);
+//        demand.setDemandPlanCode(1111111);
 //        //年度的计划类型为0 月度1 紧急2
 //        demand.setDemandPlanType(1);
 //        demand.setDemandPlanName(demandPlanName.getText());
@@ -163,15 +163,15 @@ public class MonthController {
         order.setMaterialType(materialType.getText());
         order.setMaterialUnit((String) materialUnit.getValue());
         order.setMaterialNum(Integer.parseInt(materialNum.getText()));
-       order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
+        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
         order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
         order.setExpectedSup((String) expectedSup.getValue());
         order.setFixedSup((String) fixedSup.getValue());
         order.setRemarks(remarks.getText());
         order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
         order.setDemandPlanCode(demand.getDemandPlanCode());
-       //goodsLogic.createMonth(demand,order);
         System.out.println(order);
+      goodsLogic.createMonth(demand,order);
         //System.out.println(demand);
     }
     @FXML

@@ -3,11 +3,19 @@ package pro.mapper;/*
  *@date 2019/11/9 15:37
  */
 
+import com.mysql.jdbc.UpdatableResultSet;
 import org.springframework.stereotype.Service;
 import pro.entity.Demand;
-import pro.entity.Order;
+
+
+import java.util.List;
+
 @Service
 public interface IMonth {
     public void insertMDemand(Demand demand);
-    public void insertMOrder(Order order);
+
+    public Demand selectMByCode(int code);
+
+    public void updateDemand(Demand demand);
+
 }
