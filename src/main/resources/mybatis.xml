@@ -6,6 +6,7 @@
         <mapper resource="pro/mapper/accountMapper.xml"></mapper>
         <mapper resource="pro/mapper/userMapper.xml"></mapper>
         <mapper resource="pro/mapper/iMonthMapper.xml"></mapper>
-        <mapper resource="pro/mapper/iOrderMapper.xml"></mapper>
+        <mapper resource="pro/mapper/yearsDemandMapper.xml"></mapper>
+        <mapper resource="pro/mapper/yearsOrderMapper.xml"></mapper>
     </mappers>
 </configuration>

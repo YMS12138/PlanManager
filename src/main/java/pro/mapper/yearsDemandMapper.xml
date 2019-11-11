@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.mapper.IYears">
+    <insert id="insertYDemand" parameterType="pro.entity.Demand">
+		insert into
+		demand
+		(demand_plancode,demand_plantype,demand_planname,
+		demand_remarks,demand_department,demand_personne,demand_state,
+		approval_status,demand_month,order_code)
+		values
+		(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
+		#{demandRemarks},#{demandDepartment},#{demandPerson},
+		#{demandState},#{approval},#{demandMonth},#{orderCode})
+	</insert>
+    <update id="updateYByCode" parameterType="pro.entity.Demand">
+		update demand
+		set
+		demand_state = "已提交"
+        where demand_plancode = #{demandPlanCode}
+	</update>
+    <delete id="deleteYByCode" parameterType="Long">
+		delete from demand where demand_plancode = #{demandPlanCode}
+	</delete>
+    <resultMap type="pro.entity.Demand" id="resultDemand">
+        <id property="demandPlanCode" column="demand_plancode" javaType="java.lang.Long"/>
+        <result property="demandPlanType" column="demand_plantype" javaType="java.lang.Integer"/>
+        <result property="demandPlanName" column="demand_planname" javaType="java.lang.String"/>
+        <result property="demandRemarks" column="demand_remarks" javaType="java.lang.String"/>
+        <result property="demandDepartment" column="demand_department" javaType="java.lang.String"/>
+        <result property="demandPerson" column="demand_personne" javaType="java.lang.String"/>
+        <result property="demandState" column="demand_state" javaType="java.lang.Integer"/>
+        <result property="approval" column="approval_status" javaType="java.lang.Integer"/>
+        <result property="demandMonth" column="demand_month" javaType="java.lang.Integer"/>
+        <result property="orderCode" column="order_code" javaType="java.lang.Long"/>
+    </resultMap>
+</mapper>
