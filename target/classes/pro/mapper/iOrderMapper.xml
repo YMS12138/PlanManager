@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.mapper.IOrder">
+    <insert id="insertOrder" parameterType="pro.entity.Orders">
+		insert into orders
+		(material_typecode,material_typename,material_code,
+		material_name,material_spe,material_type,
+		material_unit,material_num,material_dermandmoth,
+		material_dermanddate,source_sure,expected_sup,
+		fixed_sup,remarks,material_tracode)
+		values
+		(#{materialTypeCode},#{materialTypeName},#{materialCode},
+		#{materialName},#{materialSpe},#{materialType},
+		#{materialUnit},#{materialNum},#{materialDemandMoth},
+		#{materialDemandDate},#{sourceSure},#{expectedSup},
+		#{fixedSup},#{remarks},#{materialTrackCode})
+	</insert>
+    <resultMap type="pro.entity.Orders" id="resultOrder">
+        <result property="materialTypeCode" column="material_typecode" javaType="java.lang.Integer"/>
+        <result property="materialTypeName" column="material_typename" javaType="java.lang.String"/>
+        <result property="materialCode" column="material_code" javaType="java.lang.Long"/>
+        <result property="materialName" column="material_name" javaType="java.lang.Long"/>
+        <result property="materialSpe" column="material_spe" javaType="java.lang.String"/>
+        <result property="materialType" column="material_type" javaType="java.lang.String"/>
+        <result property="materialUnit" column="material_unit" javaType="java.lang.String"/>
+        <result property="materialNum" column="material_num" javaType="java.lang.Integer"/>
+        <result property="materialDemandMoth" column="material_dermandmoth" javaType="java.lang.Integer"/>
+        <result property="materialDemandDate" column="material_dermanddate" javaType="Date"/>
+        <result property="sourceSure" column="source_sure" javaType="boolean"/>
+        <result property="expectedSup" column="expected_sup" javaType="java.lang.String"/>
+        <result property="fixedSup" column="fixed_sup" javaType="java.lang.String"/>
+        <result property="remarks" column="remarks" javaType="java.lang.String"/>
+        <result property="materialTrackCode" column="material_tracode" javaType="java.lang.Long"/>
+    </resultMap>
+</mapper>

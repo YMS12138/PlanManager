@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--配置配置连接数据数据池-->
+    <!--使用SSM需要把mybatis的控制权交给Spring-->
+    <context:annotation-config></context:annotation-config>
+    <!--扫描包-->
+    <context:component-scan base-package="pro"/>
+    <!--导入的datasource文件-->
+    <context:property-placeholder location="classpath:Datasource.properties"></context:property-placeholder>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--将mybatis控制权交给Spring-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="mybatis.xml"/>
+    </bean>
+    <!--将mapper加入容器中-->
+    <bean id="account" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="pro/mapper"/>
+    </bean>
+</beans>
