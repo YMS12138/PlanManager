@@ -14,7 +14,7 @@ import java.util.List;
 public interface IMonth {
     public void insertMDemand(Demand demand);
 
-    public Demand selectMByCode(int code);
+    public Demand selectMByCode(Long code);
 
     public void updateDemand(Demand demand);
 
