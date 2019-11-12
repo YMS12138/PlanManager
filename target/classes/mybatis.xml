@@ -8,5 +8,7 @@
         <mapper resource="pro/mapper/iMonthMapper.xml"></mapper>
         <mapper resource="pro/mapper/yearsDemandMapper.xml"></mapper>
         <mapper resource="pro/mapper/yearsOrderMapper.xml"></mapper>
+        <mapper resource="pro/mapper/ApprovalMapper.xml"></mapper>
+        <mapper resource="pro/mapper/FindAndFixMapper.xml"></mapper>
     </mappers>
 </configuration>

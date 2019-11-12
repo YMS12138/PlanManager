@@ -1,5 +1,6 @@
 package pro.logic;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.User;
@@ -12,6 +13,9 @@ import java.util.List;
  */
 @Service
 public class UserLogic {
+    @Autowired
+    IUser iUser;
+
     /**
      * 判断用户身份
      *
@@ -46,6 +50,24 @@ public class UserLogic {
      */
     public void selecttAll() {
 
+    }
+
+    public void UserLogin(String name,String pwd){
+        //用户登录
+        User user = iUser.findUser(name,pwd);
+        if(user != null){
+            //判断员工职位
+            if(user.getUserJob() == 1){
+                System.out.println("普通员工");
+                //跳转普通员工页面 return
+            }else{
+                System.out.println("管理员");
+                //跳转管理员页面 return
+            }
+        }else{
+            System.out.println("用户不存在");
+            //跳转登录页页面 return
+        }
     }
 
     public List<User> findAll() {

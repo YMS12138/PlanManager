@@ -70,7 +70,7 @@ public class QueryResultController {
     private void test() {
         //更新demands的值
         Demand test = new Demand();
-        test.setDemandPlanCode((int) Math.floor(Math.random() * 10086) + 1);
+        test.setDemandPlanCode((long) (Math.floor(Math.random() * 10086) + 1));
         test.setApproval(0);
         test.setDemandDepartment("公安部");
         test.setDemandPerson("yms");

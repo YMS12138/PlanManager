@@ -2,17 +2,15 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import org.springframework.beans.factory.annotation.Autowired;
-import pro.Application;
 import pro.logic.UserLogic;
-
-import java.io.IOException;
 
 
 /**
  * 登录页面
  */
 public class LoginController {
+
+    UserLogic u = new UserLogic();
 
     /**
      * 用户名文本框
@@ -38,9 +36,12 @@ public class LoginController {
     /**
      * 登陆方法 登陆成功根据不同身份切换不同页面（需要判断身份）
      */
+
     @FXML
     public void login(){
-
+        String name = username.getText();
+        String pwd = password.getText();
+        u.UserLogin(name,pwd);
     }
 
     /**

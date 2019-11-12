@@ -2,8 +2,6 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -122,7 +120,7 @@ public class YearsController {
         demand.setDemandPlanName(DemandPlanName.getText());
         demand.setDemandPerson(DemandPerson.getText());
         //需求计划编码
-        demand.setDemandPlanCode(1001);
+        demand.setDemandPlanCode((long) 1001);
         //默认
         demand.setDemandState(0);
         //默认未审批为0 审批中1 审批完2

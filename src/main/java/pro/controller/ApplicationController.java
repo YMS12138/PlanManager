@@ -115,13 +115,4 @@ public class ApplicationController {
     private void exit() {
         System.exit(0);
     }
-
-    public void showyyyy() {
-        try {
-            application.requirement();
-            application.showYears();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
