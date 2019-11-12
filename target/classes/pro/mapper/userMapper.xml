@@ -11,7 +11,7 @@
     <!--int userJob;//员工职位-->
     <!--String department;//员工部门-->
     <resultMap id="resultDept" type="pro.entity.User">
-        <id property="id" column="id" javaType="Long"></id>
+        <!-- <id property="id" column="id" javaType="Long"></id>-->
         <result property="userName" column="user_name" javaType="String"></result>
         <result property="userPwd" column="user_pwd" javaType="String"></result>
         <result property="userJob" column="user_job" javaType="int"></result>
