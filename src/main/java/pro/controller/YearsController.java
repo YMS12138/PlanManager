@@ -2,6 +2,8 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -23,59 +25,90 @@ import java.text.SimpleDateFormat;
 public class YearsController {
     @FXML
     private VBox vBox;
-    ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-    //deman表
+    ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+    //demand表
     @FXML
-    private javafx.scene.control.TextField DemandDepartment;
+    private TextField DemandDepartment;
     @FXML
-    private javafx.scene.control.TextField DemandRemarks;
+    private TextField DemandRemarks;
     @FXML
-    private javafx.scene.control.TextField DemandPlanName;
+    private TextField DemandPlanName;
     @FXML
-    private javafx.scene.control.TextField DemandPerson;
+    private TextField DemandPerson;
     @FXML
-    private javafx.scene.control.TextField DemandPlanCode;
+    private TextField DemandPlanCode;
     @FXML
-    private javafx.scene.control.TextField DemandPlanType;
+    private TextField DemandPlanType;
     @FXML
-    private javafx.scene.control.TextField DemandState;
+    private TextField DemandState;
     @FXML
-    private javafx.scene.control.TextField Approval;
+    private TextField Approval;
     @FXML
-    private javafx.scene.control.TextField DemandMonth;
+    private TextField DemandMonth;
     @FXML
-    private javafx.scene.control.TextField OrderCode;
+    private TextField OrderCode;
     //order表
     @FXML
-    private javafx.scene.control.TextField MaterialTypeCode;
+    private TextField MaterialTypeCode;
     @FXML
-    private javafx.scene.control.TextField MaterialTypeName;
+    private TextField MaterialTypeName;
     @FXML
-    private javafx.scene.control.TextField MaterialCode;
+    private TextField MaterialCode;
     @FXML
-    private javafx.scene.control.TextField MaterialName;
+    private TextField MaterialName;
     @FXML
-    private javafx.scene.control.TextField MaterialSpe;
+    private TextField MaterialSpe;
     @FXML
-    private javafx.scene.control.TextField MaterialType;
+    private TextField MaterialType;
     @FXML
-    private javafx.scene.control.TextField MaterialUnit;
+    private TextField MaterialUnit;
     @FXML
-    private javafx.scene.control.TextField MaterialNum;
+    private TextField MaterialNum;
     @FXML
-    private javafx.scene.control.TextField MaterialDemandMoth;
+    private TextField MaterialDemandMoth;
     @FXML
-    private javafx.scene.control.TextField MaterialDemandDate;
+    private TextField MaterialDemandDate;
     @FXML
-    private javafx.scene.control.TextField SourceSure;
+    private TextField SourceSure;
     @FXML
-    private javafx.scene.control.TextField ExpectedSup;
+    private TextField ExpectedSup;
     @FXML
-    private javafx.scene.control.TextField FixedSup;
+    private TextField FixedSup;
     @FXML
-    private javafx.scene.control.TextField Remarks;
+    private TextField Remarks;
     @FXML
     private TextField MaterialTrackCode;
+
+    /**
+     * 流程信息表
+     */
+    @FXML
+    private VBox processVBox;
+
+    private Integer index;
+
+    public YearsController() {
+
+    }
+
+    @FXML
+    private void initialize(){
+        index = new Integer(1);
+
+        /**
+         * 初始化流程信息子模块
+         */
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = null;
+        try {
+            processInfo = loader.load();
+        } catch (IOException e) {
+
+        }
+        processVBox.getChildren().addAll(processInfo);
+    }
+
     /**
      * 增，创建一个年度计划表
      */
@@ -83,7 +116,7 @@ public class YearsController {
     //获取计划表信息
     //...id,type,...
     public void save() throws ParseException {
-        Demand demand = ac.getBean("demand",Demand.class);
+        Demand demand = ac.getBean("demand", Demand.class);
         demand.setDemandDepartment(DemandDepartment.getText());
         demand.setDemandRemarks(DemandRemarks.getText());
         demand.setDemandPlanName(DemandPlanName.getText());
@@ -99,7 +132,7 @@ public class YearsController {
         demand.setDemandPlanType(0);
         demand.setOrderCode(Long.parseLong(OrderCode.getText()));
 
-        Orders order = ac.getBean("order",Orders.class);
+        Orders order = ac.getBean("order", Orders.class);
         order.setMaterialTypeCode(Integer.parseInt(MaterialTypeCode.getText()));
         order.setDemandPlanCode(Long.parseLong(DemandPlanCode.getText()));
         order.setExpectedSup(ExpectedSup.getText());
@@ -117,58 +150,68 @@ public class YearsController {
         order.setRemarks(Remarks.getText());
         order.setMaterialTrackCode(Long.parseLong(MaterialTrackCode.getText()));
 
-        GoodsLogic goodsLogic = ac.getBean("goodsLogic",GoodsLogic.class);
-        goodsLogic.createYear(demand,order);
+        GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
+        goodsLogic.createYear(demand, order);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");
         //goodsLogic.create(...);
     }
+
     /**
      * 复制，复制年度计划表
      */
     @FXML
-    public void copy(){
+    public void copy() {
 
         /*
-         * 如果为点击保存
+         * 如果未点击保存
          * 提示不能复制
          * 且不能执行以下代码
          * */
     }
+
     /**
      * 提交，提交年度计划表
      */
-    public void commit(){
+    public void commit() {
 
-        GoodsLogic goodsLogic = ac.getBean("goodsLogic",GoodsLogic.class);
+        GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
         goodsLogic.updateYear(Long.parseLong(DemandPlanCode.getText()));
     }
+
     /**
      * 打印及导出，打印及导出年度计划表
      */
-    public void printAndExport(){
+    public void printAndExport() {
         /*
          * 跳转打印界面及导出
          * */
     }
+
     /**
      * 删除，删除年度计划表
      */
-    public void delete(){
+    public void delete() {
 
-        GoodsLogic goodsLogic = ac.getBean("goodsLogic",GoodsLogic.class);
+        GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
         goodsLogic.deleteYear(Long.parseLong(DemandPlanCode.getText()));
     }
+
     /**
      * 退出，退出年度计划表
      */
-    public void exit(){
+    public void exit() {
         /*
          * 点击退出实现退出整个界面
          * */
     }
 
+    /**
+     * 为需求计划添加订单（基本信息）
+     *
+     * @throws IOException
+     */
     @FXML
     private void addPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -178,4 +221,16 @@ public class YearsController {
         vBox.getChildren().addAll(info);
     }
 
+    /**
+     * 为需求分析添加审批信息（流程信息）
+     */
+    @FXML
+    private void addApprovalInfo() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = loader.load();
+
+        processVBox.getChildren().addAll(processInfo);
+    }
 }
