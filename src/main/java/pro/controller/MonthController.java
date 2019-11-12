@@ -141,15 +141,15 @@ public class MonthController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-//        demand.setDemandPlanCode(1111111);
-//        //年度的计划类型为0 月度1 紧急2
-//        demand.setDemandPlanType(1);
-//        demand.setDemandPlanName(demandPlanName.getText());
-//        demand.setDemandRemarks(demandRemarks.getText());
-//        demand.setDemandDepartment(demandDepartment.getText());
-//        demand.setDemandPerson(demandPerson.getText());
-//        //默认未审批为0 审批中1 审批完2
-//        demand.setDemandState(0);
+        demand.setDemandPlanCode(1231);
+        //年度的计划类型为0 月度1 紧急2
+        demand.setDemandPlanType(1);
+        demand.setDemandPlanName(demandPlanName.getText());
+        demand.setDemandRemarks(demandRemarks.getText());
+        demand.setDemandDepartment(demandDepartment.getText());
+        demand.setDemandPerson(demandPerson.getText());
+        //默认未审批为0 审批中1 审批完2
+        demand.setDemandState(0);
 //
 
 

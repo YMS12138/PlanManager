@@ -3,13 +3,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pro.entity.Account;
 import pro.entity.Demand;
 import pro.entity.User;
-import pro.mapper.IAccountService;
-import pro.mapper.IMonth;
-import pro.mapper.IOrder;
-import pro.mapper.IUser;
+import pro.mapper.*;
 
 import java.util.List;
 
@@ -28,7 +24,11 @@ public class test01 {
     @Autowired
     IOrder iOrder;
     @Autowired
-    IMonth iMonth;
+    IInsertMonth iInsertMonth;
+    @Autowired
+    IInsertYearAndUrgen iInsertYearAndUrgen;
+    @Autowired
+    UDFDeman udfDeman;
     @Test
     public void test01() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
@@ -39,11 +39,25 @@ public class test01 {
         }
     }
     @Test
+    public void test02(){
+        Demand demand =new Demand();
+        demand.setDemandPlanCode(123L);
+        iInsertYearAndUrgen.insertYUDemand(demand);
+        System.out.println("添加成功");
+    }
+    @Test
     public void test03() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-        Demand demands = iMonth.selectMByCode(1111l);
+        Demand demands = udfDeman.selectByCode(1111l);
         System.out.println(demands);
+    }
+    @Test
+    public void test04() {
+//    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
+//        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
+         udfDeman.deleteDemandById(123l);
+        System.out.println("删除成功");
     }
 }
 
