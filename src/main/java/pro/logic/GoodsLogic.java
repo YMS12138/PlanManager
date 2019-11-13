@@ -21,9 +21,9 @@ public class GoodsLogic {
     /**
      * 增，创建一个年度计划表
      */
-    public void createYear(Demand demand, Orders order){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
+    public void createYear(Demand demand, Orders order) {
+        ApplicationContext ac = Application.ac;
+        IYears iYears = ac.getBean("IYears", IYears.class);
         //获取计划表信息
         //...
         iYears.insertYDemand(demand);
@@ -31,25 +31,27 @@ public class GoodsLogic {
         //DAO
         //...
     }
-    public void deleteYear(Long Code){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
+
+    public void deleteYear(Long Code) {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        IYears iYears = ac.getBean("IYears", IYears.class);
         iYears.deleteYByCode(Code);
 
     }
 
-    public void updateYear(Long Code){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
+    public void updateYear(Long Code) {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        IYears iYears = ac.getBean("IYears", IYears.class);
         iYears.updateYByCode(Code);
     }
+
     /**
      * 增，创建一个月度计划表
      */
-    public void createMonth(Demand demand,Orders orders){
+    public void createMonth(Demand demand, Orders orders) {
 
-        IMonth iMonth = Application.ac.getBean("IMonth",IMonth.class);
-        IOrder iOrder = Application.ac.getBean("IOrder",IOrder.class);
+        IMonth iMonth = Application.ac.getBean("IMonth", IMonth.class);
+        IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
         //获取计划表信息
         //...
         //iMonth.insertMDemand(demand);
@@ -60,20 +62,20 @@ public class GoodsLogic {
         //...
     }
 
-    public void selectMonthByCode(){
+    public void selectMonthByCode() {
 
     }
 
-    public void selectMonthAll(){
+    public void selectMonthAll() {
 
     }
 
-    public void deleteMonth(){
+    public void deleteMonth() {
 
     }
 
-    public void updateMonth(){
+    public void updateMonth() {
 
     }
-    
+
 }
