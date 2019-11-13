@@ -75,6 +75,9 @@ public class FindAndFixController {
         }
     }
 
+    /**
+     * 获取查询/修改的页面信息
+     */
     public void findByCondition(){
         //获取查询的值
         String demandPlanCode = t1.getAccessibleText();
