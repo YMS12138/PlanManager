@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 public class YearsController {
     @FXML
     private VBox vBox;
-    ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+    ApplicationContext ac = Application.ac;
     //demand表
     @FXML
     private TextField DemandDepartment;

@@ -2,7 +2,6 @@ package pro.logic;
 
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.Demand;
@@ -17,6 +16,7 @@ import pro.mapper.IYears;
 @Service
 public class GoodsLogic {
 
+    ApplicationContext ac = Application.ac;
 
     /**
      * 增，创建一个年度计划表
@@ -33,14 +33,12 @@ public class GoodsLogic {
     }
 
     public void deleteYear(Long Code) {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         IYears iYears = ac.getBean("IYears", IYears.class);
         iYears.deleteYByCode(Code);
 
     }
 
     public void updateYear(Long Code) {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         IYears iYears = ac.getBean("IYears", IYears.class);
         iYears.updateYByCode(Code);
     }
