@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.mapper.IInsertMonth">
+    <insert id="insertMDemand" parameterType="pro.entity.Demand">
+        insert into demand(demand_plancode,demand_plantype,demand_planname,demand_remarks,demand_department,
+       demand_personne,demand_state,approval_status,demand_month,order_code) values(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
+        #{demandRemarks},#{demandDepartment},#{demandPerson},#{demandState},#{approval},#{demandMonth},#{orderCode})
+
+    </insert>
+</mapper>

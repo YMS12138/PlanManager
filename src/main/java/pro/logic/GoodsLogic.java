@@ -2,14 +2,16 @@ package pro.logic;
 
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.Demand;
 import pro.entity.Orders;
-import pro.mapper.IMonth;
+
+import pro.mapper.IInsertMonth;
+import pro.mapper.IInsertYearAndUrgen;
 import pro.mapper.IOrder;
-import pro.mapper.IYears;
+import pro.mapper.UDFDeman;
+
 
 /**
  * 物资需求管理逻辑
@@ -17,42 +19,17 @@ import pro.mapper.IYears;
 @Service
 public class GoodsLogic {
 
-
     /**
-     * 增，创建一个年度计划表
+     * 增，创建一个计划表
      */
-    public void createYear(Demand demand, Orders order){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
+    public void createDemand(Demand demand, Orders orders) {
+        IInsertMonth iInsertMonth=Application.ac.getBean("IInsertMonth",IInsertMonth.class);
+
+
+        IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
         //获取计划表信息
         //...
-        iYears.insertYDemand(demand);
-        iYears.insertYOrder(order);
-        //DAO
-        //...
-    }
-    public void deleteYear(Long Code){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
-        iYears.deleteYByCode(Code);
-
-    }
-
-    public void updateYear(Long Code){
-        ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
-        IYears iYears = ac.getBean("IYears",IYears.class);
-        iYears.updateYByCode(Code);
-    }
-    /**
-     * 增，创建一个月度计划表
-     */
-    public void createMonth(Demand demand,Orders orders){
-
-        IMonth iMonth = Application.ac.getBean("IMonth",IMonth.class);
-        IOrder iOrder = Application.ac.getBean("IOrder",IOrder.class);
-        //获取计划表信息
-        //...
-        //iMonth.insertMDemand(demand);
+        iInsertMonth.insertMDemand(demand);
         //System.out.println(orders);
         iOrder.insertOrder(orders);
         System.out.println("8++++++++++");
@@ -60,20 +37,41 @@ public class GoodsLogic {
         //...
     }
 
-    public void selectMonthByCode(){
+    /**
+     * 查询订单与计划
+     * @param demandPlanCode
+     * @return
+     */
+    public Demand selectDOByCode(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        Demand demand = udfDeman.selectMOByCode(demandPlanCode);
+        return demand;
+    }
+
+    /**
+     * 查询计划
+     * @param demandPlanCode
+     * @return
+     */
+    public Demand selectDByCode(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        Demand demand = udfDeman.selectByCode(demandPlanCode);
+        return demand;
 
     }
 
-    public void selectMonthAll(){
 
+    public void deleteDemand(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+         udfDeman.deleteDemandByCode(demandPlanCode);
     }
 
-    public void deleteMonth(){
-
+    public void updateDemand(Demand demand) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        udfDeman.updateMDemandById(demand);
     }
-
-    public void updateMonth(){
-
-    }
-    
+     public void updateState(Long demandPlanCode){
+         UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+         udfDeman.updateStateByCode(demandPlanCode);
+     }
 }

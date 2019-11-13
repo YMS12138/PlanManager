@@ -119,6 +119,12 @@ public class MonthController {
     @FXML
     private TextField materialTrackCode;
 
+    /**
+     * 流程信息表
+     */
+    @FXML
+    private VBox processVBox;
+
     @FXML
     public void createMonth() {
 
@@ -141,15 +147,15 @@ public class MonthController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-//        demand.setDemandPlanCode(1111111);
-//        //年度的计划类型为0 月度1 紧急2
-//        demand.setDemandPlanType(1);
-//        demand.setDemandPlanName(demandPlanName.getText());
-//        demand.setDemandRemarks(demandRemarks.getText());
-//        demand.setDemandDepartment(demandDepartment.getText());
-//        demand.setDemandPerson(demandPerson.getText());
-//        //默认未审批为0 审批中1 审批完2
-//        demand.setDemandState(0);
+        demand.setDemandPlanCode(1111211L);
+        //年度的计划类型为0 月度1 紧急2
+        demand.setDemandPlanType(1);
+        demand.setDemandPlanName(demandPlanName.getText());
+        demand.setDemandRemarks(demandRemarks.getText());
+        demand.setDemandDepartment(demandDepartment.getText());
+        demand.setDemandPerson(demandPerson.getText());
+        //默认未审批为0 审批中1 审批完2
+        demand.setDemandState(0);
 //
 
 
@@ -169,14 +175,28 @@ public class MonthController {
         order.setFixedSup((String) fixedSup.getValue());
         order.setRemarks(remarks.getText());
         order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
-        order.setDemandPlanCode(demand.getDemandPlanCode());
+        order.setDemandPlanCode(1111211L);
         System.out.println(order);
-        goodsLogic.createMonth(demand, order);
+        goodsLogic.createDemand(demand, order);
         //System.out.println(demand);
     }
 
     @FXML
     private void initialize() {
+
+        /**
+         * 初始化流程信息子模块
+         */
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = null;
+        try {
+            processInfo = loader.load();
+        } catch (IOException e) {
+
+        }
+        processVBox.getChildren().addAll(processInfo);
+
         ObservableList<String> monthes = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
         //设置月份下拉框列表的值
 
@@ -203,5 +223,18 @@ public class MonthController {
         GridPane info = loader.load();
 
         vBox.getChildren().addAll(info);
+    }
+
+    /**
+     * 为需求分析添加审批信息（流程信息）
+     */
+    @FXML
+    private void addApprovalInfo() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = loader.load();
+
+        processVBox.getChildren().addAll(processInfo);
     }
 }

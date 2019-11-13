@@ -3,12 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <mappers>
-        <mapper resource="pro/mapper/accountMapper.xml"></mapper>
-        <mapper resource="pro/mapper/userMapper.xml"></mapper>
-        <mapper resource="pro/mapper/iMonthMapper.xml"></mapper>
-        <mapper resource="pro/mapper/yearsDemandMapper.xml"></mapper>
-        <mapper resource="pro/mapper/yearsOrderMapper.xml"></mapper>
-        <mapper resource="pro/mapper/ApprovalMapper.xml"></mapper>
-        <mapper resource="pro/mapper/FindAndFixMapper.xml"></mapper>
+        <mapper resource="pro/mapper/impl/userMapper.xml"></mapper>
+        <mapper resource="pro/mapper/impl/IInsertMonth.xml"></mapper>
+        <mapper resource="pro/mapper/impl/yearsDemandMapper.xml"></mapper>
+        <mapper resource="pro/mapper/impl/UDFDeman.xml"></mapper>
+        <mapper resource="pro/mapper/impl/iOrderMapper.xml"></mapper>
     </mappers>
 </configuration>
