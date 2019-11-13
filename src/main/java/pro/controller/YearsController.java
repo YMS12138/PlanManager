@@ -210,7 +210,7 @@ public class YearsController {
         order.setMaterialTrackCode(Long.parseLong(MaterialTrackCode.getText()));
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
-        goodsLogic.createYear(demand, order);
+        goodsLogic.createDemand(demand, order);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");
@@ -236,7 +236,7 @@ public class YearsController {
     public void commit() {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
-        goodsLogic.updateYear(Long.parseLong(DemandPlanCode.getText()));
+        goodsLogic.updateState(Long.parseLong(DemandPlanCode.getText()));
     }
 
     /**
@@ -254,7 +254,7 @@ public class YearsController {
     public void delete() {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
-        goodsLogic.deleteYear(Long.parseLong(DemandPlanCode.getText()));
+        goodsLogic.deleteDemand(Long.parseLong(DemandPlanCode.getText()));
     }
 
     /**

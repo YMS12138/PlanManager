@@ -33,7 +33,7 @@ public interface UDFDeman {
      * 删除计划
      * @param demandPlanCode
      */
-    public void deleteDemandById(Long demandPlanCode);
+    public void deleteDemandByCode(Long demandPlanCode);
 
     /**
      * 根据修改提交状态

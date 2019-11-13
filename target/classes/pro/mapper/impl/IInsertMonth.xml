@@ -8,18 +8,4 @@
         #{demandRemarks},#{demandDepartment},#{demandPerson},#{demandState},#{approval},#{demandMonth},#{orderCode})
 
     </insert>
-
-    <resultMap id="resultDemand" type="pro.entity.Demand">
-        <id property="demandPlanCode" column="demand_plancode" javaType="Long"></id>
-        <result property="demandPlanType" column="demand_plantype" javaType="int"></result>
-        <result property="demandPlanName" column="demand_planname" javaType="String"></result>
-        <result property="demandRemarks" column="demand_remarks" javaType="String"></result>
-        <result property="demandDepartment" column="demand_department" javaType="String"></result>
-        <result property="demandPerson" column="demand_personne" javaType="String"></result>
-        <result property="demandState" column="demand_state" javaType="String"></result>
-        <result property="approval" column="approval_status" javaType="int"></result>
-        <result property="demandMonth" column="demand_month" javaType="int"></result>
-        <result property="orderCode" column="order_code" javaType="Long"></result>
-    </resultMap>
-
 </mapper>

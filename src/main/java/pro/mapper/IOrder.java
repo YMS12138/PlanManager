@@ -18,4 +18,5 @@ public interface IOrder {
     public List<Orders> selectOrderByCode();
     public void updateByCode(List<Orders> orders);
     public void delete(Long demandCode, Long OrderCode);
+    public void findByCode(Long demandPlanCode);
 }

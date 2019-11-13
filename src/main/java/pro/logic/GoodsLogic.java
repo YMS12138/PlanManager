@@ -10,6 +10,7 @@ import pro.entity.Orders;
 import pro.mapper.IInsertMonth;
 import pro.mapper.IInsertYearAndUrgen;
 import pro.mapper.IOrder;
+import pro.mapper.UDFDeman;
 
 
 /**
@@ -19,25 +20,9 @@ import pro.mapper.IOrder;
 public class GoodsLogic {
 
     /**
-     * 增，创建一个年度计划表
+     * 增，创建一个计划表
      */
-    public void createYear(Demand demand, Orders order) {
-
-    }
-
-    public void deleteYear(Long Code) {
-
-
-    }
-
-    public void updateYear(Long Code) {
-
-    }
-
-    /**
-     * 增，创建一个月度计划表
-     */
-    public void createMonth(Demand demand, Orders orders) {
+    public void createDemand(Demand demand, Orders orders) {
         IInsertMonth iInsertMonth=Application.ac.getBean("IInsertMonth",IInsertMonth.class);
 
 
@@ -52,20 +37,41 @@ public class GoodsLogic {
         //...
     }
 
-    public void selectMonthByCode() {
+    /**
+     * 查询订单与计划
+     * @param demandPlanCode
+     * @return
+     */
+    public Demand selectDOByCode(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        Demand demand = udfDeman.selectMOByCode(demandPlanCode);
+        return demand;
+    }
+
+    /**
+     * 查询计划
+     * @param demandPlanCode
+     * @return
+     */
+    public Demand selectDByCode(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        Demand demand = udfDeman.selectByCode(demandPlanCode);
+        return demand;
 
     }
 
-    public void selectMonthAll() {
 
+    public void deleteDemand(Long demandPlanCode) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+         udfDeman.deleteDemandByCode(demandPlanCode);
     }
 
-    public void deleteMonth() {
-
+    public void updateDemand(Demand demand) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+        udfDeman.updateMDemandById(demand);
     }
-
-    public void updateMonth() {
-
-    }
-
+     public void updateState(Long demandPlanCode){
+         UDFDeman udfDeman = Application.ac.getBean("UDFDeman",UDFDeman.class);
+         udfDeman.updateStateByCode(demandPlanCode);
+     }
 }

@@ -177,7 +177,7 @@ public class MonthController {
         order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
         order.setDemandPlanCode(1111211L);
         System.out.println(order);
-        goodsLogic.createMonth(demand, order);
+        goodsLogic.createDemand(demand, order);
         //System.out.println(demand);
     }
 

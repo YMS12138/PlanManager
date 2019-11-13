@@ -41,7 +41,7 @@ public class test01 {
     @Test
     public void test02(){
         Demand demand =new Demand();
-        demand.setDemandPlanCode(12223L);
+        demand.setDemandPlanCode(1111L);
         iInsertYearAndUrgen.insertYUDemand(demand);
         System.out.println("添加成功");
     }
@@ -49,15 +49,26 @@ public class test01 {
     public void test03() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-        Demand demands = udfDeman.selectByCode(12223L);
+        Demand demands = udfDeman.selectMOByCode(1231L);
         System.out.println(demands);
+
     }
     @Test
     public void test04() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-         udfDeman.deleteDemandById(12223L);
+         udfDeman.deleteDemandByCode(1223L);
         System.out.println("删除成功");
+    }
+    @Test
+    public void test05() {
+//    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
+//        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
+        Demand demand = new Demand();
+        demand.setDemandPlanCode(1111L);
+        demand.setDemandMonth(10);
+        udfDeman.updateMDemandById(demand);
+        System.out.println("成功");
     }
 }
 
