@@ -17,5 +17,5 @@ public interface IOrder {
     public void insertOrders(List<Orders> orders);
     public List<Orders> selectOrderByCode();
     public void updateByCode(List<Orders> orders);
-    public void delete(Long demandCode,Long OrderCode);
+    public void delete(Long demandCode, Long OrderCode);
 }

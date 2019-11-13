@@ -11,11 +11,14 @@ import pro.entity.Demand;
 import java.util.List;
 
 @Service
-public interface IMonth {
+public interface IInsertMonth {
+    /**
+     * 增加月度订单
+     * @param demand
+     */
     public void insertMDemand(Demand demand);
 
-    public Demand selectMByCode(int code);
 
-    public void updateDemand(Demand demand);
+
 
 }

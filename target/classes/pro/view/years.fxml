@@ -30,14 +30,14 @@
             <children>
                 <HBox alignment="CENTER" prefWidth="932.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="保存" />
+                        <Button mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="保存" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="复制" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="提交" />
+                        <Button mnemonicParsing="false" onAction="#commit" prefHeight="30.0" prefWidth="90.0" text="提交" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="打印" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="导出" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="附件" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="提醒（x）" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="删除" />
+                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" text="删除" />
                         <Button mnemonicParsing="false" onAction="#addApprovalInfo" prefHeight="30.0" prefWidth="90.0" text="关闭/退出" />
                     </children>
                 </HBox>
