@@ -27,6 +27,12 @@ import java.text.SimpleDateFormat;
  */
 public class MonthController {
 
+    /**
+     * 流程信息表
+     */
+    @FXML
+    private VBox processVBox;
+
     @FXML
     public VBox vBox;
 
@@ -177,6 +183,16 @@ public class MonthController {
 
     @FXML
     private void initialize() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = null;
+        try {
+            processInfo = loader.load();
+        } catch (IOException e) {
+
+        }
+        processVBox.getChildren().addAll(processInfo);
+
         ObservableList<String> monthes = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
         //设置月份下拉框列表的值
 
@@ -203,5 +219,18 @@ public class MonthController {
         GridPane info = loader.load();
 
         vBox.getChildren().addAll(info);
+    }
+
+    /**
+     * 为需求分析添加审批信息（流程信息）
+     */
+    @FXML
+    private void addApprovalInfo() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
+        GridPane processInfo = loader.load();
+
+        processVBox.getChildren().addAll(processInfo);
     }
 }
