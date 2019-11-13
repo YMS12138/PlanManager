@@ -49,7 +49,7 @@ public class test01 {
     public void test03() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-        Demand demands = udfDeman.selectMOByCode(1231L);
+        Demand demands = udfDeman.selectByCode(1231L);
         System.out.println(demands);
 
     }

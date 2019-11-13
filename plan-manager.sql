@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 11/11/2019 00:30:41
+ Date: 13/11/2019 18:45:40
 */
 
 SET NAMES utf8mb4;
@@ -36,13 +36,6 @@ CREATE TABLE `demand`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of demand
--- ----------------------------
-INSERT INTO `demand` VALUES (2, 1, '3', '4', '5', '6', '0', 0, 0, 0);
-INSERT INTO `demand` VALUES (33, 1, '3', '4', '555', '4', '0', 0, 0, 0);
-INSERT INTO `demand` VALUES (1111111, 1, '1', '2', '34', '4', '0', 0, 0, 0);
-
--- ----------------------------
 -- Table structure for orders
 -- ----------------------------
 DROP TABLE IF EXISTS `orders`;
@@ -61,13 +54,9 @@ CREATE TABLE `orders`  (
   `expected_sup` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '期待供应商',
   `fixed_sup` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '固定供应商',
   `remarks` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '备注',
-  `material_tracode` bigint(255) NULL DEFAULT NULL COMMENT '物料追踪码'
+  `material_tracode` bigint(255) NULL DEFAULT NULL COMMENT '物料追踪码',
+  `demand_plancode` bigint(20) NULL DEFAULT NULL COMMENT '关联计划码'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (1, '2', '3', '4', '5', '6', '6', 6, '9', '2019-11-06', NULL, '2', '3', '2', 1);
 
 -- ----------------------------
 -- Table structure for proinfo

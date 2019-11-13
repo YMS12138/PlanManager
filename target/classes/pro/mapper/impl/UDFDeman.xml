@@ -49,7 +49,6 @@
         <result property="demandState" column="demand_state" javaType="int"></result>
         <result property="approval" column="approval_status" javaType="int"></result>
         <result property="demandMonth" column="demand_month" javaType="int"></result>
-        <result property="orderCode" column="order_code" javaType="Long"></result>
         <collection  property="ordersList" ofType="pro.entity.Orders" column="demand_plancode" select="pro.mapper.IOrder.findByCode">
         </collection>
     </resultMap>
