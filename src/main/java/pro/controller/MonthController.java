@@ -27,12 +27,6 @@ import java.text.SimpleDateFormat;
  */
 public class MonthController {
 
-    /**
-     * 流程信息表
-     */
-    @FXML
-    private VBox processVBox;
-
     @FXML
     public VBox vBox;
 
@@ -125,6 +119,12 @@ public class MonthController {
     @FXML
     private TextField materialTrackCode;
 
+    /**
+     * 流程信息表
+     */
+    @FXML
+    private VBox processVBox;
+
     @FXML
     public void createMonth() {
 
@@ -147,15 +147,15 @@ public class MonthController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-        demand.setDemandPlanCode(1231);
-        //年度的计划类型为0 月度1 紧急2
-        demand.setDemandPlanType(1);
-        demand.setDemandPlanName(demandPlanName.getText());
-        demand.setDemandRemarks(demandRemarks.getText());
-        demand.setDemandDepartment(demandDepartment.getText());
-        demand.setDemandPerson(demandPerson.getText());
-        //默认未审批为0 审批中1 审批完2
-        demand.setDemandState(0);
+//        demand.setDemandPlanCode(1111111);
+//        //年度的计划类型为0 月度1 紧急2
+//        demand.setDemandPlanType(1);
+//        demand.setDemandPlanName(demandPlanName.getText());
+//        demand.setDemandRemarks(demandRemarks.getText());
+//        demand.setDemandDepartment(demandDepartment.getText());
+//        demand.setDemandPerson(demandPerson.getText());
+//        //默认未审批为0 审批中1 审批完2
+//        demand.setDemandState(0);
 //
 
 
@@ -183,6 +183,10 @@ public class MonthController {
 
     @FXML
     private void initialize() {
+
+        /**
+         * 初始化流程信息子模块
+         */
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
         GridPane processInfo = null;

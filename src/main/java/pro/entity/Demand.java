@@ -6,8 +6,6 @@ package pro.entity;/*
 import javafx.beans.property.*;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * @program: PlanManager
  * @description: 需求实体类
@@ -56,8 +54,6 @@ public class Demand {
      * 订单编码 外键
      */
     LongProperty orderCode;
-
-    List<Orders> ordersList;
 
     public long getDemandPlanCode() {
         return demandPlanCode.get();

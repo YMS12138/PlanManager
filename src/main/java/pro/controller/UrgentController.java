@@ -65,6 +65,7 @@ public class UrgentController {
     @FXML
     private TextField materialTrackCode;
 
+
     /**
      * 流程信息表
      */
@@ -73,7 +74,6 @@ public class UrgentController {
 
     @FXML
     private void initialize() {
-
 
         /**
          * 初始化流程信息子模块

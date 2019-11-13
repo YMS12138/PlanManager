@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 public class YearsController {
     @FXML
     private VBox vBox;
-    ApplicationContext ac = Application.ac;
+    ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
     //demand表
     @FXML
     private TextField DemandDepartment;
@@ -79,7 +79,6 @@ public class YearsController {
     @FXML
     private TextField MaterialTrackCode;
 
-
     //物料分类编码
     @FXML
     private ComboBox materialTypeCode;
@@ -125,6 +124,7 @@ public class YearsController {
     //物料追踪码
     @FXML
     private TextField materialTrackCode;
+
 
     /**
      * 流程信息表
