@@ -108,12 +108,12 @@
                                     </GridPane.margin>
                                 </Label>
                                 <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="1" />
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandDepartment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="3" />
-                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                <TextField GridPane.columnIndex="5" />
+                                <TextField fx:id="demandPerson" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandPlanName" GridPane.columnIndex="5" />
                                 <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                                <TextField GridPane.columnIndex="7" />
+                                <TextField fx:id="demandRemarks" GridPane.columnIndex="7" />
                                 <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                                 <CheckBox mnemonicParsing="false" prefHeight="16.0" prefWidth="159.0" text="是否预算内计划" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                             </children>

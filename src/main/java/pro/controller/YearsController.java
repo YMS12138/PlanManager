@@ -26,58 +26,46 @@ public class YearsController {
     @FXML
     private VBox vBox;
     ApplicationContext ac = Application.ac;
-    //demand表
+    /**
+     * 需求计划编码
+     */
     @FXML
-    private TextField DemandDepartment;
+    private TextField demandPlanCode;
+    /**
+     * 需求计划类型
+     */
     @FXML
-    private TextField DemandRemarks;
+    private TextField demandPlanType;
+    /**
+     * 需求计划名称
+     */
     @FXML
-    private TextField DemandPlanName;
+    private TextField demandPlanName;
+    /**
+     * 备注
+     */
     @FXML
-    private TextField DemandPerson;
+    private TextField demandRemarks;
+    /**
+     * 需求部门
+     */
     @FXML
-    private TextField DemandPlanCode;
+    private TextField demandDepartment;
+    /**
+     * 需求人员
+     */
     @FXML
-    private TextField DemandPlanType;
+    private TextField demandPerson;
+    /**
+     * 需求状态
+     */
     @FXML
-    private TextField DemandState;
+    private TextField demandState;
+    /**
+     * 审批状态
+     */
     @FXML
-    private TextField Approval;
-    @FXML
-    private TextField DemandMonth;
-    @FXML
-    private TextField OrderCode;
-    //order表
-    @FXML
-    private TextField MaterialTypeCode;
-    @FXML
-    private TextField MaterialTypeName;
-    @FXML
-    private TextField MaterialCode;
-    @FXML
-    private TextField MaterialName;
-    @FXML
-    private TextField MaterialSpe;
-    @FXML
-    private TextField MaterialType;
-    @FXML
-    private TextField MaterialUnit;
-    @FXML
-    private TextField MaterialNum;
-    @FXML
-    private TextField MaterialDemandMoth;
-    @FXML
-    private TextField MaterialDemandDate;
-    @FXML
-    private TextField SourceSure;
-    @FXML
-    private TextField ExpectedSup;
-    @FXML
-    private TextField FixedSup;
-    @FXML
-    private TextField Remarks;
-    @FXML
-    private TextField MaterialTrackCode;
+    private TextField approval;
 
     //物料分类编码
     @FXML
@@ -175,41 +163,41 @@ public class YearsController {
     //获取计划表信息
     //...id,type,...
     public void save() throws ParseException {
-        Demand demand = ac.getBean("demand", Demand.class);
-        demand.setDemandDepartment(DemandDepartment.getText());
-        demand.setDemandRemarks(DemandRemarks.getText());
-        demand.setDemandPlanName(DemandPlanName.getText());
-        demand.setDemandPerson(DemandPerson.getText());
-        //需求计划编码
-        demand.setDemandPlanCode(1001);
-        //默认
-        demand.setDemandState(0);
-        //默认未审批为0 审批中1 审批完2
-        demand.setApproval(0);
-        demand.setDemandMonth(Integer.parseInt(DemandMonth.getText()));
-        //年度的计划类型为年度0 月度1 紧急2
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Demand demand = Application.ac.getBean("demand", Demand.class);
+        GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
+        Orders order = Application.ac.getBean("orders", Orders.class);
+        //获取计划
+        demand.setDemandPlanCode(222222L);
+        //年度的计划类型为0 月度1 紧急2
         demand.setDemandPlanType(0);
-        demand.setOrderCode(Long.parseLong(OrderCode.getText()));
+        demand.setDemandPlanName(demandPlanName.getText());
+        demand.setDemandRemarks(demandRemarks.getText());
+        demand.setDemandDepartment(demandDepartment.getText());
+        demand.setDemandPerson(demandPerson.getText());
+        //默认未审批为0 审批中1 审批完2
+        demand.setDemandState(0);
+//
 
-        Orders order = ac.getBean("order", Orders.class);
-        order.setMaterialTypeCode(Integer.parseInt(MaterialTypeCode.getText()));
-        order.setDemandPlanCode(Long.parseLong(DemandPlanCode.getText()));
-        order.setExpectedSup(ExpectedSup.getText());
-        order.setMaterialTypeName(MaterialTypeName.getText());
-        order.setMaterialCode(Long.parseLong(MaterialCode.getText()));
-        order.setMaterialName(MaterialName.getText());
-        order.setMaterialSpe(MaterialSpe.getText());
-        order.setMaterialType(MaterialType.getText());
-        order.setMaterialUnit(MaterialUnit.getText());
-        order.setMaterialNum(Integer.parseInt(MaterialNum.getText()));
-        order.setMaterialDemandMoth(Integer.parseInt(MaterialDemandMoth.getText()));
-        order.setMaterialDemandDate(new SimpleDateFormat("yyyy-MM-dd").parse(MaterialDemandDate.getText()));
-        order.setSourceSure(Boolean.parseBoolean(SourceSure.getText()));
-        order.setFixedSup(FixedSup.getText());
-        order.setRemarks(Remarks.getText());
-        order.setMaterialTrackCode(Long.parseLong(MaterialTrackCode.getText()));
 
-        GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
+        // String approva = approval.getText();
+//     获取订单信息
+        order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
+        order.setMaterialTypeName(materialTypeName.getText());
+        order.setMaterialCode(Long.parseLong((String) materialCode.getValue()));
+        order.setMaterialName(materialName.getText());
+        order.setMaterialSpe(materialSpe.getText());
+        order.setMaterialType(materialType.getText());
+        order.setMaterialUnit((String) materialUnit.getValue());
+        order.setMaterialNum(Integer.parseInt(materialNum.getText()));
+        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
+        order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
+        order.setExpectedSup((String) expectedSup.getValue());
+        order.setFixedSup((String) fixedSup.getValue());
+        order.setRemarks(remarks.getText());
+        order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
+        order.setDemandPlanCode(222222L);
+        System.out.println(order);
         goodsLogic.createDemand(demand, order);
 
         //调底层逻辑
@@ -236,7 +224,7 @@ public class YearsController {
     public void commit() {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
-        goodsLogic.updateState(Long.parseLong(DemandPlanCode.getText()));
+        goodsLogic.updateState(Long.parseLong(demandPlanCode.getText()));
     }
 
     /**
@@ -254,7 +242,7 @@ public class YearsController {
     public void delete() {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
-        goodsLogic.deleteDemand(Long.parseLong(DemandPlanCode.getText()));
+        goodsLogic.deleteDemand(Long.parseLong(demandPlanCode.getText()));
     }
 
     /**
