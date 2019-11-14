@@ -23,12 +23,13 @@ public class LoginController {
      */
     @FXML
     private TextField password;
+
     /**
      * 测试获取页面控件属性
      */
     @FXML
-    private void test()  {
-        String ss =username.getText();
+    private void test() {
+        String ss = username.getText();
 
         System.out.println(ss);
     }
@@ -38,17 +39,20 @@ public class LoginController {
      */
 
     @FXML
-    public void login(){
+    public void login() {
         String name = username.getText();
         String pwd = password.getText();
-        u.UserLogin(name,pwd);
+        System.out.println(name);
+        System.out.println(pwd);
+        u.UserLogin(name, pwd);
+
     }
 
     /**
      * 退出方法
      */
     @FXML
-    public void exit(){
+    public void exit() {
 
     }
 
@@ -56,7 +60,7 @@ public class LoginController {
      * 切换用户 点击切换用户按钮将也换切换到登录页面
      */
     @FXML
-    public void switchUser(){
+    public void switchUser() {
 
     }
 

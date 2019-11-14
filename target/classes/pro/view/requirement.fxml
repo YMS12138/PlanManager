@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="790.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.RequirementController">
@@ -17,6 +18,20 @@
       <RowConstraints maxHeight="765.0" minHeight="10.0" prefHeight="742.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
+      <HBox prefHeight="32.0" prefWidth="383.0" GridPane.columnIndex="1">
+         <children>
+            <Label fx:id="requirementName" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="64.0" text="需求计划-">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="requirementName1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="54.0" prefWidth="84.0" text="年度计划界面">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
       <Label alignment="CENTER" contentDisplay="CENTER" text="标题">
          <GridPane.margin>
             <Insets />
@@ -28,11 +43,6 @@
       <Label alignment="CENTER" contentDisplay="CENTER" text="屏幕" GridPane.rowIndex="1">
          <padding>
             <Insets left="75.0" />
-         </padding>
-      </Label>
-      <Label fx:id="requirementName" alignment="CENTER" contentDisplay="CENTER" text="需求计划-年度计划界面" GridPane.columnIndex="1">
-         <padding>
-            <Insets left="10.0" />
          </padding>
       </Label>
    </children>

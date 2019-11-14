@@ -29,6 +29,9 @@ public class test01 {
     IInsertYearAndUrgen iInsertYearAndUrgen;
     @Autowired
     UDFDeman udfDeman;
+    @Autowired
+    Approval approval;
+
     @Test
     public void test01() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
@@ -38,13 +41,15 @@ public class test01 {
             System.out.println(ac);
         }
     }
+
     @Test
-    public void test02(){
-        Demand demand =new Demand();
+    public void test02() {
+        Demand demand = new Demand();
         demand.setDemandPlanCode(1111L);
         iInsertYearAndUrgen.insertYUDemand(demand);
         System.out.println("添加成功");
     }
+
     @Test
     public void test03() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
@@ -53,13 +58,15 @@ public class test01 {
         System.out.println(demands);
 
     }
+
     @Test
     public void test04() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-         udfDeman.deleteDemandByCode(1223L);
+        udfDeman.deleteDemandByCode(1223L);
         System.out.println("删除成功");
     }
+
     @Test
     public void test05() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
@@ -69,6 +76,12 @@ public class test01 {
         demand.setDemandMonth(10);
         udfDeman.updateMDemandById(demand);
         System.out.println("成功");
+    }
+
+    @Test
+    public void test06() {
+        approval.findAll();
+        System.out.println(approval.findAll());
     }
 }
 

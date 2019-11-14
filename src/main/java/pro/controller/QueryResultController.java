@@ -14,8 +14,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import pro.Application;
 import pro.entity.Demand;
+import pro.mapper.Approval;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 需求计划查询结果页面
@@ -51,6 +53,10 @@ public class QueryResultController {
      */
     @FXML
     private void initialize() {
+        List<Demand> demand = null;
+        Approval app = Application.ac.getBean("approval", Approval.class);
+        demand = app.findAll();
+        demands.addAll(demand);
         //设置表格中的内容（填充）
         tableView.setItems(demands);
 
@@ -61,23 +67,6 @@ public class QueryResultController {
         demandState.setCellValueFactory(new PropertyValueFactory<>("demandState"));
         department.setCellValueFactory(new PropertyValueFactory<>("demandDepartment"));
         month.setCellValueFactory(new PropertyValueFactory<>("demandMonth"));
-    }
-
-    /**
-     * 测试，每点击一次可以增加一个需求
-     */
-    @FXML
-    private void test() {
-        //更新demands的值
-        Demand test = new Demand();
-        test.setDemandPlanCode((long) (Math.floor(Math.random() * 10086) + 1));
-        test.setApproval(0);
-        test.setDemandDepartment("公安部");
-        test.setDemandPerson("yms");
-        test.setDemandState(1);
-        test.setDemandMonth((int) Math.floor(Math.random() * 12) + 1);
-
-        demands.addAll(test);
     }
 
     /**
