@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pro.entity.Demand;
+import pro.entity.Orders;
 import pro.entity.User;
 import pro.mapper.*;
 
@@ -45,7 +46,7 @@ public class test01 {
     @Test
     public void test02() {
         Demand demand = new Demand();
-        demand.setDemandPlanCode(1111L);
+        demand.setDemandPlanCode(1112311L);
         iInsertYearAndUrgen.insertYUDemand(demand);
         System.out.println("添加成功");
     }
@@ -54,7 +55,7 @@ public class test01 {
     public void test03() {
 //    ApplicationContext context =new ClassPathXmlApplicationContext("bean.xml");
 //        IAccountService accountService =  context.getBean("accountService",IAccountService.class);
-        Demand demands = udfDeman.selectByCode(1231L);
+        Demand demands = udfDeman.selectByCode(1112311L);
         System.out.println(demands);
 
     }
@@ -82,6 +83,13 @@ public class test01 {
     public void test06() {
         approval.findAll();
         System.out.println(approval.findAll());
+    }
+    @Test
+    public void test07() {
+     List<Orders> ordersList = iOrder.selectAllOrder();
+     for(Orders o : ordersList){
+         System.out.println(o);
+     }
     }
 }
 

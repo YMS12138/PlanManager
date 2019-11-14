@@ -7,11 +7,11 @@
 		demand
 		(demand_plancode,demand_plantype,demand_planname,
 		demand_remarks,demand_department,demand_personne,demand_state,
-		approval_status,demand_month,order_code)
+		approval_status,demand_month)
 		values
 		(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
 		#{demandRemarks},#{demandDepartment},#{demandPerson},
-		#{demandState},#{approval},#{demandMonth},#{orderCode})
+		#{demandState},#{approval},#{demandMonth})
 	</insert>
     <update id="updateYByCode" parameterType="pro.entity.Demand">
 		update demand
@@ -24,14 +24,13 @@
 	</delete>
     <resultMap type="pro.entity.Demand" id="resultDemand">
         <id property="demandPlanCode" column="demand_plancode" javaType="java.lang.Long"/>
-        <result property="demandPlanType" column="demand_plantype" javaType="java.lang.Integer"/>
+        <result property="demandPlanType" column="demand_plantype" javaType="java.lang.String"/>
         <result property="demandPlanName" column="demand_planname" javaType="java.lang.String"/>
         <result property="demandRemarks" column="demand_remarks" javaType="java.lang.String"/>
         <result property="demandDepartment" column="demand_department" javaType="java.lang.String"/>
         <result property="demandPerson" column="demand_personne" javaType="java.lang.String"/>
-        <result property="demandState" column="demand_state" javaType="java.lang.Integer"/>
-        <result property="approval" column="approval_status" javaType="java.lang.Integer"/>
+        <result property="demandState" column="demand_state" javaType="java.lang.String"/>
+        <result property="approval" column="approval_status" javaType="java.lang.String"/>
         <result property="demandMonth" column="demand_month" javaType="java.lang.Integer"/>
-        <result property="orderCode" column="order_code" javaType="java.lang.Long"/>
     </resultMap>
 </mapper>

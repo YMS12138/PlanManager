@@ -30,14 +30,14 @@
             <children>
                 <HBox alignment="CENTER" prefWidth="932.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="保存" />
+                        <Button mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="保存" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="复制" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="提交" />
+                        <Button mnemonicParsing="false" onAction="#commit" prefHeight="30.0" prefWidth="90.0" text="提交" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="打印" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="导出" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="附件" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="提醒（x）" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="删除" />
+                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" text="删除" />
                         <Button mnemonicParsing="false" onAction="#addApprovalInfo" prefHeight="30.0" prefWidth="90.0" text="关闭/退出" />
                     </children>
                 </HBox>
@@ -53,13 +53,13 @@
                         <GridPane>
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -107,14 +107,14 @@
                                         <Insets right="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="1" />
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="3" />
-                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                <TextField GridPane.columnIndex="5" />
-                                <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                                <TextField GridPane.columnIndex="7" />
-                                <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandPlanType" editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="1" />
+                                <TextField fx:id="demandDepartment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandPlanCode" editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="3" />
+                                <TextField fx:id="demandPerson" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandPlanName" GridPane.columnIndex="5" />
+                                <TextField fx:id="demandState" editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                <TextField fx:id="demandRemarks" GridPane.columnIndex="7" />
+                                <TextField fx:id="approval" editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                                 <CheckBox mnemonicParsing="false" prefHeight="16.0" prefWidth="159.0" text="是否预算内计划" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                             </children>
                             <GridPane.margin>
@@ -124,87 +124,89 @@
                         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
                             <tabs>
                                 <Tab text="基本信息">
-                           <content>
-                              <ScrollPane>
-                                 <content>
-                                    <AnchorPane>
-                                       <children>
-                                          <VBox fx:id="vBox" layoutX="0.5" layoutY="0.5">
-                                             <children>
-                                                <GridPane gridLinesVisible="true">
-                                                   <columnConstraints>
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                   </columnConstraints>
-                                                   <rowConstraints>
-                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                                   </rowConstraints>
-                                                   <children>
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: #C2C2C2;" text="行号" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="118.0" style="-fx-background-color: #C2C2C2;" text="物料分类编码" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="131.0" style="-fx-background-color: #C2C2C2;" text="物料分类名称" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="130.0" style="-fx-background-color: #C2C2C2;" text="物料编码" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="134.0" style="-fx-background-color: #C2C2C2;" text="物料名称" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="165.0" style="-fx-background-color: #C2C2C2;" text="规格" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="172.0" style="-fx-background-color: #C2C2C2;" text="型号" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="69.0" prefWidth="139.0" style="-fx-background-color: #C2C2C2;" text="单位" GridPane.columnIndex="7" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" text="需求数量" GridPane.columnIndex="8" GridPane.halignment="CENTER" />
-                                                      <Label alignment="CENTER" prefHeight="87.0" prefWidth="129.0" style="-fx-background-color: #C2C2C2;" text="需求月份" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                                                      <Label alignment="CENTER" prefHeight="98.0" prefWidth="124.0" style="-fx-background-color: #C2C2C2;" text="需求日期" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="93.0" prefWidth="110.0" style="-fx-background-color: #C2C2C2;" text="货源是否确定" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="103.0" prefWidth="109.0" style="-fx-background-color: #C2C2C2;" text="期望供应商" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="98.0" prefWidth="119.0" style="-fx-background-color: #C2C2C2;" text="固定供应商" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="91.0" prefWidth="130.0" style="-fx-background-color: #C2C2C2;" text="物料追踪码" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="104.0" prefWidth="156.0" style="-fx-background-color: #C2C2C2;" text="备注" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                      <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" text="1" GridPane.rowIndex="1" />
-                                                      <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" GridPane.rowIndex="2" />
-                                                      <Label prefHeight="97.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <Label prefHeight="102.0" prefWidth="147.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="materialTypeName" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="materialName" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="materialSpe" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="materialType" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="materialNum" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                                                      <TextField fx:id="remarks" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                                                      <TextField fx:id="materialTrackCode" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                                                      <DatePicker fx:id="materialDemandDate" prefHeight="82.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                                      <ComboBox fx:id="materialTypeCode" prefHeight="69.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <ComboBox fx:id="materialCode" maxHeight="50.0" prefHeight="50.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                      <ComboBox fx:id="materialUnit" prefHeight="42.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-                                                      <ComboBox fx:id="materialDemandMoth" prefHeight="46.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                      <ComboBox fx:id="sourceSure" prefHeight="51.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                      <ComboBox fx:id="expectedSup" prefHeight="52.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                      <ComboBox fx:id="fixedSup" prefHeight="58.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                                                      <Button mnemonicParsing="false" onAction="#addPane" prefHeight="70.0" prefWidth="117.0" text="增加" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                                                   </children>
-                                                </GridPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </ScrollPane>
-                           </content></Tab>
+                                    <content>
+                                        <ScrollPane>
+                                            <content>
+                                                <AnchorPane>
+                                                    <children>
+                                                        <VBox fx:id="vBox" layoutX="0.5" layoutY="0.5">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="true">
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: #C2C2C2;" text="行号" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="118.0" style="-fx-background-color: #C2C2C2;" text="物料分类编码" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="131.0" style="-fx-background-color: #C2C2C2;" text="物料分类名称" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="130.0" style="-fx-background-color: #C2C2C2;" text="物料编码" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="134.0" style="-fx-background-color: #C2C2C2;" text="物料名称" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="165.0" style="-fx-background-color: #C2C2C2;" text="规格" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="172.0" style="-fx-background-color: #C2C2C2;" text="型号" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="69.0" prefWidth="139.0" style="-fx-background-color: #C2C2C2;" text="单位" GridPane.columnIndex="7" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" text="需求数量" GridPane.columnIndex="8" GridPane.halignment="CENTER" />
+                                                                        <Label alignment="CENTER" prefHeight="87.0" prefWidth="129.0" style="-fx-background-color: #C2C2C2;" text="需求月份" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                                                        <Label alignment="CENTER" prefHeight="98.0" prefWidth="124.0" style="-fx-background-color: #C2C2C2;" text="需求日期" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="93.0" prefWidth="110.0" style="-fx-background-color: #C2C2C2;" text="货源是否确定" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="103.0" prefWidth="109.0" style="-fx-background-color: #C2C2C2;" text="期望供应商" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="98.0" prefWidth="119.0" style="-fx-background-color: #C2C2C2;" text="固定供应商" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="130.0" style="-fx-background-color: #C2C2C2;" text="物料追踪码" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="104.0" prefWidth="156.0" style="-fx-background-color: #C2C2C2;" text="备注" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" text="1" GridPane.rowIndex="1" />
+                                                                        <Label alignment="CENTER" prefHeight="77.0" prefWidth="122.0" style="-fx-background-color: #C2C2C2;" GridPane.rowIndex="2" />
+                                                                        <Label prefHeight="97.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <Label prefHeight="102.0" prefWidth="147.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="materialTypeName" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="materialName" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="materialSpe" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="materialType" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="materialNum" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="remarks" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                                                        <TextField fx:id="materialTrackCode" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                                                        <DatePicker fx:id="materialDemandDate" prefHeight="82.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                                        <ComboBox fx:id="materialTypeCode" prefHeight="69.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <ComboBox fx:id="materialCode" maxHeight="50.0" prefHeight="50.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                        <ComboBox fx:id="materialUnit" prefHeight="42.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                                                        <ComboBox fx:id="materialDemandMoth" prefHeight="46.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                        <ComboBox fx:id="sourceSure" prefHeight="51.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                                        <ComboBox fx:id="expectedSup" prefHeight="52.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                                        <ComboBox fx:id="fixedSup" prefHeight="58.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                                                        <Button mnemonicParsing="false" onAction="#addPane" prefHeight="70.0" prefWidth="117.0" text="增加" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                                                                    </children>
+                                                                </GridPane>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                    </content>
+                                </Tab>
                                 <Tab text="流程信息">
-                           <content>
-                              <ScrollPane>
-                                 <content>
-                                    <VBox fx:id="processVBox" alignment="CENTER" />
-                                 </content>
-                              </ScrollPane>
-                           </content></Tab>
+                                    <content>
+                                        <ScrollPane>
+                                            <content>
+                                                <VBox fx:id="processVBox" alignment="CENTER" />
+                                            </content>
+                                        </ScrollPane>
+                                    </content>
+                                </Tab>
                                 <Tab text="系统信息">
                                     <content>
                                         <GridPane>
@@ -232,7 +234,8 @@
                                                 <TextField editable="false" style="-fx-background-color: #C2C2C2;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                             </children>
                                         </GridPane>
-                                    </content></Tab>
+                                    </content>
+                                </Tab>
                             </tabs>
                         </TabPane>
                     </children>

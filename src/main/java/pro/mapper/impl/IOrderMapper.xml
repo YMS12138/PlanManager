@@ -19,6 +19,9 @@
     <select id="findByCode" parameterType="Long" resultMap="resultOrder">
         select * from orders where demand_plancode=#{demandPlanCode}
     </select>
+    <select id="selectAllOrder" resultMap="resultOrder">
+        select * from orders
+    </select>
     <resultMap type="pro.entity.Orders" id="resultOrder">
         <result property="materialTypeCode" column="material_typecode" javaType="java.lang.Integer"/>
         <result property="materialTypeName" column="material_typename" javaType="java.lang.String"/>

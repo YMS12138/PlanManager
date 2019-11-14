@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 13/11/2019 18:45:40
+ Date: 14/11/2019 23:45:36
 */
 
 SET NAMES utf8mb4;
@@ -23,15 +23,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `demand`;
 CREATE TABLE `demand`  (
   `demand_plancode` bigint(255) NOT NULL COMMENT '计划编码',
-  `demand_plantype` int(1) NULL DEFAULT NULL COMMENT '需求计划类型',
+  `demand_plantype` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '需求计划类型',
   `demand_planname` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '需求计划名称',
   `demand_remarks` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '备注',
   `demand_department` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '需求部门',
   `demand_personne` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '需求人员',
-  `demand_state` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '需求状态',
-  `approval_status` int(1) NULL DEFAULT NULL COMMENT '审批状态',
+  `demand_state` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '未提交' COMMENT '需求状态',
+  `approval_status` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '未审批' COMMENT '审批状态',
   `demand_month` int(255) NULL DEFAULT NULL COMMENT '月度需求计划月份',
-  `order_code` bigint(255) NULL DEFAULT NULL COMMENT '订单编码',
   PRIMARY KEY (`demand_plancode`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 

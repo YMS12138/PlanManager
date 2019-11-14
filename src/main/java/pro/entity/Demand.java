@@ -23,7 +23,7 @@ public class Demand {
     /**
      * 需求计划类型
      */
-    IntegerProperty demandPlanType;
+    StringProperty demandPlanType;
     /**
      * 需求计划名称
      */
@@ -43,11 +43,11 @@ public class Demand {
     /**
      * 需求状态
      */
-    IntegerProperty demandState;
+    StringProperty demandState;
     /**
      * 审批状态
      */
-    IntegerProperty approval;
+    StringProperty approval;
     /**
      * 月度需求计划月份 年度需求计划可为空
      */
@@ -80,15 +80,15 @@ public class Demand {
         this.demandPlanCode.set(demandPlanCode);
     }
 
-    public int getDemandPlanType() {
+    public String getDemandPlanType() {
         return demandPlanType.get();
     }
 
-    public IntegerProperty demandPlanTypeProperty() {
+    public StringProperty demandPlanTypeProperty() {
         return demandPlanType;
     }
 
-    public void setDemandPlanType(int demandPlanType) {
+    public void setDemandPlanType(String demandPlanType) {
         this.demandPlanType.set(demandPlanType);
     }
 
@@ -140,27 +140,27 @@ public class Demand {
         this.demandPerson.set(demandPerson);
     }
 
-    public int getDemandState() {
+    public String getDemandState() {
         return demandState.get();
     }
 
-    public IntegerProperty demandStateProperty() {
+    public StringProperty demandStateProperty() {
         return demandState;
     }
 
-    public void setDemandState(int demandState) {
+    public void setDemandState(String demandState) {
         this.demandState.set(demandState);
     }
 
-    public int getApproval() {
+    public String getApproval() {
         return approval.get();
     }
 
-    public IntegerProperty approvalProperty() {
+    public StringProperty approvalProperty() {
         return approval;
     }
 
-    public void setApproval(int approval) {
+    public void setApproval(String approval) {
         this.approval.set(approval);
     }
 
@@ -193,13 +193,13 @@ public class Demand {
      */
     public Demand() {
         this.demandPlanCode = new SimpleLongProperty();
-        this.demandPlanType = new SimpleIntegerProperty();
+        this.demandPlanType = new SimpleStringProperty();
         this.demandPlanName = new SimpleStringProperty();
         this.demandRemarks = new SimpleStringProperty();
         this.demandDepartment = new SimpleStringProperty();
         this.demandPerson = new SimpleStringProperty();
-        this.demandState = new SimpleIntegerProperty();
-        this.approval = new SimpleIntegerProperty();
+        this.demandState = new SimpleStringProperty();
+        this.approval = new SimpleStringProperty();
         this.demandMonth = new SimpleIntegerProperty();
         this.orderCode = new SimpleLongProperty();
     }
@@ -235,7 +235,6 @@ public class Demand {
                 ", demandState=" + demandState +
                 ", approval=" + approval +
                 ", demandMonth=" + demandMonth +
-                ", orderCode=" + orderCode +
                 ", ordersList=" + ordersList +
                 '}';
     }

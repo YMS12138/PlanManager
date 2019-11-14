@@ -4,8 +4,8 @@
 <mapper namespace="pro.mapper.IInsertMonth">
     <insert id="insertMDemand" parameterType="pro.entity.Demand">
         insert into demand(demand_plancode,demand_plantype,demand_planname,demand_remarks,demand_department,
-       demand_personne,demand_state,approval_status,demand_month,order_code) values(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
-        #{demandRemarks},#{demandDepartment},#{demandPerson},#{demandState},#{approval},#{demandMonth},#{orderCode})
+       demand_personne,demand_state,approval_status,demand_month) values(#{demandPlanCode},#{demandPlanType},#{demandPlanName},
+        #{demandRemarks},#{demandDepartment},#{demandPerson},#{demandState},#{approval},#{demandMonth})
 
     </insert>
 </mapper>

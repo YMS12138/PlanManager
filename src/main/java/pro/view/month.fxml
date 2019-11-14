@@ -107,9 +107,9 @@
                                         <Insets right="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <TextField fx:id="demandPlanCode" editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="1" />
+                                <TextField fx:id="demandPlanType" editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="1" />
                                 <TextField fx:id="demandDepartment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <TextField fx:id="demandPlanType" editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="3" />
+                                <TextField fx:id="demandPlanCode" editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="3" />
                                 <TextField fx:id="demandPerson" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                 <TextField fx:id="demandPlanName" GridPane.columnIndex="5" />
                                 <TextField fx:id="demandState" editable="false" style="-fx-background-color: #c2c2c2;" GridPane.columnIndex="5" GridPane.rowIndex="1" />

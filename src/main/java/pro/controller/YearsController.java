@@ -18,6 +18,7 @@ import pro.logic.GoodsLogic;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Random;
 
 /**
  * 加载年度计划页面
@@ -131,6 +132,7 @@ public class YearsController {
         index = new Integer(1);
 
         /**
+        /**
          * 初始化流程信息子模块
          */
         FXMLLoader loader = new FXMLLoader();
@@ -154,6 +156,10 @@ public class YearsController {
         materialDemandMoth.setItems(strings);
         sourceSure.setItems(codes);
         materialTypeCode.setItems(strings);
+        demandPlanType.setText("年度计划");
+        demandState.setText("未提交");
+        approval.setText("未审核");
+
     }
 
     /**
@@ -168,19 +174,20 @@ public class YearsController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-        demand.setDemandPlanCode(222222L);
+        demand.setDemandPlanCode((long) (Math.random()*100086));
         //年度的计划类型为0 月度1 紧急2
-        demand.setDemandPlanType(0);
+        demand.setDemandPlanType("年度计划");
         demand.setDemandPlanName(demandPlanName.getText());
         demand.setDemandRemarks(demandRemarks.getText());
         demand.setDemandDepartment(demandDepartment.getText());
         demand.setDemandPerson(demandPerson.getText());
         //默认未审批为0 审批中1 审批完2
-        demand.setDemandState(0);
+        demand.setDemandState(demandState.getText());
+        demand.setApproval(approval.getText());
 //
 
 
-        // String approva = approval.getText();
+
 //     获取订单信息
         order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
         order.setMaterialTypeName(materialTypeName.getText());
@@ -196,7 +203,7 @@ public class YearsController {
         order.setFixedSup((String) fixedSup.getValue());
         order.setRemarks(remarks.getText());
         order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
-        order.setDemandPlanCode(222222L);
+        order.setDemandPlanCode(demand.getDemandPlanCode());
         System.out.println(order);
         goodsLogic.createDemand(demand, order);
 
