@@ -3,6 +3,7 @@ package pro.logic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pro.Application;
 import pro.entity.Demand;
 import pro.mapper.Approval;
 
@@ -18,17 +19,10 @@ public class ApprovalLogic {
     /* @Autowired
      Approval approval;
  */
-    public void findAll() {
-
-        List<Demand> list = new ArrayList<Demand>();
-        if (list != null) {
-            for (Demand ac : list) {
-                System.out.println(ac);
-            }
-            //跳转页面 return
-        } else {
-
-        }
+    public List<Demand> findAll() {
+        Approval approval = Application.ac.getBean("approval", Approval.class);
+        List<Demand> list = approval.findAll();
+        return list;
     }
 
 }

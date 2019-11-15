@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.PrintAndExportController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -85,20 +85,20 @@
             </Label>
          </children>
       </GridPane>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
           <TableColumn maxWidth="98.3" prefWidth="98.3" text="行号" />
-          <TableColumn maxWidth="98.3" prefWidth="98.3" text="物料分类编码" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="物料分类名称" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="物料编码" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="物料名称" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="规格" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="型号" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="单位" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="需求数量" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="需求月份" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="需求日期" />
-            <TableColumn maxWidth="98.3" prefWidth="98.3" text="备注" />
+          <TableColumn fx:id="materialTypeCode" maxWidth="98.3" prefWidth="98.3" text="物料分类编码" />
+            <TableColumn fx:id="materialTypeName" maxWidth="98.3" prefWidth="98.3" text="物料分类名称" />
+            <TableColumn fx:id="materialCode" maxWidth="98.3" prefWidth="98.3" text="物料编码" />
+            <TableColumn fx:id="materialName" maxWidth="98.3" prefWidth="98.3" text="物料名称" />
+            <TableColumn fx:id="materialSpe" maxWidth="98.3" prefWidth="98.3" text="规格" />
+            <TableColumn fx:id="materialType" maxWidth="98.3" prefWidth="98.3" text="型号" />
+            <TableColumn fx:id="materialUnit" maxWidth="98.3" prefWidth="98.3" text="单位" />
+            <TableColumn fx:id="materialNum" maxWidth="98.3" prefWidth="98.3" text="需求数量" />
+            <TableColumn fx:id="materialDemandMoth" maxWidth="98.3" prefWidth="98.3" text="需求月份" />
+            <TableColumn fx:id="materialDemandDate" maxWidth="98.3" prefWidth="98.3" text="需求日期" />
+            <TableColumn fx:id="remarks" maxWidth="98.3" prefWidth="98.3" text="备注" />
         </columns>
       </TableView>
    </children>

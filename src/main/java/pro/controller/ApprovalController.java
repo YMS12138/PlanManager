@@ -43,9 +43,8 @@ public class ApprovalController {
      */
     @FXML
     public void initialize() {
-        List<Demand> demand = null;
-        Approval app = Application.ac.getBean("approval", Approval.class);
-        demand = app.findAll();
+        ApprovalLogic app = new ApprovalLogic();
+        List<Demand> demand = app.findAll();
         demands.addAll(demand);
         //设置表格中的内容（填充）
         tableView.setItems(demands);

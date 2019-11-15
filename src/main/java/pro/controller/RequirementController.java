@@ -15,5 +15,6 @@ public class RequirementController {
 
     @FXML
     private void initialize() {
+
     }
 }
