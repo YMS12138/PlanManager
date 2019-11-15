@@ -19,43 +19,43 @@ public class Demand {
     /**
      * 需求计划编码
      */
-    LongProperty demandPlanCode;
+    Long demandPlanCode;
     /**
      * 需求计划类型
      */
-    StringProperty demandPlanType;
+    String demandPlanType;
     /**
      * 需求计划名称
      */
-    StringProperty demandPlanName;
+    String demandPlanName;
     /**
      * 备注
      */
-    StringProperty demandRemarks;
+    String demandRemarks;
     /**
      * 需求部门
      */
-    StringProperty demandDepartment;
+    String demandDepartment;
     /**
      * 需求人员
      */
-    StringProperty demandPerson;
+    String demandPerson;
     /**
      * 需求状态
      */
-    StringProperty demandState;
+    String demandState;
     /**
      * 审批状态
      */
-    StringProperty approval;
+    String approval;
     /**
      * 月度需求计划月份 年度需求计划可为空
      */
-    IntegerProperty demandMonth;
+    Integer demandMonth;
     /**
      * 订单编码 外键
      */
-    LongProperty orderCode;
+    Long orderCode;
 
 
     List<Orders> ordersList;
@@ -68,140 +68,90 @@ public class Demand {
         this.ordersList = ordersList;
     }
 
-    public long getDemandPlanCode() {
-        return demandPlanCode.get();
-    }
-
-    public LongProperty demandPlanCodeProperty() {
+    public Long getDemandPlanCode() {
         return demandPlanCode;
     }
 
-    public void setDemandPlanCode(long demandPlanCode) {
-        this.demandPlanCode.set(demandPlanCode);
+    public void setDemandPlanCode(Long demandPlanCode) {
+        this.demandPlanCode = demandPlanCode;
     }
 
     public String getDemandPlanType() {
-        return demandPlanType.get();
-    }
-
-    public StringProperty demandPlanTypeProperty() {
         return demandPlanType;
     }
 
     public void setDemandPlanType(String demandPlanType) {
-        this.demandPlanType.set(demandPlanType);
+        this.demandPlanType = demandPlanType;
     }
 
     public String getDemandPlanName() {
-        return demandPlanName.get();
-    }
-
-    public StringProperty demandPlanNameProperty() {
         return demandPlanName;
     }
 
     public void setDemandPlanName(String demandPlanName) {
-        this.demandPlanName.set(demandPlanName);
+        this.demandPlanName = demandPlanName;
     }
 
     public String getDemandRemarks() {
-        return demandRemarks.get();
-    }
-
-    public StringProperty demandRemarksProperty() {
         return demandRemarks;
     }
 
     public void setDemandRemarks(String demandRemarks) {
-        this.demandRemarks.set(demandRemarks);
+        this.demandRemarks = demandRemarks;
     }
 
     public String getDemandDepartment() {
-        return demandDepartment.get();
-    }
-
-    public StringProperty demandDepartmentProperty() {
         return demandDepartment;
     }
 
     public void setDemandDepartment(String demandDepartment) {
-        this.demandDepartment.set(demandDepartment);
+        this.demandDepartment = demandDepartment;
     }
 
     public String getDemandPerson() {
-        return demandPerson.get();
-    }
-
-    public StringProperty demandPersonProperty() {
         return demandPerson;
     }
 
     public void setDemandPerson(String demandPerson) {
-        this.demandPerson.set(demandPerson);
+        this.demandPerson = demandPerson;
     }
 
     public String getDemandState() {
-        return demandState.get();
-    }
-
-    public StringProperty demandStateProperty() {
         return demandState;
     }
 
     public void setDemandState(String demandState) {
-        this.demandState.set(demandState);
+        this.demandState = demandState;
     }
 
     public String getApproval() {
-        return approval.get();
-    }
-
-    public StringProperty approvalProperty() {
         return approval;
     }
 
     public void setApproval(String approval) {
-        this.approval.set(approval);
+        this.approval = approval;
     }
 
-    public int getDemandMonth() {
-        return demandMonth.get();
-    }
-
-    public IntegerProperty demandMonthProperty() {
+    public Integer getDemandMonth() {
         return demandMonth;
     }
 
-    public void setDemandMonth(int demandMonth) {
-        this.demandMonth.set(demandMonth);
+    public void setDemandMonth(Integer demandMonth) {
+        this.demandMonth = demandMonth;
     }
 
-    public long getOrderCode() {
-        return orderCode.get();
-    }
-
-    public LongProperty orderCodeProperty() {
+    public Long getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(long orderCode) {
-        this.orderCode.set(orderCode);
+    public void setOrderCode(Long orderCode) {
+        this.orderCode = orderCode;
     }
 
     /**
      * 默认构造函数
      */
     public Demand() {
-        this.demandPlanCode = new SimpleLongProperty();
-        this.demandPlanType = new SimpleStringProperty();
-        this.demandPlanName = new SimpleStringProperty();
-        this.demandRemarks = new SimpleStringProperty();
-        this.demandDepartment = new SimpleStringProperty();
-        this.demandPerson = new SimpleStringProperty();
-        this.demandState = new SimpleStringProperty();
-        this.approval = new SimpleStringProperty();
-        this.demandMonth = new SimpleIntegerProperty();
-        this.orderCode = new SimpleLongProperty();
     }
 
     /**
@@ -211,30 +161,31 @@ public class Demand {
         if (demand == null) {
             return;
         }
-        this.demandPlanCode.setValue(demand.getDemandPlanCode());
-        this.demandPlanType.setValue(demand.getDemandPlanType());
-        this.demandPlanName.setValue(demand.getDemandPlanName());
-        this.demandRemarks.setValue(demand.getDemandRemarks());
-        this.demandDepartment.setValue(demand.getDemandDepartment());
-        this.demandPerson.setValue(demand.getDemandPerson());
-        this.demandState.setValue(demand.getDemandState());
-        this.approval.setValue(demand.getApproval());
-        this.demandMonth.setValue(demand.getDemandMonth());
-        this.orderCode.setValue(demand.getOrderCode());
+        this.demandPlanCode = demand.getDemandPlanCode();
+        this.demandPlanType = demand.getDemandPlanType();
+        this.demandPlanName = demand.getDemandPlanName();
+        this.demandRemarks = demand.getDemandRemarks();
+        this.demandDepartment = demand.getDemandDepartment();
+        this.demandPerson = demand.getDemandPerson();
+        this.demandState = demand.getDemandState();
+        this.approval = demand.getApproval();
+        this.demandMonth = demand.getDemandMonth();
+        this.orderCode = demand.getOrderCode();
     }
 
     @Override
     public String toString() {
         return "Demand{" +
                 "demandPlanCode=" + demandPlanCode +
-                ", demandPlanType=" + demandPlanType +
-                ", demandPlanName=" + demandPlanName +
-                ", demandRemarks=" + demandRemarks +
-                ", demandDepartment=" + demandDepartment +
-                ", demandPerson=" + demandPerson +
-                ", demandState=" + demandState +
-                ", approval=" + approval +
+                ", demandPlanType='" + demandPlanType + '\'' +
+                ", demandPlanName='" + demandPlanName + '\'' +
+                ", demandRemarks='" + demandRemarks + '\'' +
+                ", demandDepartment='" + demandDepartment + '\'' +
+                ", demandPerson='" + demandPerson + '\'' +
+                ", demandState='" + demandState + '\'' +
+                ", approval='" + approval + '\'' +
                 ", demandMonth=" + demandMonth +
+                ", orderCode=" + orderCode +
                 ", ordersList=" + ordersList +
                 '}';
     }
