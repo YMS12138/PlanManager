@@ -67,52 +67,6 @@ public class UrgentController {
     @FXML
     private TextField approval;
 
-    //物料分类编码
-    @FXML
-    private ComboBox materialTypeCode;
-    //物料分类名称
-    @FXML
-    private TextField materialTypeName;
-    //物料编码
-    @FXML
-    private ComboBox materialCode;
-    //物料名称
-    @FXML
-    private TextField materialName;
-    //物料规格
-    @FXML
-    private TextField materialSpe;
-    //物料型号
-    @FXML
-    private TextField materialType;
-    //物料单位
-    @FXML
-    private ComboBox materialUnit;
-    //物料数量
-    @FXML
-    private TextField materialNum;
-    //物料需求月份
-    @FXML
-    private ComboBox materialDemandMoth;
-    //物料需求日期
-    @FXML
-    private DatePicker materialDemandDate;
-    //货源是否确定
-    @FXML
-    private ComboBox sourceSure;
-    //期待供应商
-    @FXML
-    private ComboBox expectedSup;
-    //固定供应商
-    @FXML
-    private ComboBox fixedSup;
-    //备注
-    @FXML
-    private TextField remarks;
-    //物料追踪码
-    @FXML
-    private TextField materialTrackCode;
-
 
     /**
      * 流程信息表
@@ -140,17 +94,6 @@ public class UrgentController {
         }
         processVBox.getChildren().addAll(processInfo);
 
-        ObservableList<String> strings = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
-        //设置月份下拉框列表的值
-
-        ObservableList<String> codes = FXCollections.observableArrayList("1", "2");
-        materialCode.setItems(strings);
-        materialUnit.setItems(strings);
-        expectedSup.setItems(strings);
-        fixedSup.setItems(strings);
-        materialDemandMoth.setItems(strings);
-        sourceSure.setItems(codes);
-        materialTypeCode.setItems(strings);
         demandPlanType.setText("紧急计划");
         demandState.setText("未提交");
         approval.setText("未审核");
@@ -183,24 +126,24 @@ public class UrgentController {
 
 
 
-//     获取订单信息
-        order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
-        order.setMaterialTypeName(materialTypeName.getText());
-        order.setMaterialCode(Long.parseLong((String) materialCode.getValue()));
-        order.setMaterialName(materialName.getText());
-        order.setMaterialSpe(materialSpe.getText());
-        order.setMaterialType(materialType.getText());
-        order.setMaterialUnit((String) materialUnit.getValue());
-        order.setMaterialNum(Integer.parseInt(materialNum.getText()));
-        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
-        order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
-        order.setExpectedSup((String) expectedSup.getValue());
-        order.setFixedSup((String) fixedSup.getValue());
-        order.setRemarks(remarks.getText());
-        order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
-        order.setDemandPlanCode(demand.getDemandPlanCode());
-        System.out.println(order);
-        goodsLogic.createDemand(demand, order);
+////     获取订单信息
+//        order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
+//        order.setMaterialTypeName(materialTypeName.getText());
+//        order.setMaterialCode(Long.parseLong((String) materialCode.getValue()));
+//        order.setMaterialName(materialName.getText());
+//        order.setMaterialSpe(materialSpe.getText());
+//        order.setMaterialType(materialType.getText());
+//        order.setMaterialUnit((String) materialUnit.getValue());
+//        order.setMaterialNum(Integer.parseInt(materialNum.getText()));
+//        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
+//        order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
+//        order.setExpectedSup((String) expectedSup.getValue());
+//        order.setFixedSup((String) fixedSup.getValue());
+//        order.setRemarks(remarks.getText());
+//        order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
+//        order.setDemandPlanCode(demand.getDemandPlanCode());
+//        System.out.println(order);
+//        goodsLogic.createDemand(demand, order);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");

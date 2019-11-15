@@ -75,5 +75,4 @@ public class InfoController {
         sourceSure.setItems(codes);
         materialTypeCode.setItems(strings);
     }
-
 }

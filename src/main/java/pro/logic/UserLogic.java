@@ -1,7 +1,6 @@
 package pro.logic;
 
 import javafx.scene.control.Alert;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.User;

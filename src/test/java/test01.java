@@ -86,12 +86,13 @@ public class test01 {
             System.out.println(demand.toString());
         });
     }
+
     @Test
     public void test07() {
-     List<Orders> ordersList = iOrder.selectAllOrder();
-     for(Orders o : ordersList){
-         System.out.println(o);
-     }
+        List<Orders> ordersList = iOrder.selectAllOrder();
+        for (Orders o : ordersList) {
+            System.out.println(o);
+        }
     }
 }
 

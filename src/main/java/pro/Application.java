@@ -194,6 +194,11 @@ public class Application extends javafx.application.Application {
         root.setCenter(need);
     }
 
+    /**
+     * 汇总页面
+     *
+     * @throws IOException
+     */
     public void showSummary() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/summary.fxml"));

@@ -50,7 +50,7 @@ public class QueryResultController {
 
 
     /**
-     * 在控制器（此类）被构造时，自动调用initialize()
+     * 在控制器（此类）被构/造时，自动调用initialize()
      */
     @FXML
     private void initialize() {

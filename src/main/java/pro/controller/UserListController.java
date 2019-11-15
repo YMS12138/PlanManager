@@ -14,17 +14,17 @@ import java.util.List;
 
 
 /**
- * 加载用户信息界面
+ * 用户信息界面
  */
 public class UserListController {
 
+    UserLogic userLogic;
     ObservableList<User> user = FXCollections.observableArrayList();
     @FXML
     private TableView<User> personTable;
 
     @FXML
     private TableColumn firstNameColumn;
-
     @FXML
     private TableColumn lastNameColumn;
 
@@ -43,7 +43,7 @@ public class UserListController {
      * 初始化
      */
     public void initialize() {
-        UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
+        userLogic = Application.ac.getBean("userLogic", UserLogic.class);
         List<User> users = null;
         personTable.setItems(user);
 
@@ -116,6 +116,17 @@ public class UserListController {
      */
     @FXML
     private void delete() {
+        //获取当前选中的用户
+        User selectedItem = personTable.getSelectionModel().getSelectedItem();
 
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("未选中");
+            alert.showAndWait();
+            return;
+        }
+
+        //TODO:从数据库中删除 selectedItem
+        //...
     }
 }

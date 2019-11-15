@@ -8,9 +8,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane gridLinesVisible="true" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.InfoController">
+<GridPane gridLinesVisible="true" prefWidth="975.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.InfoController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,9 +22,9 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
         <Label alignment="CENTER" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: #C2C2C2;" text="行号" GridPane.halignment="CENTER" />
@@ -56,13 +55,13 @@
         <TextField fx:id="materialNum" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
         <TextField fx:id="remarks" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
         <TextField fx:id="materialTrackCode" prefHeight="105.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-        <DatePicker fx:id="materialDemandDate" prefHeight="82.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-        <ComboBox fx:id="materialTypeCode" prefHeight="69.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <ComboBox fx:id="materialCode" maxHeight="50.0" prefHeight="50.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <ComboBox fx:id="materialUnit" prefHeight="42.0" prefWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-        <ComboBox fx:id="materialDemandMoth" prefHeight="46.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <ComboBox fx:id="sourceSure" prefHeight="51.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-        <ComboBox fx:id="expectedSup" prefHeight="52.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-        <ComboBox fx:id="fixedSup" prefHeight="58.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+        <DatePicker fx:id="materialDemandDate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <ComboBox fx:id="materialTypeCode" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <ComboBox fx:id="materialCode" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <ComboBox fx:id="materialUnit" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+        <ComboBox fx:id="materialDemandMoth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <ComboBox fx:id="sourceSure" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <ComboBox fx:id="expectedSup" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+        <ComboBox fx:id="fixedSup" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="3" />
     </children>
 </GridPane>

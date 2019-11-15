@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.ProcessInfoController">
+<GridPane prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.controller.ProcessInfoController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
@@ -15,13 +14,13 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Label fx:id="id" alignment="CENTER" text="id" GridPane.halignment="CENTER" />
-      <Label fx:id="person" alignment="CENTER" text="审批人" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-      <Label fx:id="time" alignment="CENTER" text="审批时间" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-      <Label fx:id="suggestion" alignment="CENTER" text="审批意见" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-      <Label fx:id="remark" alignment="CENTER" text="说明" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+      <Label fx:id="id" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="id" GridPane.halignment="CENTER" />
+      <Label fx:id="person" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="审批人" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+      <Label fx:id="time" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="审批时间" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <Label fx:id="suggestion" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="审批意见" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+      <Label fx:id="remark" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="说明" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
    </children>
 </GridPane>

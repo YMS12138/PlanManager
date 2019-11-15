@@ -55,6 +55,14 @@ public class GoodsLogic {
 
     }
 
+    /**
+     * 查找所有物料信息根据
+     */
+    public List<Orders> selectAllOrder(){
+        //...
+        return null;
+    }
+
 
     public void deleteDemand(Long demandPlanCode) {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);

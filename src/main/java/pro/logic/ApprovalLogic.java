@@ -1,24 +1,22 @@
 package pro.logic;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.Demand;
 import pro.mapper.Approval;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * 需求审批逻辑
- * */
+ */
 @Service
 public class ApprovalLogic {
 
     /* @Autowired
      Approval approval;
- */
+     */
     public List<Demand> findAll() {
         Approval approval = Application.ac.getBean("approval", Approval.class);
         List<Demand> list = approval.findAll();
