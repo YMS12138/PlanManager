@@ -1,14 +1,11 @@
 package pro.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pro.Application;
 import pro.entity.Demand;
 import pro.entity.Orders;
@@ -201,6 +198,9 @@ public class YearsController {
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/info.fxml"));
         GridPane info = loader.load();
 
+        InfoController controller = loader.getController();
+        orders.add(controller);
+
         vBox.getChildren().addAll(info);
     }
 
@@ -213,9 +213,6 @@ public class YearsController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
         GridPane processInfo = loader.load();
-
-        InfoController controller = loader.getController();
-        orders.add(controller);
 
         processVBox.getChildren().addAll(processInfo);
     }

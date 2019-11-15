@@ -18,14 +18,18 @@ import pro.logic.GoodsLogic;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 紧急计划页面控制器
  */
 public class UrgentController {
+    ApplicationContext ac = Application.ac;
+    List<InfoController> orders = new ArrayList<>();
+
     @FXML
     private VBox vBox;
-    ApplicationContext ac = Application.ac;
     /**
      * 需求计划编码
      */
@@ -209,6 +213,9 @@ public class UrgentController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/info.fxml"));
         GridPane info = loader.load();
+
+        InfoController controller = loader.getController();
+        orders.add(controller);
 
         vBox.getChildren().addAll(info);
     }

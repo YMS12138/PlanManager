@@ -20,12 +20,15 @@ import pro.logic.GoodsLogic;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * 加载月度计划页面
  */
 public class MonthController {
+    List<InfoController> orders = new ArrayList<>();
 
     @FXML
     public VBox vBox;
@@ -101,7 +104,7 @@ public class MonthController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-        demand.setDemandPlanCode((long) (Math.random()*100086));
+        demand.setDemandPlanCode((long) (Math.random() * 100086));
         //年度的计划类型为0 月度1 紧急2
         demand.setDemandPlanType(demandPlanType.getText());
         demand.setDemandPlanName(demandPlanName.getText());
@@ -179,6 +182,9 @@ public class MonthController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/info.fxml"));
         GridPane info = loader.load();
+
+        InfoController controller = loader.getController();
+        orders.add(controller);
 
         vBox.getChildren().addAll(info);
     }
