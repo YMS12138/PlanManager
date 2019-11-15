@@ -219,7 +219,6 @@ public class Application extends javafx.application.Application {
 
         if (users.length != 0) {
             UserEditController controller = loader.getController();
-            System.out.println(users[0]);
             controller.setUser(users[0]);
         }
 

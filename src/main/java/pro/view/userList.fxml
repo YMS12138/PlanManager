@@ -60,22 +60,22 @@
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="lastNameLable" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label fx:id="userPassword" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="cityLabel" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <Label fx:id="userJob" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="postalCodeLabel" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <Label fx:id="department" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="firstNameLable" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1">
+                                <Label fx:id="userName" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1">
                                     <font>
                                         <Font size="24.0" />
                                     </font>

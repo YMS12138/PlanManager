@@ -3,14 +3,11 @@ package pro.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import pro.Application;
 import pro.entity.User;
 import pro.logic.UserLogic;
-import pro.mapper.IUser;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,6 +29,19 @@ public class UserListController {
     private TableColumn lastNameColumn;
 
 
+    @FXML
+    private Label userName;
+    @FXML
+    private Label userPassword;
+    @FXML
+    private Label userJob;
+    @FXML
+    private Label department;
+
+
+    /**
+     * 初始化
+     */
     public void initialize() {
         UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
         List<User> users = null;
@@ -41,6 +51,28 @@ public class UserListController {
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
         user.addAll(users);
+        showDetail(null);
+
+        personTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showDetail(newValue));
+    }
+
+    /**
+     * 与TableView表格数据关联
+     *
+     * @param user
+     */
+    private void showDetail(User user) {
+        if (user != null) {
+            userName.setText(user.getUserName());
+            userPassword.setText(user.getUserPwd());
+            userJob.setText(String.valueOf(user.getUserJob()));
+            department.setText(user.getDepartment());
+        } else {
+            userName.setText("");
+            userPassword.setText("");
+            userJob.setText("");
+            department.setText("");
+        }
     }
 
     /**
