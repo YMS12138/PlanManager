@@ -18,15 +18,23 @@ import pro.logic.GoodsLogic;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * 加载年度计划页面
  */
 public class YearsController {
+    ApplicationContext ac = Application.ac;
+
+    /**
+     * 所有基本信息
+     */
+    List<InfoController> orders = new ArrayList<>();
+
     @FXML
     private VBox vBox;
-    ApplicationContext ac = Application.ac;
     /**
      * 需求计划编码
      */
@@ -125,25 +133,8 @@ public class YearsController {
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
 
+        //获取订单信息
 
-////     获取订单信息
-//        order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
-//        order.setMaterialTypeName(materialTypeName.getText());
-//        order.setMaterialCode(Long.parseLong((String) materialCode.getValue()));
-//        order.setMaterialName(materialName.getText());
-//        order.setMaterialSpe(materialSpe.getText());
-//        order.setMaterialType(materialType.getText());
-//        order.setMaterialUnit((String) materialUnit.getValue());
-//        order.setMaterialNum(Integer.parseInt(materialNum.getText()));
-//        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
-//        order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
-//        order.setExpectedSup((String) expectedSup.getValue());
-//        order.setFixedSup((String) fixedSup.getValue());
-//        order.setRemarks(remarks.getText());
-//        order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
-//        order.setDemandPlanCode(demand.getDemandPlanCode());
-//        System.out.println(order);
-//        goodsLogic.createDemand(demand, order);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");
@@ -222,6 +213,9 @@ public class YearsController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/processInfo.fxml"));
         GridPane processInfo = loader.load();
+
+        InfoController controller = loader.getController();
+        orders.add(controller);
 
         processVBox.getChildren().addAll(processInfo);
     }

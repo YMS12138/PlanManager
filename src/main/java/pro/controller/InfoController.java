@@ -6,6 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import pro.entity.Orders;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @Author: zz
@@ -74,5 +78,28 @@ public class InfoController {
         materialDemandMoth.setItems(strings);
         sourceSure.setItems(codes);
         materialTypeCode.setItems(strings);
+    }
+
+    public Orders getOrder(Long planCode) {
+        Orders orders = new Orders();
+
+        orders.setDemandPlanCode(planCode);
+        orders.setExpectedSup(expectedSup.getValue().toString());
+        orders.setFixedSup(fixedSup.getValue().toString());
+        orders.setMaterialCode(Long.valueOf(materialCode.getValue().toString()));
+        orders.setMaterialDemandDate(new Date(materialDemandDate.getValue().toEpochDay()));
+        orders.setMaterialDemandMoth(Integer.parseInt(materialDemandMoth.getValue().toString()));
+        orders.setMaterialNum(Integer.parseInt(materialNum.getText()));
+        orders.setMaterialSpe(materialSpe.getText());
+        orders.setMaterialTrackCode(Long.valueOf(materialTrackCode.getText()));
+        orders.setMaterialName(materialName.getText());
+        orders.setMaterialType(materialType.getText());
+        orders.setMaterialTypeName(materialTypeName.getText());
+        orders.setMaterialUnit(materialUnit.getValue().toString());
+        orders.setRemarks(remarks.getText());
+        orders.setSourceSure(Boolean.valueOf(sourceSure.getValue().toString()));
+        orders.setMaterialTypeCode(Integer.parseInt(materialTypeCode.getValue().toString()));
+
+        return orders;
     }
 }
