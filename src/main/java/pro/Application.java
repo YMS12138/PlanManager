@@ -6,10 +6,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pro.controller.ApplicationController;
+import pro.controller.UserEditController;
 import pro.entity.User;
 
 import java.io.IOException;
@@ -18,10 +20,10 @@ import java.io.IOException;
  * 程序主窗口
  */
 public class Application extends javafx.application.Application {
-    public static ApplicationContext ac =new ClassPathXmlApplicationContext("bean.xml");
+    public static ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
     private Stage page;
     private BorderPane root;
-    private User user;
+    public static User user;
     public static Application application;
 
     /**
@@ -205,6 +207,28 @@ public class Application extends javafx.application.Application {
         AnchorPane left = loader1.load();
 
         center.add(left, 0, 2);
+    }
+
+    /**
+     * 打开用户账号编辑面板
+     */
+    public void showUserEdit(User... users) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Application.class.getClassLoader().getResource("pro/view/UserEditDialog.fxml"));
+        AnchorPane load = loader.load();
+
+        if (users.length != 0) {
+            UserEditController controller = loader.getController();
+            System.out.println(users[0]);
+            controller.setUser(users[0]);
+        }
+
+        Stage editor = new Stage();
+        Scene scene = new Scene(load);
+        editor.setScene(scene);
+        editor.initOwner(page);
+        editor.initModality(Modality.WINDOW_MODAL);
+        editor.showAndWait();
     }
 
     public static void main(String[] args) {

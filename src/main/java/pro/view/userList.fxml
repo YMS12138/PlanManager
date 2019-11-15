@@ -42,51 +42,51 @@
                             <children>
                                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="用户名" GridPane.halignment="CENTER">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="用户密码" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="职位" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="所属部门" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="lastNameLable" alignment="CENTER" prefWidth="150.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label fx:id="lastNameLable" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="cityLabel" alignment="CENTER" prefWidth="150.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <Label fx:id="cityLabel" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="postalCodeLabel" alignment="CENTER" prefWidth="150.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <Label fx:id="postalCodeLabel" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="firstNameLable" alignment="CENTER" prefWidth="150.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1">
+                                <Label fx:id="firstNameLable" alignment="CENTER" prefWidth="200.0" style="-fx-background-color: lightgray;" styleClass="label-bright" GridPane.columnIndex="1">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
                         </GridPane>
                         <HBox layoutX="250.0" layoutY="703.0" spacing="15.0" AnchorPane.rightAnchor="35.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="新建" />
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="修改" />
-                                <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="删除" />
+                                <Button mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="100.0" text="新建" />
+                                <Button mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="100.0" text="修改" />
+                                <Button mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="100.0" text="删除" />
                             </children>
                         </HBox>
                     </children>

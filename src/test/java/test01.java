@@ -81,8 +81,10 @@ public class test01 {
 
     @Test
     public void test06() {
-        approval.findAll();
-        System.out.println(approval.findAll());
+        List<Demand> demands = approval.findAll();
+        demands.forEach(demand -> {
+            System.out.println(demand.toString());
+        });
     }
     @Test
     public void test07() {

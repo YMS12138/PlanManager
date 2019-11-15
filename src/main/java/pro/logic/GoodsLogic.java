@@ -1,14 +1,12 @@
 package pro.logic;
 
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import pro.Application;
 import pro.entity.Demand;
 import pro.entity.Orders;
 
 import pro.mapper.IInsertMonth;
-import pro.mapper.IInsertYearAndUrgen;
 import pro.mapper.IOrder;
 import pro.mapper.UDFDeman;
 

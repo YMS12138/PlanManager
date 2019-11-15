@@ -61,13 +61,12 @@ public class UserLogic {
      */
     public void UserLogin(String name, String pwd) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        User user = null;
         IUser iUser = Application.ac.getBean("IUser", IUser.class);
         //用户登录
-        user = iUser.findUser(name, pwd);
-        if (user != null) {
+        Application.user = iUser.findUser(name, pwd);
+        if (Application.user != null) {
             //判断员工职位
-            if (user.getUserJob() == 1) {
+            if (Application.user.getUserJob() == 1) {
                 System.out.println("普通员工");
                 //跳转普通员工页面 return
             } else {
