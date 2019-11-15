@@ -6,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import pro.Application;
 import pro.entity.Demand;
 import pro.logic.ApprovalLogic;
-import pro.mapper.Approval;
 
 import java.util.List;
 

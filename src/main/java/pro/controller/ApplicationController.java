@@ -29,6 +29,7 @@ public class ApplicationController {
     private void showYears() {
         try {
             application.requirement();
+            RequirementController.title.setText("需求计划-年度计划");
             application.showYears();
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,6 +43,7 @@ public class ApplicationController {
     private void showMonth() {
         try {
             application.requirement();
+            RequirementController.title.setText("需求计划-月度计划");
             application.showMonth();
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,6 +57,7 @@ public class ApplicationController {
     private void showUrgent() {
         try {
             application.requirement();
+            RequirementController.title.setText("需求计划-紧急计划");
             application.showUrgent();
         } catch (IOException e) {
             e.printStackTrace();
@@ -92,6 +95,7 @@ public class ApplicationController {
     private void showFindPage() {
         try {
             application.requirement();
+            RequirementController.title.setText("需求计划-需求查询");
             application.showFindPage();
         } catch (IOException e) {
             e.printStackTrace();
@@ -105,6 +109,7 @@ public class ApplicationController {
     private void showApproval() {
         try {
             application.requirement();
+            RequirementController.title.setText("需求计划-需求审核");
             application.showApproval();
         } catch (IOException e) {
             e.printStackTrace();

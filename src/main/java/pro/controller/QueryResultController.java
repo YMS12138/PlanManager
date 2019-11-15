@@ -85,6 +85,7 @@ public class QueryResultController {
     private void showSummary() {
         try {
             Application.application.requirement();
+            RequirementController.title.setText("需求计划-需求计划汇总");
             Application.application.showSummary();
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,12 +20,7 @@
    <children>
       <HBox prefHeight="32.0" prefWidth="383.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="requirementName" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="64.0" text="需求计划-">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Label>
-            <Label fx:id="requirementName1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="54.0" prefWidth="84.0" text="年度计划界面">
+            <Label fx:id="requirementName" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="需求计划">
                <padding>
                   <Insets left="10.0" />
                </padding>

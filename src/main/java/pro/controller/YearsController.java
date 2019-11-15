@@ -11,13 +11,11 @@ import pro.entity.Demand;
 import pro.entity.Orders;
 import pro.logic.GoodsLogic;
 
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * 加载年度计划页面

@@ -9,12 +9,14 @@ import pro.Application;
  */
 public class RequirementController {
 
+    public static Label title;
+
     @FXML
-    private Label requirementName1;
+    private Label requirementName;
 
 
     @FXML
     private void initialize() {
-
+        title = requirementName;
     }
 }

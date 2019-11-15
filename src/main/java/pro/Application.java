@@ -71,10 +71,6 @@ public class Application extends javafx.application.Application {
 
         //设置子页面为父节点（BorderPane）的中心
         root.setCenter(requirement);
-
-        //若需要得到页面的控制器
-        //请使用以下代码
-//        RequirementController controller = loader.getController();
     }
 
     /**

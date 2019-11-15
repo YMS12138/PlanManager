@@ -69,6 +69,7 @@ public class FindAndFixController {
     private void showQueryResult() {
         try {
             Application.application.requirement();
+            RequirementController.title.setText("需求计划-需求查询结果");
             Application.application.showQueryResult();
         } catch (IOException e) {
             e.printStackTrace();
