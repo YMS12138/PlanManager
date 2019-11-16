@@ -27,7 +27,7 @@ public class YearsController {
      * 所有基本信息
      */
     List<InfoController> orders = new ArrayList<>();
-
+    List<Orders> ordersList = new ArrayList<>();
     @FXML
     private VBox vBox;
     /**
@@ -127,9 +127,12 @@ public class YearsController {
         //默认未审批为0 审批中1 审批完2
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
-
         //获取订单信息
-
+        for(int i =0;i<orders.size();i++){
+            ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
+            System.out.println(ordersList.get(i));
+        }
+        goodsLogic.createDemand(demand,ordersList);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");

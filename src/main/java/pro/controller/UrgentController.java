@@ -27,7 +27,7 @@ import java.util.List;
 public class UrgentController {
     ApplicationContext ac = Application.ac;
     List<InfoController> orders = new ArrayList<>();
-
+    List<Orders> ordersList = new ArrayList<>();
     @FXML
     private VBox vBox;
     /**
@@ -126,7 +126,11 @@ public class UrgentController {
         //默认未审批为0 审批中1 审批完2
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
-//
+        for(int i =0;i<orders.size();i++){
+            ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
+            System.out.println(ordersList.get(i));
+        }
+        goodsLogic.createDemand(demand,ordersList);
 
 
 

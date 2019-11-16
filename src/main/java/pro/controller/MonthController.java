@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class MonthController {
     List<InfoController> orders = new ArrayList<>();
-
+    List<Orders> ordersList = new ArrayList<>();
     @FXML
     public VBox vBox;
 
@@ -114,7 +114,11 @@ public class MonthController {
         demand.setDemandMonth(Integer.parseInt(demandMonth.getValue()));
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
-//
+        for(int i =0;i<orders.size();i++){
+            ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
+            System.out.println(ordersList.get(i));
+        }
+        goodsLogic.createDemand(demand,ordersList);
 
 
         // String approva = approval.getText();

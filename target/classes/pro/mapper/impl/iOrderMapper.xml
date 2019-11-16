@@ -2,20 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pro.mapper.IOrder">
-    <insert id="insertOrder" parameterType="pro.entity.Orders">
-		insert into orders
-		(material_typecode,material_typename,material_code,
-		material_name,material_spe,material_type,
-		material_unit,material_num,material_dermandmoth,
-		material_dermanddate,source_sure,expected_sup,
-		fixed_sup,remarks,material_tracode,demand_plancode)
-		values
-		(#{materialTypeCode},#{materialTypeName},#{materialCode},
-		#{materialName},#{materialSpe},#{materialType},
-		#{materialUnit},#{materialNum},#{materialDemandMoth},
-		#{materialDemandDate},#{sourceSure},#{expectedSup},
-		#{fixedSup},#{remarks},#{materialTrackCode},#{demandPlanCode})
-	</insert>
+    <insert id="insertOrders" parameterType="java.util.List">
+        insert into orders
+        (material_typecode,material_typename,material_code,
+        material_name,material_spe,material_type,
+        material_unit,material_num,material_dermandmoth,
+        material_dermanddate,source_sure,expected_sup,
+        fixed_sup,remarks,material_tracode,demand_plancode)
+        values
+        <foreach collection="list" item="orders" separator=",">
+            (#{orders.materialTypeCode},#{orders.materialTypeName},#{orders.materialCode},
+            #{orders.materialName},#{orders.materialSpe},#{orders.materialType},
+            #{orders.materialUnit},#{orders.materialNum},#{orders.materialDemandMoth},
+            #{orders.materialDemandDate},#{orders.sourceSure},#{orders.expectedSup},
+            #{orders.fixedSup},#{orders.remarks},#{orders.materialTrackCode},#{orders.demandPlanCode})
+        </foreach>
+    </insert>
     <select id="findByCode" parameterType="Long" resultMap="resultOrder">
         select * from orders where demand_plancode=#{demandPlanCode}
     </select>

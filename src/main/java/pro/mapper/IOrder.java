@@ -13,8 +13,7 @@ import pro.entity.Orders;
 import java.util.List;
 @Repository
 public interface IOrder {
-    public void insertOrder(Orders order);
-    public void insertOrders(List<Orders> orders);
+    public void insertOrders(List<Orders> ordersList);
     public List<Orders> selectOrderByCode();
     public List<Orders> selectAllOrder();
     public void updateByCode(List<Orders> orders);

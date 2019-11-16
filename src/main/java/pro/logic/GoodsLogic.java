@@ -22,11 +22,11 @@ public class GoodsLogic {
     /**
      * 增，创建一个计划表
      */
-    public void createDemand(Demand demand, Orders orders) {
+    public void createDemand(Demand demand, List<Orders> ordersList) {
         IInsertMonth iInsertMonth = Application.ac.getBean("IInsertMonth", IInsertMonth.class);
         IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
         iInsertMonth.insertMDemand(demand);
-        iOrder.insertOrder(orders);
+        iOrder.insertOrders(ordersList);
         System.out.println("8++++++++++");
     }
 

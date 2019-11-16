@@ -8,6 +8,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import pro.entity.Orders;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -80,14 +82,14 @@ public class InfoController {
         materialTypeCode.setItems(strings);
     }
 
-    public Orders getOrder(Long planCode) {
+    public Orders getOrder(Long planCode) throws ParseException {
         Orders orders = new Orders();
-
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         orders.setDemandPlanCode(planCode);
         orders.setExpectedSup(expectedSup.getValue().toString());
         orders.setFixedSup(fixedSup.getValue().toString());
         orders.setMaterialCode(Long.valueOf(materialCode.getValue().toString()));
-        orders.setMaterialDemandDate(new Date(materialDemandDate.getValue().toEpochDay()));
+        orders.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
         orders.setMaterialDemandMoth(Integer.parseInt(materialDemandMoth.getValue().toString()));
         orders.setMaterialNum(Integer.parseInt(materialNum.getText()));
         orders.setMaterialSpe(materialSpe.getText());
