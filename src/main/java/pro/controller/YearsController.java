@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 加载年度计划页面
@@ -100,6 +101,7 @@ public class YearsController {
         }
         processVBox.getChildren().addAll(processInfo);
 
+        demandPlanCode.setText(String.valueOf(Math.abs(new Random().nextLong()%100000000)));
         demandPlanType.setText("年度计划");
         demandState.setText("未提交");
         approval.setText("未审核");
