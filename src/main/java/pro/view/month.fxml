@@ -137,7 +137,7 @@
                                        <children>
                                           <VBox>
                                              <children>
-                                                <VBox fx:id="vBox" prefWidth="975.0" />
+                                                <VBox fx:id="baseInfo" prefWidth="975.0" />
                                                 <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPane" text="增加">
                                                    <font>
                                                       <Font size="24.0" />

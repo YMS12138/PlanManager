@@ -30,7 +30,7 @@ public class YearsController {
     List<InfoController> orders = new ArrayList<>();
     List<Orders> ordersList = new ArrayList<>();
     @FXML
-    private VBox vBox;
+    private VBox baseInfo;
     /**
      * 需求计划编码
      */
@@ -101,7 +101,7 @@ public class YearsController {
         }
         processVBox.getChildren().addAll(processInfo);
 
-        demandPlanCode.setText(String.valueOf(Math.abs(new Random().nextLong()%100000000)));
+        demandPlanCode.setText(String.valueOf(Math.abs(new Random().nextLong() % 100000000)));
         demandPlanType.setText("年度计划");
         demandState.setText("未提交");
         approval.setText("未审核");
@@ -130,11 +130,11 @@ public class YearsController {
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
         //获取订单信息
-        for(int i =0;i<orders.size();i++){
+        for (int i = 0; i < orders.size(); i++) {
             ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
             System.out.println(ordersList.get(i));
         }
-        goodsLogic.createDemand(demand,ordersList);
+        goodsLogic.createDemand(demand, ordersList);
 
         //调底层逻辑
         //...GoodsLogic logic =  Factory.getBean("");
@@ -202,9 +202,10 @@ public class YearsController {
         GridPane info = loader.load();
 
         InfoController controller = loader.getController();
+        controller.init(info, baseInfo);
         orders.add(controller);
 
-        vBox.getChildren().addAll(info);
+        baseInfo.getChildren().addAll(info);
     }
 
     /**

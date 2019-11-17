@@ -1,11 +1,7 @@
 package pro.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -20,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 紧急计划页面控制器
@@ -29,7 +26,7 @@ public class UrgentController {
     List<InfoController> orders = new ArrayList<>();
     List<Orders> ordersList = new ArrayList<>();
     @FXML
-    private VBox vBox;
+    private VBox baseInfo;
     /**
      * 需求计划编码
      */
@@ -98,6 +95,7 @@ public class UrgentController {
         }
         processVBox.getChildren().addAll(processInfo);
 
+        demandPlanCode.setText(String.valueOf(Math.abs(new Random().nextLong() % 100000000)));
         demandPlanType.setText("紧急计划");
         demandState.setText("未提交");
         approval.setText("未审核");
@@ -219,9 +217,10 @@ public class UrgentController {
         GridPane info = loader.load();
 
         InfoController controller = loader.getController();
+        controller.init(info, baseInfo);
         orders.add(controller);
 
-        vBox.getChildren().addAll(info);
+        baseInfo.getChildren().addAll(info);
     }
 
     /**

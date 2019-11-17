@@ -130,7 +130,7 @@
                                        <children>
                                           <VBox layoutX="0.5" layoutY="0.5" AnchorPane.topAnchor="5.0">
                                              <children>
-                                                <VBox fx:id="vBox" prefWidth="975.0" />
+                                                <VBox fx:id="baseInfo" prefWidth="975.0" />
                                                 <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPane" text="增   加">
                                                    <font>
                                                       <Font size="24.0" />

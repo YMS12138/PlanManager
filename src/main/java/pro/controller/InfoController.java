@@ -3,9 +3,12 @@ package pro.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import pro.entity.Orders;
 
 import java.text.ParseException;
@@ -64,6 +67,9 @@ public class InfoController {
     @FXML
     private TextField materialTrackCode;
 
+    VBox father;
+
+    GridPane me;
 
     /**
      * 给下拉框赋值
@@ -103,5 +109,23 @@ public class InfoController {
         orders.setMaterialTypeCode(Integer.parseInt(materialTypeCode.getValue().toString()));
 
         return orders;
+    }
+
+    /**
+     * 设置父级
+     */
+    public void init(GridPane gridPane, VBox page) {
+        me = gridPane;
+        father = page;
+    }
+
+    /**
+     * 删除一条订单（orders）
+     */
+    @FXML
+    private void deleteOrders() {
+        father.getChildren().remove(me);
+
+        //待填
     }
 }

@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 
 import javafx.scene.control.TextField;
 
@@ -22,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -31,7 +31,7 @@ public class MonthController {
     List<InfoController> orders = new ArrayList<>();
     List<Orders> ordersList = new ArrayList<>();
     @FXML
-    public VBox vBox;
+    public VBox baseInfo;
 
     @FXML
     private ComboBox<String> demandMonth;
@@ -114,33 +114,12 @@ public class MonthController {
         demand.setDemandMonth(Integer.parseInt(demandMonth.getValue()));
         demand.setDemandState(demandState.getText());
         demand.setApproval(approval.getText());
-        for(int i =0;i<orders.size();i++){
+        for (int i = 0; i < orders.size(); i++) {
             ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
             System.out.println(ordersList.get(i));
         }
-        goodsLogic.createDemand(demand,ordersList);
+        goodsLogic.createDemand(demand, ordersList);
 
-
-        // String approva = approval.getText();
-//     获取订单信息
-//        order.setMaterialTypeCode(Integer.parseInt((String) materialTypeCode.getValue()));
-//        order.setMaterialTypeName(materialTypeName.getText());
-//        order.setMaterialCode(Long.parseLong((String) materialCode.getValue()));
-//        order.setMaterialName(materialName.getText());
-//        order.setMaterialSpe(materialSpe.getText());
-//        order.setMaterialType(materialType.getText());
-//        order.setMaterialUnit((String) materialUnit.getValue());
-//        order.setMaterialNum(Integer.parseInt(materialNum.getText()));
-//        order.setMaterialDemandMoth(Integer.parseInt((String) materialDemandMoth.getValue()));
-//        order.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
-//        order.setExpectedSup((String) expectedSup.getValue());
-//        order.setFixedSup((String) fixedSup.getValue());
-//        order.setRemarks(remarks.getText());
-//        order.setMaterialTrackCode(Long.parseLong(materialTrackCode.getText()));
-//        order.setDemandPlanCode(demand.getDemandPlanCode());
-//        System.out.println(order);
-//        goodsLogic.createDemand(demand, order);
-        //System.out.println(demand);
     }
 
     @FXML
@@ -164,13 +143,8 @@ public class MonthController {
 
         ObservableList<String> codes = FXCollections.observableArrayList("1", "2");
         demandMonth.setItems(monthes);
-//        materialCode.setItems(monthes);
-//        materialUnit.setItems(monthes);
-//        expectedSup.setItems(monthes);
-//        fixedSup.setItems(monthes);
-//        materialDemandMoth.setItems(monthes);
-//        sourceSure.setItems(codes);
-//        materialTypeCode.setItems(monthes);
+
+        demandPlanCode.setText(String.valueOf(Math.abs(new Random().nextLong() % 100000000)));
         demandPlanType.setText("月度计划");
         demandState.setText("未提交");
         approval.setText("未审核");
@@ -188,9 +162,10 @@ public class MonthController {
         GridPane info = loader.load();
 
         InfoController controller = loader.getController();
+        controller.init(info, baseInfo);
         orders.add(controller);
 
-        vBox.getChildren().addAll(info);
+        baseInfo.getChildren().addAll(info);
     }
 
     /**
