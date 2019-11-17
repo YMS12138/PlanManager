@@ -1,5 +1,6 @@
 package pro.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -40,6 +41,7 @@ public class ApplicationController {
         userManager.setDisable(true);
         approvalItem.setDisable(true);
 
+
         //权限管理线程
         ExecutorService executorService = new ThreadPoolExecutor(2, 2,
                 0, TimeUnit.SECONDS,
@@ -60,8 +62,11 @@ public class ApplicationController {
                         menuBar.setDisable(false);
                     }
                     if (RequirementController.userInfo != null) {
-                        RequirementController.userInfo.setText(Application.user.getUserName()
-                                + "(" + (Application.user.getUserJob() == 1 ? "管理员" : "普通用户") + ")");
+                        //Platform.runLater : 子线程不能直接对FX线程的信息更新，需要以这种方法解决
+                        Platform.runLater(() -> {
+                            RequirementController.userInfo.setText(Application.user.getUserName()
+                                    + "(" + (Application.user.getUserJob() == 2 ? "管理员" : "普通用户") + ")");
+                        });
                     }
 
                     //管理员

@@ -90,4 +90,12 @@ public class PrintAndExportController {
         materialDemandDate.setCellValueFactory(new PropertyValueFactory<>("materialDemandDate"));
         remarks.setCellValueFactory(new PropertyValueFactory<>("remarks"));
     }
+
+    /**
+     * 返回上一个页面
+     */
+    @FXML
+    private void goBack() {
+
+    }
 }
