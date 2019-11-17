@@ -10,6 +10,10 @@ import pro.Application;
 public class RequirementController {
 
     public static Label title;
+    public static Label userInfo;
+
+    @FXML
+    public Label user;
 
     @FXML
     private Label requirementName;
@@ -18,5 +22,8 @@ public class RequirementController {
     @FXML
     private void initialize() {
         title = requirementName;
+        userInfo = user;
+
+        user.setText(Application.user.getUserName()+"("+ Application.user.getUserJob() + ")");
     }
 }

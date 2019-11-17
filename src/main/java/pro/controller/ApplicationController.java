@@ -1,7 +1,7 @@
 package pro.controller;
 
 import javafx.fxml.FXML;
-import org.springframework.stereotype.Component;
+import javafx.scene.control.MenuBar;
 import org.springframework.stereotype.Controller;
 import pro.Application;
 
@@ -16,6 +16,36 @@ public class ApplicationController {
      * 程序窗口对象
      */
     private Application application;
+
+
+    public MenuBar menuBar;
+
+
+    @FXML
+    private void initialize() {
+        //权限管理线程
+        Thread authrity = new Thread(() -> {
+            while (true) {
+                if (Application.user == null && !menuBar.isDisable()) {
+                    menuBar.setDisable(true);
+                } else if (Application.user != null && menuBar.isDisable()) {
+                    menuBar.setDisable(false);
+                    System.out.println("译运行");
+                    if (RequirementController.userInfo!=null){
+                        RequirementController.userInfo.setText(Application.user.getUserName()+"("+ Application.user.getUserJob() + ")");
+                    }
+                }
+
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        authrity.setName("authrity");
+        authrity.start();
+    }
 
     public void setApplication(Application application) {
         this.application = application;

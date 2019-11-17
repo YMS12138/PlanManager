@@ -27,6 +27,11 @@ public class Application extends javafx.application.Application {
     public static Application application;
 
     /**
+     * 页面
+     */
+
+
+    /**
      * 窗口框架
      *
      * @param primaryStage
@@ -42,11 +47,21 @@ public class Application extends javafx.application.Application {
         application = this;
 
         page.setResizable(false);
+        //设置退出事件
+        page.setOnCloseRequest(event -> {
+            ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+            try {
+                //退出系统（主线程）
+                System.exit(0);
+                //中断所有线程
+                threadGroup.interrupt();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
 
         page.setTitle("智能制造协同共享平台");
         page.setScene(new Scene(root));
-
-        requirement();
 
         showLogin();
 
