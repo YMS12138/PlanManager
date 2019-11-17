@@ -62,16 +62,15 @@
             </HBox>
          </children>
       </Pane>
-      <TableView fx:id="tableView" layoutY="180.0" prefHeight="545.0" prefWidth="1000.0">
+      <TableView fx:id="tableView" layoutY="180.0" prefHeight="545.0" prefWidth="1000.0" stylesheets="@css/table_view.css">
         <columns>
-          <TableColumn fx:id="id" prefWidth="120.0" text="行号" />
-          <TableColumn prefWidth="100.0" text="选择" />
-            <TableColumn fx:id="planCode" prefWidth="150.0" text="需求计划编号" />
-            <TableColumn fx:id="planType" prefWidth="120.0" text="需求计划类型" />
-            <TableColumn fx:id="approval" prefWidth="120.0" text="审批状态" />
-            <TableColumn fx:id="demandState" prefWidth="120.0" text="需求计划状态" />
-            <TableColumn fx:id="department" prefWidth="120.0" text="需求部门" />
-            <TableColumn fx:id="month" prefWidth="150.0" text="需求计划月份" />
+          <TableColumn fx:id="id" prefWidth="100.0" text="行号" />
+            <TableColumn fx:id="planCode" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="需求计划编号" />
+            <TableColumn fx:id="planType" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="需求计划类型" />
+            <TableColumn fx:id="approval" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="审批状态" />
+            <TableColumn fx:id="demandState" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="需求计划状态" />
+            <TableColumn fx:id="department" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="需求部门" />
+            <TableColumn fx:id="month" maxWidth="1.7976931348623157E308" prefWidth="130.0" text="需求计划月份" />
         </columns>
       </TableView>
    </children>

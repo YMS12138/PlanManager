@@ -1,14 +1,23 @@
 package pro.controller;
 
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableIntegerValue;
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
+import pro.Application;
 import pro.entity.Demand;
 import pro.logic.ApprovalLogic;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,7 +31,7 @@ public class ApprovalController {
     private TableView<Demand> tableView;
 
     @FXML
-    private TableColumn<ObservableList, Integer> id;
+    private TableColumn<Demand, String> id;
     @FXML
     private TableColumn<Demand, Long> planCode;
     @FXML
@@ -35,6 +44,8 @@ public class ApprovalController {
     private TableColumn<Demand, String> department;
     @FXML
     private TableColumn<Demand, Integer> month;
+    @FXML
+    private Label approvalNum;
 
     /**
      * 初始化
@@ -55,5 +66,45 @@ public class ApprovalController {
         department.setCellValueFactory(new PropertyValueFactory<>("demandDepartment"));
         month.setCellValueFactory(new PropertyValueFactory<>("demandMonth"));
 
+        //设置行号（动态值）
+        id.setCellFactory((col) -> {
+            TableCell<Demand, String> cell = new TableCell<Demand, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+
+                    if (!empty) {
+                        int rowIndex = this.getIndex() + 1;
+                        this.setText(String.valueOf(rowIndex));
+                    }
+                }
+            };
+            return cell;
+        });
+        //此列不可以被拖动
+        id.impl_setReorderable(false);
+
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        //添加选择监听
+        Application.executorService.execute(() -> {
+            while (true) {
+                //已选择数
+                int size = tableView.getSelectionModel().getSelectedItems().size();
+                if (size != Integer.valueOf(approvalNum.getText())) {
+                    Platform.runLater(() -> {
+                        approvalNum.setText(String.valueOf(size));
+                    });
+                }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

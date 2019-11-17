@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -34,7 +32,7 @@ public class QueryResultController {
     private TableView<Demand> tableView;
 
     @FXML
-    private TableColumn<ObservableList, Integer> id;
+    private TableColumn<Demand, String> id;
     @FXML
     private TableColumn<Demand, Long> planCode;
     @FXML
@@ -67,6 +65,28 @@ public class QueryResultController {
         demandState.setCellValueFactory(new PropertyValueFactory<>("demandState"));
         department.setCellValueFactory(new PropertyValueFactory<>("demandDepartment"));
         month.setCellValueFactory(new PropertyValueFactory<>("demandMonth"));
+
+        //设置行号（动态值）
+        id.setCellFactory((col) -> {
+            TableCell<Demand, String> cell = new TableCell<Demand, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+
+                    if (!empty) {
+                        int rowIndex = this.getIndex() + 1;
+                        this.setText(String.valueOf(rowIndex));
+                    }
+                }
+            };
+            return cell;
+        });
+        //此列不可以被拖动
+        id.impl_setReorderable(false);
+
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     /**

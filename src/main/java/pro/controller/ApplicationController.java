@@ -41,14 +41,8 @@ public class ApplicationController {
         userManager.setDisable(true);
         approvalItem.setDisable(true);
 
-
         //权限管理线程
-        ExecutorService executorService = new ThreadPoolExecutor(2, 2,
-                0, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(10),
-                new ThreadPoolExecutor.DiscardPolicy());
-
-        executorService.execute(() -> {
+        Application.executorService.execute(() -> {
             while (true) {
                 if (Application.user == null) {
                     //未登录
@@ -90,7 +84,7 @@ public class ApplicationController {
                 }
 
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

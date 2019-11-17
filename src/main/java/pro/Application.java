@@ -1,7 +1,10 @@
 package pro;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -15,6 +18,7 @@ import pro.controller.UserEditController;
 import pro.entity.User;
 
 import java.io.IOException;
+import java.util.concurrent.*;
 
 /**
  * 程序主窗口
@@ -27,8 +31,12 @@ public class Application extends javafx.application.Application {
     public static Application application;
 
     /**
-     * 页面
+     * 线程池
      */
+    public static ExecutorService executorService = new ThreadPoolExecutor(2, 2,
+            0, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(512),
+            new ThreadPoolExecutor.DiscardPolicy());
 
 
     /**
@@ -55,7 +63,7 @@ public class Application extends javafx.application.Application {
                 System.exit(0);
                 //中断所有线程
                 threadGroup.interrupt();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
@@ -77,6 +85,7 @@ public class Application extends javafx.application.Application {
      * @throws IOException
      */
     public void requirement() throws IOException {
+
         //创建加载器
         FXMLLoader loader = new FXMLLoader();
         //设置加载器所加载的文件
