@@ -2,10 +2,12 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import org.springframework.stereotype.Controller;
 import pro.Application;
 
 import java.io.IOException;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 主窗口
@@ -18,21 +20,50 @@ public class ApplicationController {
     private Application application;
 
 
-    public MenuBar menuBar;
+    /**
+     * 菜单栏
+     */
+    @FXML
+    private MenuBar menuBar;
 
+    /**
+     *
+     */
+    @FXML
+    private MenuItem userManager;
+    @FXML
+    private MenuItem approvalItem;
 
     @FXML
     private void initialize() {
+
+        userManager.setDisable(true);
+        approvalItem.setDisable(true);
+
         //权限管理线程
         Thread authrity = new Thread(() -> {
             while (true) {
                 if (Application.user == null && !menuBar.isDisable()) {
+                    //未登录
                     menuBar.setDisable(true);
-                } else if (Application.user != null && menuBar.isDisable()) {
+                } else {
+                    //已登录
                     menuBar.setDisable(false);
-                    System.out.println("译运行");
-                    if (RequirementController.userInfo!=null){
-                        RequirementController.userInfo.setText(Application.user.getUserName()+"("+ Application.user.getUserJob() + ")");
+                    if (RequirementController.userInfo != null) {
+                        RequirementController.userInfo.setText(Application.user.getUserName()
+                                + "(" + (Application.user.getUserJob() == 1 ? "管理员" : "普通用户") + ")");
+                    }
+
+                    if (Application.user != null) {
+                        //管理员
+                        if (Application.user.getUserJob() == 2) {
+                            userManager.setDisable(false);
+                            approvalItem.setDisable(false);
+                        } else {
+                            //普通用户
+                            userManager.setDisable(true);
+                            approvalItem.setDisable(true);
+                        }
                     }
                 }
 
@@ -43,7 +74,8 @@ public class ApplicationController {
                 }
             }
         });
-        authrity.setName("authrity");
+
+        authrity.setName("authrityThread");
         authrity.start();
     }
 
