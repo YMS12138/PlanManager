@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import pro.Application;
 
 import java.io.IOException;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * 主窗口
@@ -27,7 +27,7 @@ public class ApplicationController {
     private MenuBar menuBar;
 
     /**
-     *
+     * 管理员操作
      */
     @FXML
     private MenuItem userManager;
@@ -41,30 +41,47 @@ public class ApplicationController {
         approvalItem.setDisable(true);
 
         //权限管理线程
-        Thread authrity = new Thread(() -> {
+        ExecutorService executorService = new ThreadPoolExecutor(2, 2,
+                0, TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10),
+                new ThreadPoolExecutor.DiscardPolicy());
+
+        executorService.execute(() -> {
             while (true) {
-                if (Application.user == null && !menuBar.isDisable()) {
+                if (Application.user == null) {
                     //未登录
-                    menuBar.setDisable(true);
+                    if (!menuBar.isDisable()) {
+                        menuBar.setDisable(true);
+                    }
                 } else {
                     //已登录
-                    menuBar.setDisable(false);
+                    if (menuBar.isDisable()) {
+                        //如果是隐藏的，才设置为不隐藏
+                        menuBar.setDisable(false);
+                    }
                     if (RequirementController.userInfo != null) {
                         RequirementController.userInfo.setText(Application.user.getUserName()
                                 + "(" + (Application.user.getUserJob() == 1 ? "管理员" : "普通用户") + ")");
                     }
 
-                    if (Application.user != null) {
-                        //管理员
-                        if (Application.user.getUserJob() == 2) {
+                    //管理员
+                    if (Application.user.getUserJob() == 2) {
+                        if (userManager.isDisable()) {
                             userManager.setDisable(false);
+                        }
+                        if (approvalItem.isDisable()) {
                             approvalItem.setDisable(false);
-                        } else {
-                            //普通用户
-                            userManager.setDisable(true);
-                            approvalItem.setDisable(true);
+                        }
+                    } else if (!userManager.isDisable()) {
+                        //普通用户
+                        if (!userManager.isDisable()) {
+                            userManager.setDisable(false);
+                        }
+                        if (!approvalItem.isDisable()) {
+                            approvalItem.setDisable(false);
                         }
                     }
+
                 }
 
                 try {
@@ -74,9 +91,6 @@ public class ApplicationController {
                 }
             }
         });
-
-        authrity.setName("authrityThread");
-        authrity.start();
     }
 
     public void setApplication(Application application) {
@@ -176,10 +190,5 @@ public class ApplicationController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void exit() {
-        System.exit(0);
     }
 }
