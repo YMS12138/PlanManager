@@ -5,6 +5,12 @@
     <select id="findAll" resultMap="resultDept">
         select * from demand
     </select>
+    <select id="findByStatus1" resultMap="resultDept">
+       select * from demand where approval_status="已审核";
+    </select>
+    <select id="findByStatus2" resultMap="resultDept">
+        select * from demand where approval_status="未审核"
+    </select>
     <resultMap id="resultDept" type="pro.entity.Demand">
         <id property="demandPlanCode" column="demand_plancode" javaType="Long"/>
         <result property="demandPlanType" column="demand_plantype" javaType="String"/>

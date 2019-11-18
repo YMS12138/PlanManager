@@ -14,8 +14,15 @@ public class User {
     Integer userJob;//员工职位
     String department;//员工部门
 
-
     public User() {
+    }
+
+    public User(Long id, String userName, String userPwd, Integer userJob, String department) {
+        this.id = id;
+        this.userName = userName;
+        this.userPwd = userPwd;
+        this.userJob = userJob;
+        this.department = department;
     }
 
     public Long getId() {

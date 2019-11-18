@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 public class ApprovalLogic {
 
+
     /* @Autowired
      Approval approval;
      */
@@ -23,4 +24,17 @@ public class ApprovalLogic {
         return list;
     }
 
+    //已审核
+    public List<Demand> findByStatus1() {
+        Approval approval = Application.ac.getBean("approval", Approval.class);
+        List<Demand> list = approval.findByStatus1();
+        return list;
+    }
+
+    //未审核
+    public List<Demand> findByStatus2() {
+        Approval approval = Application.ac.getBean("approval", Approval.class);
+        List<Demand> list = approval.findByStatus2();
+        return list;
+    }
 }

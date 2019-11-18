@@ -29,7 +29,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <Button fx:id="approval" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#test1" prefWidth="200.0" style="-fx-background-color: none;" text="待审批需求计划" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="approval" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#test1" prefWidth="200.0" style="-fx-background-color: none;" text="已审批需求计划" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <font>
                   <Font size="22.0" />
                </font>
