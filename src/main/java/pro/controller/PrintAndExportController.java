@@ -10,10 +10,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import pro.Application;
 import pro.entity.Orders;
 import pro.logic.GoodsLogic;
 
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
@@ -92,10 +94,16 @@ public class PrintAndExportController {
     }
 
     /**
-     * 返回上一个页面
+     * 返回上一个页面,
      */
     @FXML
     private void goBack() {
-
+        try {
+            Application.application.requirement();
+            RequirementController.title.setText("需求计划-需求查询结果");
+            Application.application.showQueryResult();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

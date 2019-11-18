@@ -45,7 +45,7 @@
             <Insets left="10.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="user" maxHeight="1.7976931348623157E308" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label fx:id="user" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="90.0" />
          </GridPane.margin>
