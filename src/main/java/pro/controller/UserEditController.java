@@ -2,14 +2,18 @@ package pro.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import pro.Application;
 import pro.entity.User;
+import pro.logic.UserLogic;
 
 /**
  * 用户编辑弹窗
  */
 public class UserEditController {
 
-    User user;
+    User user = Application.ac.getBean("user", User.class);
+    UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
+
 
     @FXML
     private TextField id;
@@ -35,6 +39,12 @@ public class UserEditController {
      */
     @FXML
     private void save() {
+        user.setId(Long.valueOf(id.getText()));
+        user.setUserName(userName.getText());
+        user.setUserPwd(userPwd.getText());
+        user.setUserJob(Integer.valueOf(userJob.getText()));
+        user.setDepartment(department.getText());
+        userLogic.insert(user);
 
     }
 

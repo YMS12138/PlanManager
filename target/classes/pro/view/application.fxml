@@ -13,8 +13,7 @@
           <Menu mnemonicParsing="false" text="系统">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showLogin" text="切换用户" />
-                  <MenuItem mnemonicParsing="false" onAction="#showUserList" text="管理用户" />
-                  <MenuItem mnemonicParsing="false" text="退出" />
+                  <MenuItem fx:id="userManager" mnemonicParsing="false" onAction="#showUserList" text="管理用户" />
                </items></Menu>
             <Menu mnemonicParsing="false" text="需求计划">
               <items>
@@ -26,7 +25,7 @@
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#showFindPage" text="查询/修改" />
-                  <MenuItem mnemonicParsing="false" onAction="#showApproval" text="审批" />
+                  <MenuItem fx:id="approvalItem" mnemonicParsing="false" onAction="#showApproval" text="审批" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="采购计划">

@@ -28,6 +28,8 @@ public class UserLogic {
      * 增加用户
      */
     public void insert(User user) {
+        IUser iUser = Application.ac.getBean("IUser", IUser.class);
+        iUser.insertU(user);
     }
 
     ;
@@ -35,13 +37,17 @@ public class UserLogic {
     /**
      * 删除用户
      */
-    public void delete() {
+    public void delete(Long id) {
+        IUser iUser = Application.ac.getBean("IUser", IUser.class);
+        iUser.deleteU(id);
     }
 
     /**
      * 更改用户 参数自己填
      */
-    public void update() {
+    public void update(User user,Long id) {
+        IUser iUser = Application.ac.getBean("IUser", IUser.class);
+        iUser.updateU(user,id);
     }
 
     /**

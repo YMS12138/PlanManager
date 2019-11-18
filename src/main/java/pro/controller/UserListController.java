@@ -106,6 +106,14 @@ public class UserListController {
         //打开编辑面板
         try {
             Application.application.showUserEdit(selectedItem);
+            User user = Application.ac.getBean("user", User.class);
+            UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
+            user.setId(Long.valueOf(selectedItem.getId()));
+            user.setUserName(selectedItem.getUserName());
+            user.setUserPwd(selectedItem.getUserPwd());
+            user.setUserJob(Integer.valueOf(selectedItem.getUserJob()));
+            user.setDepartment(selectedItem.getDepartment());
+            userLogic.update(user,selectedItem.getId());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -124,6 +132,9 @@ public class UserListController {
             alert.setContentText("未选中");
             alert.showAndWait();
             return;
+        }else {
+            UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
+            userLogic.delete(selectedItem.getId());
         }
 
         //TODO:从数据库中删除 selectedItem

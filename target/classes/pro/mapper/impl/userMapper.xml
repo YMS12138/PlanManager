@@ -5,13 +5,32 @@
     <select id="findAll" resultMap="resultDept">
         select * from user
     </select>
+    <insert id="insertU" parameterType="pro.entity.User">
+		insert into
+		user
+		(id,user_name,user_pwd,
+		user_job,department)
+		values
+		(#{id},#{userName},#{userPwd},
+		#{userJob},#{department})
+	</insert>
+    <update id="updateU" parameterType="pro.entity.User">
+		update user
+		set
+            id=#{id},user_name=#{userName},user_pwd=#{userPwd},
+            user_job=#{userJob}, department=#{department}
+        where id = #{id}
+	</update>
+    <delete id="deleteU" parameterType="Long">
+		delete from user where id = #{id}
+	</delete>
     <!--Long id;//员工工号-->
     <!--String userName;//员工姓名-->
     <!--String userPwd;//员工密码-->
     <!--int userJob;//员工职位-->
     <!--String department;//员工部门-->
     <resultMap id="resultDept" type="pro.entity.User">
-        <!-- <id property="id" column="id" javaType="Long"></id>-->
+        <id property="id" column="id" javaType="Long"></id>
         <result property="userName" column="user_name" javaType="String"></result>
         <result property="userPwd" column="user_pwd" javaType="String"></result>
         <result property="userJob" column="user_job" javaType="int"></result>

@@ -1,8 +1,11 @@
 package pro.entity;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * 系统用户
  */
+@Repository
 public class User {
 
     Long id;//员工工号*/

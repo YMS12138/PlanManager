@@ -13,6 +13,9 @@ import java.util.List;
 public interface IUser {
     //查询所有用户
     public List<User> findAll();
+    public void insertU(User user);
+    public void updateU(User user,Long id);
+    public void deleteU(Long id);
 
     //查询用户是否存在
     @Select("select id id,user_name userName,user_pwd userPwd,user_job userJob,department department  from user where user_name=#{arg0} and user_pwd = #{arg1}")
