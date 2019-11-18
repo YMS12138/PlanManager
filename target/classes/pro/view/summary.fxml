@@ -32,7 +32,7 @@
                   <VBox fx:id="infoPane" />
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" prefWidth="80.0" text="返  回" GridPane.halignment="RIGHT">
+            <Button mnemonicParsing="false" onAction="#goBack" prefWidth="80.0" text="返  回" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
