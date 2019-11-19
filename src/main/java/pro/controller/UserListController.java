@@ -128,6 +128,11 @@ public class UserListController {
         User selectedItem = personTable.getSelectionModel().getSelectedItem();
 
         if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("未选中");
+            alert.showAndWait();
+            return;
+        } else {
             //张三（此管理员不可以删除）
             if (selectedItem.getId() == 2) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -135,11 +140,6 @@ public class UserListController {
                 alert.showAndWait();
                 return;
             }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("未选中");
-            alert.showAndWait();
-            return;
-        } else {
             UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
             userLogic.delete(selectedItem.getId());
         }

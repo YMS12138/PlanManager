@@ -84,6 +84,10 @@ public class ApprovalController {
         //添加选择监听
         Application.executorService.execute(() -> {
             while (true) {
+                if (tableView.getScene() == null){
+                    return;
+                }
+
                 //已选择数
                 int size = tableView.getSelectionModel().getSelectedItems().size();
                 if (size != Integer.valueOf(approvalNum.getText())) {
@@ -100,6 +104,8 @@ public class ApprovalController {
             }
         });
     }
+
+
 
     public static void setDemands(List<Demand> demands) {
         ApprovalController.demands.setAll(demands);
