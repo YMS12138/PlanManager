@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ApprovalController {
 
-    ObservableList<Demand> demands = FXCollections.observableArrayList();
+    public static ObservableList<Demand> demands = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Demand> tableView;
@@ -106,5 +106,9 @@ public class ApprovalController {
                 }
             }
         });
+    }
+
+    public static void setDemands(List<Demand> demands) {
+        ApprovalController.demands.setAll(demands);
     }
 }

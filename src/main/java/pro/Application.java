@@ -238,16 +238,18 @@ public class Application extends javafx.application.Application {
      * 打开用户账号编辑面板
      */
     public void showUserEdit(User... users) throws IOException {
+        Stage editor = new Stage();
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/UserEditDialog.fxml"));
         AnchorPane load = loader.load();
 
+        UserEditController controller = loader.getController();
         if (users.length != 0) {
-            UserEditController controller = loader.getController();
             controller.setUser(users[0]);
         }
+        controller.init(editor);
 
-        Stage editor = new Stage();
         Scene scene = new Scene(load);
         editor.setScene(scene);
         editor.initOwner(page);

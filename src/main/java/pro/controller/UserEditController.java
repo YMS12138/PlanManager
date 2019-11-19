@@ -1,15 +1,23 @@
 package pro.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import pro.Application;
 import pro.entity.User;
 import pro.logic.UserLogic;
+
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Date;
+import java.util.Random;
 
 /**
  * 用户编辑弹窗
  */
 public class UserEditController {
+    Stage me;
 
     User user = Application.ac.getBean("user", User.class);
     UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
@@ -32,6 +40,14 @@ public class UserEditController {
     @FXML
     private void initialize() {
 
+        /**
+         * id 生成
+         * 共11位, 由当前时间生成(年4, 月2, 日2, 毫秒3)
+         */
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddSSS");
+        String format1 = format.format(date);
+        id.setText(format1);
     }
 
     /**
@@ -39,13 +55,30 @@ public class UserEditController {
      */
     @FXML
     private void save() {
+        //检查数据合法性
+        if (!check()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("您的输入有误！");
+            alert.showAndWait();
+            return;
+        }
+
         user.setId(Long.valueOf(id.getText()));
         user.setUserName(userName.getText());
         user.setUserPwd(userPwd.getText());
         user.setUserJob(Integer.valueOf(userJob.getText()));
         user.setDepartment(department.getText());
+
+
+        //数据库数据更新
+        userLogic.delete(user.getId());
         userLogic.insert(user);
 
+        //UI视图数据更新
+        UserListController.updateUsers();
+
+        //关闭编辑框（当前窗口）
+        me.close();
     }
 
     /**
@@ -53,7 +86,39 @@ public class UserEditController {
      */
     @FXML
     private void cancel() {
+        me.close();
+    }
 
+    public void init(Stage page) {
+        me = page;
+    }
+
+    /**
+     * 校验输入框内的信息是否正确
+     *
+     * @return
+     */
+    private boolean check() {
+        String userName = this.userName.getText().replace(" ", "");
+        String userPwd = this.userPwd.getText().replace(" ", "");
+        String userJob = this.userJob.getText().replace(" ", "");
+        String department = this.department.getText().replace(" ", "");
+
+        if ("".equals(userName)) {
+            this.userName.setText(userName);
+            return false;
+        } else if ("".equals(userPwd)) {
+            this.userPwd.setText(userPwd);
+            return false;
+        } else if ("".equals(userJob)) {
+            this.userJob.setText(userJob);
+            return false;
+        } else if ("".equals(department)) {
+            this.department.setText(department);
+            return false;
+        }
+
+        return true;
     }
 
 

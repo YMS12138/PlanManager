@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class UserListController {
 
-    UserLogic userLogic;
-    ObservableList<User> user = FXCollections.observableArrayList();
+    static UserLogic userLogic;
+    static ObservableList<User> user = FXCollections.observableArrayList();
     @FXML
     private TableView<User> personTable;
 
@@ -50,7 +50,7 @@ public class UserListController {
         users = userLogic.findAll();
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
-        user.addAll(users);
+        user.setAll(users);
         showDetail(null);
 
         personTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showDetail(newValue));
@@ -113,7 +113,7 @@ public class UserListController {
             user.setUserPwd(selectedItem.getUserPwd());
             user.setUserJob(Integer.valueOf(selectedItem.getUserJob()));
             user.setDepartment(selectedItem.getDepartment());
-            userLogic.update(user,selectedItem.getId());
+//            userLogic.update(user, selectedItem.getId());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -132,12 +132,18 @@ public class UserListController {
             alert.setContentText("未选中");
             alert.showAndWait();
             return;
-        }else {
+        } else {
             UserLogic userLogic = Application.ac.getBean("userLogic", UserLogic.class);
             userLogic.delete(selectedItem.getId());
         }
 
-        //TODO:从数据库中删除 selectedItem
-        //...
+        updateUsers();
+    }
+
+    /**
+     * 更新tableView
+     */
+    public static void updateUsers() {
+        UserListController.user.setAll(userLogic.findAll());
     }
 }

@@ -67,7 +67,7 @@ public class QueryResultController {
         month.setCellValueFactory(new PropertyValueFactory<>("demandMonth"));
 
         //设置行号（动态值）
-        id.setCellFactory((col) -> {
+        id.setCellFactory(param -> {
             TableCell<Demand, String> cell = new TableCell<Demand, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
