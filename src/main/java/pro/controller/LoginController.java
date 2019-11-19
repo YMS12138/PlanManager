@@ -51,7 +51,7 @@ public class LoginController {
         }
 
         //跳转页面
-        if (Application.user.getUserJob() == 1) {
+        if (Application.user.getUserJob() == 2) {
             //管理员进审批页面
             try {
                 Application.application.requirement();
@@ -64,7 +64,7 @@ public class LoginController {
             //其他用户进新建需求页面
             try {
                 Application.application.requirement();
-                RequirementController.title.setText("需求计划-需求审核");
+                RequirementController.title.setText("需求计划-年度计划");
                 Application.application.showYears();
             } catch (IOException e) {
                 e.printStackTrace();
