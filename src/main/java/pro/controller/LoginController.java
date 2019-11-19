@@ -40,8 +40,8 @@ public class LoginController {
      */
     @FXML
     public void login() {
-        String name = username.getText();
-        String pwd = password.getText();
+        String name = username.getText().replace(" ","");
+        String pwd = password.getText().replace(" ","");
         System.out.println(name);
         System.out.println(pwd);
         u.UserLogin(name, pwd);

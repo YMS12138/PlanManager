@@ -1,7 +1,10 @@
 package pro.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import pro.Application;
@@ -30,7 +33,7 @@ public class UserEditController {
     @FXML
     private TextField userPwd;
     @FXML
-    private TextField userJob;
+    private ComboBox<String> userJob;
     @FXML
     private TextField department;
 
@@ -48,6 +51,10 @@ public class UserEditController {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddSSS");
         String format1 = format.format(date);
         id.setText(format1);
+
+        //身份管理
+        ObservableList<String> jobs = FXCollections.observableArrayList("管理员", "普通用户");
+        userJob.setItems(jobs);
     }
 
     /**
@@ -66,7 +73,7 @@ public class UserEditController {
         user.setId(Long.valueOf(id.getText()));
         user.setUserName(userName.getText());
         user.setUserPwd(userPwd.getText());
-        user.setUserJob(Integer.valueOf(userJob.getText()));
+        user.setUserJob(userJob.getValue().equals("管理员") ? 2 : 1);
         user.setDepartment(department.getText());
 
 
@@ -101,7 +108,6 @@ public class UserEditController {
     private boolean check() {
         String userName = this.userName.getText().replace(" ", "");
         String userPwd = this.userPwd.getText().replace(" ", "");
-        String userJob = this.userJob.getText().replace(" ", "");
         String department = this.department.getText().replace(" ", "");
 
         if ("".equals(userName)) {
@@ -109,9 +115,6 @@ public class UserEditController {
             return false;
         } else if ("".equals(userPwd)) {
             this.userPwd.setText(userPwd);
-            return false;
-        } else if ("".equals(userJob)) {
-            this.userJob.setText(userJob);
             return false;
         } else if ("".equals(department)) {
             this.department.setText(department);
@@ -126,7 +129,7 @@ public class UserEditController {
         user.setId(Long.valueOf(id.getText()));
         user.setUserName(userName.getText());
         user.setUserPwd(userPwd.getText());
-        user.setUserJob(Integer.valueOf(userJob.getText()));
+        user.setUserJob(Integer.valueOf(userJob.getValue()));
         user.setDepartment(department.getText());
         return user;
     }
@@ -137,7 +140,7 @@ public class UserEditController {
         id.setText(String.valueOf(user.getId()));
         userName.setText(String.valueOf(user.getUserName()));
         userPwd.setText(String.valueOf(user.getUserPwd()));
-        userJob.setText(String.valueOf(user.getUserJob()));
+        userJob.setValue(user.getUserJob() == 1 ? "普通用户" : "管理员");
         department.setText(user.getDepartment());
     }
 }
