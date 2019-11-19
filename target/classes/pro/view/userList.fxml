@@ -17,7 +17,7 @@
     <children>
         <SplitPane dividerPositions="0.3789649415692821" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
-                <TableView fx:id="personTable" maxWidth="450.0" minWidth="450.0" prefHeight="788.0" prefWidth="450.0">
+                <TableView fx:id="personTable" maxWidth="450.0" minWidth="450.0" prefHeight="788.0" prefWidth="450.0" stylesheets="@css/table_view.css">
                     <columns>
                         <TableColumn fx:id="firstNameColumn" prefWidth="202.0" text="用户名" />
                         <TableColumn fx:id="lastNameColumn" prefWidth="247.0" text="部门" />

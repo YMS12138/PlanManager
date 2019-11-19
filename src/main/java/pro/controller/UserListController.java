@@ -127,15 +127,14 @@ public class UserListController {
         //获取当前选中的用户
         User selectedItem = personTable.getSelectionModel().getSelectedItem();
 
-        //张三（此管理员不可以删除）
-        if (selectedItem.getId()==2){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("此管理员不可以删除！");
-            alert.showAndWait();
-            return ;
-        }
-
         if (selectedItem == null) {
+            //张三（此管理员不可以删除）
+            if (selectedItem.getId() == 2) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("此管理员不可以删除！");
+                alert.showAndWait();
+                return;
+            }
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("未选中");
             alert.showAndWait();
