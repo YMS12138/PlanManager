@@ -92,7 +92,7 @@ public class InfoController {
         Orders orders = new Orders();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         orders.setDemandPlanCode(planCode);
-        orders.setExpectedSup(expectedSup.getValue().toString());
+        orders.setExpectedSup((String) expectedSup.getValue());
         orders.setFixedSup(fixedSup.getValue().toString());
         orders.setMaterialCode(Long.valueOf(materialCode.getValue().toString()));
         orders.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));

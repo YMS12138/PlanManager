@@ -30,8 +30,7 @@ public class test01 {
     IInsertYearAndUrgen iInsertYearAndUrgen;
     @Autowired
     UDFDeman udfDeman;
-    @Autowired
-    Approval approval;
+
 
     @Test
     public void test01() {
@@ -81,10 +80,10 @@ public class test01 {
 
     @Test
     public void test06() {
-        List<Demand> demands = approval.findAll();
-        demands.forEach(demand -> {
-            System.out.println(demand.toString());
-        });
+//        List<Demand> demands = approval.findAll();
+//        demands.forEach(demand -> {
+//            System.out.println(demand.toString());
+//        });
     }
 
     @Test

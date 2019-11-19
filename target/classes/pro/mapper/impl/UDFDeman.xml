@@ -5,6 +5,15 @@
     <select id="selectByCode" parameterType="Long" resultMap="resultDemand">
       SELECT * from demand where demand_plancode=#{demandPlanCode};
     </select>
+    <select id="findAll" resultMap="resultDept">
+        select * from demand
+    </select>
+    <select id="findByStatus1" resultMap="resultDept">
+       select * from demand where approval_status="已审核";
+    </select>
+    <select id="findByStatus2" resultMap="resultDept">
+        select * from demand where approval_status="未审核"
+    </select>
     <select id="selectMOByCode" resultMap="resultDemandOrder" parameterType="Long">
        SELECT * from demand   LEFT JOIN orders on demand.demand_plancode=orders.demand_plancode
        where demand.demand_plancode=#{demandPlanCode};
@@ -32,6 +41,12 @@
     </update>
     <delete id="deleteDemandByCode" parameterType="Long">
         delete from demand where demand_plancode=#{demandPlanCode}
+    </delete>
+    <delete id="deleteDemands" parameterType="Long">
+        delete from demand where demand_plancode in
+        <foreach collection="list" item="demandPlanCode" separator="," open="(" close=")">
+        #{demandPlanCode}
+    </foreach>
     </delete>
     <update id="updateStateByCode" parameterType="pro.entity.Demand">
 		update demand
@@ -62,5 +77,18 @@
         <result property="demandState" column="demand_state" javaType="String"></result>
         <result property="approval" column="approval_status" javaType="String"></result>
         <result property="demandMonth" column="demand_month" javaType="int"></result>
+    </resultMap>
+
+    <resultMap id="resultDept" type="pro.entity.Demand">
+        <id property="demandPlanCode" column="demand_plancode" javaType="Long"/>
+        <result property="demandPlanType" column="demand_plantype" javaType="String"/>
+        <result property="demandPlanName" column="demand_planname" javaType="String"/>
+        <result property="demandRemarks" column="demand_remarks" javaType="String"/>
+        <result property="demandDepartment" column="demand_department" javaType="String"/>
+        <result property="demandPerson" column="demand_personne" javaType="String"/>
+        <result property="demandState" column="demand_state" javaType="String"/>
+        <result property="approval" column="approval_status" javaType="String"/>
+        <result property="demandMonth" column="demand_month" javaType="int"/>
+        <result property="orderCode" column="order_code" javaType="Long"/>
     </resultMap>
 </mapper> 

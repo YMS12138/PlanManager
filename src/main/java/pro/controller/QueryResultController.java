@@ -3,26 +3,22 @@ package pro.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
 import pro.Application;
 import pro.entity.Demand;
-import pro.logic.ApprovalLogic;
-import pro.mapper.Approval;
+import pro.logic.GoodsLogic;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 需求计划查询结果页面
  */
 public class QueryResultController {
-
+    ApplicationContext ac = Application.ac;
     /**
      * 表格内的元素，在demands更改时，tableView表格会同时更改
      */
@@ -52,8 +48,8 @@ public class QueryResultController {
      */
     @FXML
     private void initialize() {
-        ApprovalLogic app = new ApprovalLogic();
-        List<Demand> demand = app.findAll();
+        GoodsLogic goodsLogic = new GoodsLogic();
+        List<Demand> demand = goodsLogic.findalldemand();
         demands.addAll(demand);
         //设置表格中的内容（填充）
         tableView.setItems(demands);
@@ -88,7 +84,21 @@ public class QueryResultController {
 
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+    @FXML
+    public void delete(){
+        List<Long> Codes = new ArrayList<>();
+        ObservableList<Demand> selectedItems = tableView.getSelectionModel().getSelectedItems();
+        for(Demand demand : selectedItems){
+            System.out.println(demand.getDemandPlanCode());
+            Codes.add(demand.getDemandPlanCode());
+        }
+        GoodsLogic goodsLogic = ac.getBean("goodsLogic",GoodsLogic.class);
 
+        goodsLogic.deletedemands(Codes);
+        demands.setAll(goodsLogic.findalldemand()) ;
+        tableView.setItems(demands);
+        System.out.println("删除成功");
+    }
     /**
      * 加载打印预览及导出页面
      */

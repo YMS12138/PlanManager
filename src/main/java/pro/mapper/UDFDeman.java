@@ -5,6 +5,9 @@ package pro.mapper;/*
 
 import org.springframework.stereotype.Service;
 import pro.entity.Demand;
+
+import java.util.List;
+
 @Service
 public interface UDFDeman {
 
@@ -41,4 +44,15 @@ public interface UDFDeman {
      */
     public void updateStateByCode(Long demandPlanCode);
 
+    /**批量删除
+     *
+     * @param Codes
+     */
+    public void deleteDemands(List<Long> Codes);
+
+    public List<Demand> findAll();  //查出所有需求计划
+
+    public List<Demand> findByStatus1();//已审核状态
+
+    public List<Demand> findByStatus2();//未审核状态
 }

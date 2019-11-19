@@ -1,23 +1,15 @@
 package pro.controller;
 
 import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableIntegerValue;
-import javafx.beans.value.ObservableStringValue;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 import pro.Application;
 import pro.entity.Demand;
-import pro.logic.ApprovalLogic;
+import pro.logic.GoodsLogic;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -52,8 +44,8 @@ public class ApprovalController {
      */
     @FXML
     public void initialize() {
-        ApprovalLogic app = new ApprovalLogic();
-        List<Demand> demand = app.findAll();
+        GoodsLogic goodsLogic = new GoodsLogic();
+        List<Demand> demand = goodsLogic.findalldemand();
         demands.addAll(demand);
         //设置表格中的内容（填充）
         tableView.setItems(demands);

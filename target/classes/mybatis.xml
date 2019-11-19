@@ -8,6 +8,5 @@
         <mapper resource="pro/mapper/impl/yearsDemandMapper.xml"></mapper>
         <mapper resource="pro/mapper/impl/UDFDeman.xml"></mapper>
         <mapper resource="pro/mapper/impl/iOrderMapper.xml"></mapper>
-        <mapper resource="pro/mapper/impl/ApprovalMapper.xml"></mapper>
     </mappers>
 </configuration>

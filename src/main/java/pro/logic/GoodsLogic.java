@@ -77,6 +77,7 @@ public class GoodsLogic {
     public void updateState(Long demandPlanCode) {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         udfDeman.updateStateByCode(demandPlanCode);
+        System.out.println("提交成功");
     }
 
     /**
@@ -89,5 +90,30 @@ public class GoodsLogic {
         IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
         orders = iOrder.selectAllOrder();
         return orders;
+    }
+
+    public void deletedemands(List<Long> codes) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        udfDeman.deleteDemands(codes);
+    }
+
+    public List<Demand> findalldemand() {
+        UDFDeman uDFDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        List<Demand> list = uDFDeman.findAll();
+        return list;
+    }
+
+    //已审核
+    public List<Demand> findByStatus1() {
+        UDFDeman uDFDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        List<Demand> list = uDFDeman.findByStatus1();
+        return list;
+    }
+
+    //未审核
+    public List<Demand> findByStatus2() {
+        UDFDeman uDFDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        List<Demand> list = uDFDeman.findByStatus2();
+        return list;
     }
 }

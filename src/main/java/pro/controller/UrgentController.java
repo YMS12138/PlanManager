@@ -114,7 +114,7 @@ public class UrgentController {
         GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
-        demand.setDemandPlanCode((long) (Math.random()*100086));
+        demand.setDemandPlanCode(Long.parseLong(demandPlanCode.getText()));
         //年度的计划类型为0 月度1 紧急2
         demand.setDemandPlanType(demandPlanType.getText());
         demand.setDemandPlanName(demandPlanName.getText());
