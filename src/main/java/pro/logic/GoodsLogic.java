@@ -58,7 +58,7 @@ public class GoodsLogic {
     /**
      * 查找所有物料信息根据
      */
-    public List<Orders> selectAllOrder(){
+    public List<Orders> selectAllOrder() {
         //...
         return null;
     }
@@ -115,5 +115,16 @@ public class GoodsLogic {
         UDFDeman uDFDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         List<Demand> list = uDFDeman.findByStatus2();
         return list;
+    }
+
+
+    public void approvalPass(List<Long> codes) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        udfDeman.approvalPass(codes);
+    }
+
+    public void approvalUnPass(List<Long> codes) {
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        udfDeman.approvalUnPass(codes);
     }
 }

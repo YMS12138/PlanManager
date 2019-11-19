@@ -33,7 +33,7 @@ public class Application extends javafx.application.Application {
     /**
      * 线程池
      */
-    public static ExecutorService executorService = new ThreadPoolExecutor(2, 2,
+    public static ExecutorService executorService = new ThreadPoolExecutor(10, 20,
             0, TimeUnit.SECONDS,
             new ArrayBlockingQueue<>(512),
             new ThreadPoolExecutor.DiscardPolicy());

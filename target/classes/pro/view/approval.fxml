@@ -24,12 +24,12 @@
       </TableView>
       <HBox layoutX="572.0" layoutY="662.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="审批通过">
+            <Button mnemonicParsing="false" onAction="#approvalPass" prefHeight="50.0" prefWidth="100.0" text="审批通过">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="审批退回">
+            <Button mnemonicParsing="false" onAction="#approvalUnPass" prefHeight="50.0" prefWidth="100.0" text="审批退回">
                <font>
                   <Font size="18.0" />
                </font>

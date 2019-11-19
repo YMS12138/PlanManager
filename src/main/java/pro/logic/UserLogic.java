@@ -45,9 +45,9 @@ public class UserLogic {
     /**
      * 更改用户 参数自己填
      */
-    public void update(User user,Long id) {
+    public void update(User user, Long id) {
         IUser iUser = Application.ac.getBean("IUser", IUser.class);
-        iUser.updateU(user,id);
+        iUser.updateU(user, id);
     }
 
     /**
@@ -79,7 +79,7 @@ public class UserLogic {
                 //跳转管理员页面 return
             }
         } else {
-            alert.setContentText("此用户不存在");
+            alert.setContentText("用户名或密码错误");
             alert.showAndWait();
             System.out.println("用户不存在");
             //跳转登录页页面 return

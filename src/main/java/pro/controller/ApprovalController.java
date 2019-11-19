@@ -10,6 +10,7 @@ import pro.Application;
 import pro.entity.Demand;
 import pro.logic.GoodsLogic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,4 +104,47 @@ public class ApprovalController {
     public static void setDemands(List<Demand> demands) {
         ApprovalController.demands.setAll(demands);
     }
+
+    @FXML
+    public void approvalPass() {
+        Application.executorService.execute(() -> {
+            List<Long> Codes = new ArrayList<>();
+            ObservableList<Demand> selectedItems = tableView.getSelectionModel().getSelectedItems();
+            for (Demand demand : selectedItems) {
+                if (demand.getApproval().equals("已审核")) {
+                    System.out.println("已审核无法再次审核");
+                    break;
+                } else {
+                    System.out.println(demand.getApproval());
+                    Codes.add(demand.getDemandPlanCode());
+                }
+            }
+            GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
+            goodsLogic.approvalPass(Codes);
+            demands.setAll(goodsLogic.findalldemand());
+            tableView.setItems(demands);
+        });
+    }
+
+    @FXML
+    public void approvalUnPass(){
+        Application.executorService.execute(() -> {
+            List<Long> Codes = new ArrayList<>();
+            ObservableList<Demand> selectedItems = tableView.getSelectionModel().getSelectedItems();
+            for (Demand demand : selectedItems) {
+                if (demand.getApproval().equals("未审核")) {
+                    System.out.println("未审核");
+                    break;
+                } else {
+                    System.out.println(demand.getApproval());
+                    Codes.add(demand.getDemandPlanCode());
+                }
+            }
+            GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
+            goodsLogic.approvalUnPass(Codes);
+            demands.setAll(goodsLogic.findalldemand());
+            tableView.setItems(demands);
+        });
+    }
+
 }
