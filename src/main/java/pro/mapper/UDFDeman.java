@@ -62,7 +62,13 @@ public interface UDFDeman {
 
     public List<Demand> findByStatus2();//未审核状态
 
-    public void approvalPass(List<Long> codes);//批量审批
+    /**
+     * 将未审批变成审批
+     */
+    public void approvalPass(List<Long> codes);
 
+    /**
+     * 将审批变成未审批
+     */
     public void approvalUnPass(List<Long> codes);
 }

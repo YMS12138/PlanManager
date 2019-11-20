@@ -84,7 +84,7 @@ public class ApprovalController {
         //添加选择监听
         Application.executorService.execute(() -> {
             while (true) {
-                if (tableView.getScene() == null){
+                if (tableView.getScene() == null) {
                     return;
                 }
 
@@ -106,11 +106,13 @@ public class ApprovalController {
     }
 
 
-
     public static void setDemands(List<Demand> demands) {
         ApprovalController.demands.setAll(demands);
     }
 
+    /**
+     * 将未审批变成审批
+     */
     @FXML
     public void approvalPass() {
         Application.executorService.execute(() -> {
@@ -132,8 +134,11 @@ public class ApprovalController {
         });
     }
 
+    /**
+     * 将审批变成未审批
+     */
     @FXML
-    public void approvalUnPass(){
+    public void approvalUnPass() {
         Application.executorService.execute(() -> {
             List<Long> Codes = new ArrayList<>();
             ObservableList<Demand> selectedItems = tableView.getSelectionModel().getSelectedItems();

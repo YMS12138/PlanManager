@@ -8,15 +8,15 @@
     </select>
 
     <select id="findAll" resultMap="resultDept">
-        select * from demand
+        select * from demand where demand_state="已提交"
     </select>
 
     <select id="findByStatus1" resultMap="resultDept">
-       select * from demand where approval_status="已审核";
+       select * from demand where approval_status="已审核" and demand_state="已提交";
     </select>
 
     <select id="findByStatus2" resultMap="resultDept">
-        select * from demand where approval_status="未审核"
+        select * from demand where approval_status="未审核" and demand_state="已提交"
     </select>
 
     <select id="selectMOByCode" resultMap="resultDemandOrder" parameterType="Long">

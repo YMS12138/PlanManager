@@ -40,8 +40,8 @@ public class LoginController {
      */
     @FXML
     public void login() {
-        String name = username.getText().replace(" ","");
-        String pwd = password.getText().replace(" ","");
+        String name = username.getText().replace(" ", "");
+        String pwd = password.getText().replace(" ", "");
         System.out.println(name);
         System.out.println(pwd);
         u.UserLogin(name, pwd);
@@ -56,7 +56,7 @@ public class LoginController {
             try {
                 Application.application.requirement();
                 RequirementController.title.setText("需求计划-需求审核");
-                Application.application.showApproval();
+                Application.application.showYears();
             } catch (IOException e) {
                 e.printStackTrace();
             }

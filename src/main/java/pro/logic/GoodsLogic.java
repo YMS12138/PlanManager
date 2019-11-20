@@ -117,12 +117,17 @@ public class GoodsLogic {
         return list;
     }
 
-
+    /**
+     * 将未审批变成审批
+     */
     public void approvalPass(List<Long> codes) {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         udfDeman.approvalPass(codes);
     }
 
+    /**
+     * 将审批变成未审批
+     */
     public void approvalUnPass(List<Long> codes) {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         udfDeman.approvalUnPass(codes);
