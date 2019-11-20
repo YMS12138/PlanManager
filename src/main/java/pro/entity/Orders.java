@@ -19,11 +19,11 @@ import java.util.Date;
 public class Orders {
 
     //物料分类编码
-    private int materialTypeCode;
+    private String materialTypeCode;
     //物料分类名称
     private String materialTypeName;
     //物料编码
-    private Long materialCode;
+    private String materialCode;
     //物料名称
     private String materialName;
     //物料规格
@@ -76,11 +76,11 @@ public class Orders {
                 '}';
     }
 
-    public int getMaterialTypeCode() {
+    public String getMaterialTypeCode() {
         return materialTypeCode;
     }
 
-    public void setMaterialTypeCode(int materialTypeCode) {
+    public void setMaterialTypeCode(String materialTypeCode) {
         this.materialTypeCode = materialTypeCode;
     }
 
@@ -92,11 +92,11 @@ public class Orders {
         this.materialTypeName = materialTypeName;
     }
 
-    public Long getMaterialCode() {
+    public String getMaterialCode() {
         return materialCode;
     }
 
-    public void setMaterialCode(Long materialCode) {
+    public void setMaterialCode(String materialCode) {
         this.materialCode = materialCode;
     }
 

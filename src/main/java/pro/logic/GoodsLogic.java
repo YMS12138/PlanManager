@@ -27,7 +27,6 @@ public class GoodsLogic {
         IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
         iInsertMonth.insertMDemand(demand);
         iOrder.insertOrders(ordersList);
-        System.out.println("8++++++++++");
     }
 
     /**
@@ -77,7 +76,6 @@ public class GoodsLogic {
     public void updateState(Long demandPlanCode) {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         udfDeman.updateStateByCode(demandPlanCode);
-        System.out.println("提交成功");
     }
 
     /**

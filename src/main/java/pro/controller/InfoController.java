@@ -9,18 +9,24 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.springframework.context.ApplicationContext;
+import pro.Application;
 import pro.entity.Orders;
+import pro.mapper.IOrder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zz
  * @Date: 2019/11/11 17:12
  */
 public class InfoController {
+    ApplicationContext ac = Application.ac;
     //物料分类编码
     @FXML
     private ComboBox materialTypeCode;
@@ -78,14 +84,26 @@ public class InfoController {
     private void initialize() {
         ObservableList<String> strings = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
         //设置月份下拉框列表的值
-        ObservableList<String> codes = FXCollections.observableArrayList("1", "2");
-        materialCode.setItems(strings);
+        ObservableList<String> strings1 = FXCollections.observableArrayList("是","否");
+        IOrder iOrder = ac.getBean("IOrder",IOrder.class);
+        List<String> materialTypeCodes = new ArrayList<>();
+        List<String> materialCodes = new ArrayList<>();
+        List<String> materialNames = new ArrayList<>();
+        List<Orders> ordersList = iOrder.findmaterialCodes();
+        for(Orders orders : ordersList) {
+            materialTypeCodes.add(orders.getMaterialTypeCode());
+            materialCodes.add(orders.getMaterialCode());
+            materialNames.add(orders.getMaterialName());
+        }
+        ObservableList<String> typeCodes = FXCollections.observableArrayList(materialTypeCodes);
+        ObservableList<String> Codes = FXCollections.observableArrayList(materialCodes);
+        materialCode.setItems(Codes);
         materialUnit.setItems(strings);
         expectedSup.setItems(strings);
         fixedSup.setItems(strings);
         materialDemandMoth.setItems(strings);
-        sourceSure.setItems(codes);
-        materialTypeCode.setItems(strings);
+        sourceSure.setItems(strings1);
+        materialTypeCode.setItems(typeCodes);
     }
 
     public Orders getOrder(Long planCode) throws ParseException {
@@ -94,7 +112,7 @@ public class InfoController {
         orders.setDemandPlanCode(planCode);
         orders.setExpectedSup((String) expectedSup.getValue());
         orders.setFixedSup(fixedSup.getValue().toString());
-        orders.setMaterialCode(Long.valueOf(materialCode.getValue().toString()));
+        orders.setMaterialCode(materialCode.getValue().toString());
         orders.setMaterialDemandDate(formatter.parse(String.valueOf(materialDemandDate.getValue())));
         orders.setMaterialDemandMoth(Integer.parseInt(materialDemandMoth.getValue().toString()));
         orders.setMaterialNum(Integer.parseInt(materialNum.getText()));
@@ -106,7 +124,7 @@ public class InfoController {
         orders.setMaterialUnit(materialUnit.getValue().toString());
         orders.setRemarks(remarks.getText());
         orders.setSourceSure(Boolean.valueOf(sourceSure.getValue().toString()));
-        orders.setMaterialTypeCode(Integer.parseInt(materialTypeCode.getValue().toString()));
+        orders.setMaterialTypeCode(materialTypeCode.getValue().toString());
 
         return orders;
     }
