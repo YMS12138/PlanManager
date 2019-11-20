@@ -8,7 +8,7 @@
     </select>
 
     <select id="findAll" resultMap="resultDept">
-        select * from demand where demand_state="已提交"
+        select * from demand
     </select>
 
     <select id="findByStatus1" resultMap="resultDept">

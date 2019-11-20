@@ -18,7 +18,7 @@
             #{orders.fixedSup},#{orders.remarks},#{orders.materialTrackCode},#{orders.demandPlanCode})
         </foreach>
     </insert>
-    <select id="findByCode" parameterType="Long" resultMap="resultOrder">
+    <select id="selectOrderByCode" parameterType="Long" resultMap="resultOrder">
         select * from orders where demand_plancode=#{demandPlanCode}
     </select>
     <select id="selectAllOrder" resultMap="resultOrder">

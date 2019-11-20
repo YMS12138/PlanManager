@@ -84,6 +84,17 @@ public class QueryResultController {
 
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+    //需求计划查询结果里面的关闭/退出按钮
+    @FXML
+    public void exit(){
+        try {
+            Application.application.requirement();
+            RequirementController.title.setText("需求计划-需求查询");
+            Application.application.showFindPage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     public void delete(){
         List<Long> Codes = new ArrayList<>();
