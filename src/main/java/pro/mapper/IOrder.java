@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface IOrder {
     public void insertOrders(List<Orders> ordersList);
-    public List<Orders> selectOrderByCode();
+    public List<Orders> selectOrderByCode(Long demandPlanCode);
     public List<Orders> selectAllOrder();
     public void updateByCode(List<Orders> orders);
     public void delete(Long demandCode, Long OrderCode);

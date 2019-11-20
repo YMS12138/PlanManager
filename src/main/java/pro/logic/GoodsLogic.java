@@ -116,7 +116,12 @@ public class GoodsLogic {
         List<Demand> list = uDFDeman.findByStatus2();
         return list;
     }
-
+    //根据需求编码获取ordes
+    public List<Orders> selectOrderByCode(Long demandPlanCode) {
+        IOrder iOrder = Application.ac.getBean("IOrder", IOrder.class);
+        List<Orders> list = iOrder.selectOrderByCode(demandPlanCode);
+        return list;
+    }
     /**
      * 将未审批变成审批
      */
