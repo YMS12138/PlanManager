@@ -19,4 +19,5 @@ public interface IOrder {
     public void updateByCode(List<Orders> orders);
     public void delete(Long demandCode, Long OrderCode);
     public void findByCode(Long demandPlanCode);
+    public List<Orders> findmaterialCodes();
 }

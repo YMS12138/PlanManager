@@ -120,7 +120,6 @@ public class YearsController {
         Orders order = Application.ac.getBean("orders", Orders.class);
         //获取计划
         demand.setDemandPlanCode(Long.parseLong(demandPlanCode.getText()));
-        System.out.println(demand.getDemandPlanCode());
         //年度的计划类型为0 月度1 紧急2
         demand.setDemandPlanType("年度计划");
         demand.setDemandPlanName(demandPlanName.getText());
@@ -133,7 +132,6 @@ public class YearsController {
         //获取订单信息
         for (int i = 0; i < orders.size(); i++) {
             ordersList.add(orders.get(i).getOrder(demand.getDemandPlanCode()));
-            System.out.println(ordersList.get(i));
         }
         goodsLogic.createDemand(demand, ordersList);
 
@@ -162,7 +160,7 @@ public class YearsController {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
         goodsLogic.updateState(Long.parseLong(demandPlanCode.getText()));
-        System.out.println(demandPlanCode.getText());
+
     }
 
     /**
@@ -181,8 +179,7 @@ public class YearsController {
 
         GoodsLogic goodsLogic = ac.getBean("goodsLogic", GoodsLogic.class);
         goodsLogic.deleteDemand(Long.parseLong(demandPlanCode.getText()));
-        System.out.println(demandPlanCode.getText());
-        System.out.println("删除成功");
+
     }
 
     /**
