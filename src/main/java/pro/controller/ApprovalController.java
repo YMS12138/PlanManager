@@ -46,8 +46,10 @@ public class ApprovalController {
     @FXML
     public void initialize() {
         GoodsLogic goodsLogic = new GoodsLogic();
-        List<Demand> demand = goodsLogic.findalldemand();
-        demands.addAll(demand);
+        List<Demand> demand1 = goodsLogic.findByStatus1();
+        List<Demand> demand2 = goodsLogic.findByStatus2();
+        demands.addAll(demand1);
+        demands.addAll(demand2);
         //设置表格中的内容（填充）
         tableView.setItems(demands);
 
@@ -129,7 +131,7 @@ public class ApprovalController {
             }
             GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
             goodsLogic.approvalPass(Codes);
-            demands.setAll(goodsLogic.findalldemand());
+            //demands.setAll(goodsLogic.findalldemand());
             tableView.setItems(demands);
         });
     }
@@ -153,7 +155,7 @@ public class ApprovalController {
             }
             GoodsLogic goodsLogic = Application.ac.getBean("goodsLogic", GoodsLogic.class);
             goodsLogic.approvalUnPass(Codes);
-            demands.setAll(goodsLogic.findalldemand());
+            //demands.setAll(goodsLogic.findalldemand());
             tableView.setItems(demands);
         });
     }
