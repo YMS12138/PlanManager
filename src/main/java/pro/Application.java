@@ -25,10 +25,15 @@ import java.util.concurrent.*;
  */
 public class Application extends javafx.application.Application {
     public static ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+    //程序主窗口
     private Stage page;
     private BorderPane root;
+    //当前登录用户
     public static User user;
+    //本程序
     public static Application application;
+    //需求新建页面的控制器
+    public static Object controller;
 
     /**
      * 线程池
@@ -109,6 +114,8 @@ public class Application extends javafx.application.Application {
 
         GridPane center = (GridPane) root.getCenter();
         center.add(info, 1, 2);
+
+        controller = loader.getController();
     }
 
     /**
@@ -123,6 +130,8 @@ public class Application extends javafx.application.Application {
 
         GridPane center = (GridPane) root.getCenter();
         center.add(info, 1, 2);
+
+        controller = loader.getController();
     }
 
     /**
@@ -137,6 +146,8 @@ public class Application extends javafx.application.Application {
 
         GridPane center = (GridPane) root.getCenter();
         center.add(info, 1, 2);
+
+        controller = loader.getController();
     }
 
     /**

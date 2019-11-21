@@ -46,10 +46,8 @@ public class ApprovalController {
     @FXML
     public void initialize() {
         GoodsLogic goodsLogic = new GoodsLogic();
-        List<Demand> demand1 = goodsLogic.findByStatus1();
-        List<Demand> demand2 = goodsLogic.findByStatus2();
-        demands.addAll(demand1);
-        demands.addAll(demand2);
+        List<Demand> demand1 = goodsLogic.findAllApproval();
+        demands.setAll(demand1);
         //设置表格中的内容（填充）
         tableView.setItems(demands);
 

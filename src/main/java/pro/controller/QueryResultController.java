@@ -8,7 +8,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.context.ApplicationContext;
 import pro.Application;
 import pro.entity.Demand;
+import pro.entity.Orders;
 import pro.logic.GoodsLogic;
+import pro.logic.UserLogic;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -110,6 +112,75 @@ public class QueryResultController {
         tableView.setItems(demands);
         System.out.println("删除成功");
     }
+
+    /**
+     * 查询需求计划具体信息
+     */
+    @FXML
+    private void query(){
+        if (tableView.getSelectionModel().getSelectedItems().size()>1){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("查询错误");
+            alert.setContentText("无法同时查询多个需求！");
+            alert.showAndWait();
+            return;
+        }
+        Demand selectedItem = tableView.getSelectionModel().getSelectedItem();
+        System.out.println(selectedItem.getDemandPlanName());
+
+        if (selectedItem == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("查询错误");
+            alert.setContentText("未选中需求计划！");
+            alert.showAndWait();
+            return;
+        }
+
+        //根据demand查出所有的orders,test
+        List<Orders> orders = new GoodsLogic().selectOrderByCode(selectedItem.getDemandPlanCode());
+        System.out.println(orders.size());
+        for (Orders order : orders) {
+            System.out.println("1111");
+            System.out.println(order);
+        }
+
+        selectedItem.setOrdersList(orders);
+        //跳转
+        if ("年度计划".equals(selectedItem.getDemandPlanType())){
+            try {
+                Application.application.requirement();
+                RequirementController.title.setText("需求计划-年度计划");
+                Application.application.showYears();
+
+                YearsController.me.queryRes(selectedItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if ("月度计划".equals(selectedItem.getDemandPlanType())){
+            try {
+                Application.application.requirement();
+                RequirementController.title.setText("需求计划-月度计划");
+                Application.application.showMonth();
+
+                MonthController.me.queryRes(selectedItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if ("紧急计划".equals(selectedItem.getDemandPlanType())){
+            try {
+                Application.application.requirement();
+                RequirementController.title.setText("需求计划-紧急计划");
+                Application.application.showUrgent();
+
+                UrgentController.me.queryRes(selectedItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     /**
      * 加载打印预览及导出页面
      */

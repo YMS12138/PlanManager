@@ -71,4 +71,9 @@ public interface UDFDeman {
      * 将审批变成未审批
      */
     public void approvalUnPass(List<Long> codes);
+
+    /**
+     * 查询所有已提交的需求计划
+     */
+    public List<Demand> findAllApproval();
 }

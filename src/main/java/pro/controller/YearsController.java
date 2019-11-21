@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.springframework.context.ApplicationContext;
 import pro.Application;
@@ -23,6 +24,7 @@ import java.util.Random;
  */
 public class YearsController {
     ApplicationContext ac = Application.ac;
+    public static YearsController me;
 
     /**
      * 所有基本信息
@@ -31,6 +33,8 @@ public class YearsController {
     List<Orders> ordersList = new ArrayList<>();
     @FXML
     private VBox baseInfo;
+    @FXML
+    private HBox btns;
     /**
      * 需求计划编码
      */
@@ -86,6 +90,7 @@ public class YearsController {
 
     @FXML
     private void initialize() {
+        me = this;
 
         /**
          /**
@@ -196,17 +201,29 @@ public class YearsController {
      *
      * @throws IOException
      */
-    @FXML
-    private void addPane() throws IOException {
+
+    private void addPane(Orders... orders1) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Application.class.getClassLoader().getResource("pro/view/info.fxml"));
         GridPane info = loader.load();
 
         InfoController controller = loader.getController();
+        if (orders1 != null){
+            controller.setOrders(orders1[0]);
+        }
         controller.init(info, baseInfo);
         orders.add(controller);
 
         baseInfo.getChildren().addAll(info);
+    }
+
+    @FXML
+    private void addPane1(){
+        try {
+            addPane(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -220,5 +237,47 @@ public class YearsController {
         GridPane processInfo = loader.load();
 
         processVBox.getChildren().addAll(processInfo);
+    }
+
+    /**
+     * 从查询页面跳转过来
+     * 初始化页面信息
+     */
+    public void queryRes(Demand demand) {
+        //填充demand信息
+        demandPlanCode.setText(String.valueOf(demand.getDemandPlanCode()));
+        demandPlanType.setText(demand.getDemandPlanType());
+        demandPlanName.setText(demand.getDemandPlanName());
+        demandRemarks.setText(demand.getDemandRemarks());
+        demandDepartment.setText(demand.getDemandDepartment());
+        demandPerson.setText(demand.getDemandPerson());
+        demandState.setText(demand.getDemandState());
+        approval.setText(demand.getApproval());
+        demandPlanCode.setText(String.valueOf(demand.getDemandPlanCode()));
+        //基本信息
+        demand.getOrdersList().forEach(orders1 -> {
+            try {
+                addPane(orders1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        //流程信息
+
+        //系统信息
+
+
+
+        //设置不可编辑
+        demandPlanCode.setEditable(false);
+        demandPlanType.setEditable(false);
+        demandPlanName.setEditable(false);
+        demandRemarks.setEditable(false);
+        demandDepartment.setEditable(false);
+        demandPerson.setEditable(false);
+        demandState.setEditable(false);
+        approval.setEditable(false);
+        demandPlanCode.setEditable(false);
+        btns.setDisable(true);
     }
 }

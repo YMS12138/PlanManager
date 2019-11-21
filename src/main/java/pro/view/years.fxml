@@ -27,7 +27,7 @@
                 <RowConstraints maxHeight="610.0" minHeight="10.0" prefHeight="610.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <HBox alignment="CENTER" prefWidth="932.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <HBox fx:id="btns" alignment="CENTER" prefWidth="932.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
                         <Button mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="保存" />
                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="复制" />
@@ -131,7 +131,7 @@
                                           <VBox layoutX="0.5" layoutY="0.5" AnchorPane.topAnchor="5.0">
                                              <children>
                                                 <VBox fx:id="baseInfo" prefWidth="975.0" />
-                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPane" text="增   加">
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPane1" text="增   加">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>

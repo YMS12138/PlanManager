@@ -146,4 +146,21 @@ public class InfoController {
 
         //待填
     }
+
+    public void setOrders(Orders orders){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        materialDemandDate.setAccessibleText(format.format(orders.getMaterialDemandDate()));
+        materialCode.setAccessibleText(String.valueOf(orders.getMaterialCode()));
+        materialDemandMoth.setAccessibleText(String.valueOf(orders.getMaterialDemandMoth()));
+        materialName.setText(orders.getMaterialName());;
+        materialNum.setText(String.valueOf(orders.getMaterialNum()));
+        materialSpe.setText(orders.getMaterialSpe());
+        materialTrackCode.setText(String.valueOf(orders.getMaterialTrackCode()));
+        materialTypeCode.setAccessibleText(String.valueOf(orders.getMaterialTypeCode()));
+        materialUnit.setAccessibleText(orders.getMaterialUnit());
+        fixedSup.setAccessibleText(orders.getFixedSup());
+        remarks.setText(orders.getRemarks());
+        sourceSure.setAccessibleText(String.valueOf(orders.getSourceSure()));
+        expectedSup.setAccessibleText(orders.getExpectedSup());
+    }
 }

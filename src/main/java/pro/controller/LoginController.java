@@ -56,7 +56,7 @@ public class LoginController {
             try {
                 Application.application.requirement();
                 RequirementController.title.setText("需求计划-需求审核");
-                Application.application.showYears();
+                Application.application.showApproval();
             } catch (IOException e) {
                 e.printStackTrace();
             }

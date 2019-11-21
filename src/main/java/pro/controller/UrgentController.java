@@ -25,6 +25,7 @@ public class UrgentController {
     ApplicationContext ac = Application.ac;
     List<InfoController> orders = new ArrayList<>();
     List<Orders> ordersList = new ArrayList<>();
+    public static UrgentController me;
     @FXML
     private VBox baseInfo;
     /**
@@ -79,7 +80,8 @@ public class UrgentController {
 
     @FXML
     private void initialize() {
-        index = new Integer(1);
+        index = 1;
+        me = this;
 
         /**
          /**
@@ -234,5 +236,17 @@ public class UrgentController {
         GridPane processInfo = loader.load();
 
         processVBox.getChildren().addAll(processInfo);
+    }
+
+    /**
+     * 从查询页面跳转过来
+     * 初始化页面信息
+     */
+    public void queryRes(Demand demand) {
+        //填充demand信息
+
+
+        //设置不可编辑
+
     }
 }

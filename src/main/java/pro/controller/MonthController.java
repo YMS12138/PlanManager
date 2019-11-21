@@ -30,6 +30,7 @@ import java.util.Random;
 public class MonthController {
     List<InfoController> orders = new ArrayList<>();
     List<Orders> ordersList = new ArrayList<>();
+    public static MonthController me;
     @FXML
     public VBox baseInfo;
 
@@ -83,21 +84,6 @@ public class MonthController {
     private VBox processVBox;
 
     @FXML
-    public void createMonth() {
-
-    }
-
-    @FXML
-    public void updateMonth() {
-
-    }
-
-    @FXML
-    public void delete() {
-    }
-
-
-    @FXML
     public void test() throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Demand demand = Application.ac.getBean("demand", Demand.class);
@@ -124,6 +110,7 @@ public class MonthController {
 
     @FXML
     private void initialize() {
+        me = this;
 
         /**
          * 初始化流程信息子模块
@@ -179,5 +166,17 @@ public class MonthController {
         GridPane processInfo = loader.load();
 
         processVBox.getChildren().addAll(processInfo);
+    }
+
+    /**
+     * 从查询页面跳转过来
+     * 初始化页面信息
+     */
+    public void queryRes(Demand demand) {
+        //填充demand信息
+
+
+        //设置不可编辑
+
     }
 }
