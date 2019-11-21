@@ -18,16 +18,19 @@
             #{orders.fixedSup},#{orders.remarks},#{orders.materialTrackCode},#{orders.demandPlanCode})
         </foreach>
     </insert>
-    <select id="findByCode" parameterType="Long" resultMap="resultOrder">
+    <select id="selectOrderByCode" parameterType="Long" resultMap="resultOrder">
         select * from orders where demand_plancode=#{demandPlanCode}
     </select>
     <select id="selectAllOrder" resultMap="resultOrder">
         select * from orders
     </select>
+    <select id="findmaterialCodes" resultMap="resultCodes">
+        select * from categories
+    </select>
     <resultMap type="pro.entity.Orders" id="resultOrder">
-        <result property="materialTypeCode" column="material_typecode" javaType="java.lang.Integer"/>
+        <result property="materialTypeCode" column="material_typecode" javaType="java.lang.String"/>
         <result property="materialTypeName" column="material_typename" javaType="java.lang.String"/>
-        <result property="materialCode" column="material_code" javaType="java.lang.Long"/>
+        <result property="materialCode" column="material_code" javaType="java.lang.String"/>
         <result property="materialName" column="material_name" javaType="java.lang.String"/>
         <result property="materialSpe" column="material_spe" javaType="java.lang.String"/>
         <result property="materialType" column="material_type" javaType="java.lang.String"/>
@@ -41,5 +44,10 @@
         <result property="remarks" column="remarks" javaType="java.lang.String"/>
         <result property="materialTrackCode" column="material_tracode" javaType="java.lang.Long"/>
         <result property="demandPlanCode" column="demand_plancode" javaType="java.lang.Long"/>
+    </resultMap>
+    <resultMap type="pro.entity.Orders" id="resultCodes">
+        <result property="materialTypeCode" column="material_typecode" javaType="java.lang.String"/>
+        <result property="materialCode" column="material_code" javaType="java.lang.String"/>
+        <result property="materialName" column="material_name" javaType="java.lang.String"/>
     </resultMap>
 </mapper>
