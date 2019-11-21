@@ -135,4 +135,9 @@ public class GoodsLogic {
         UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
         udfDeman.approvalUnPass(codes);
     }
+
+    public List<Demand> findAllApproval(){
+        UDFDeman udfDeman = Application.ac.getBean("UDFDeman", UDFDeman.class);
+        return udfDeman.findAllApproval();
+    }
 }

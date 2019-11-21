@@ -11,6 +11,10 @@
         select * from demand
     </select>
 
+    <select id="findAllApproval" resultMap="resultDept">
+        select * from demand where demand_state="已提交";
+    </select>
+
     <select id="findByStatus1" resultMap="resultDept">
        select * from demand where approval_status="已审核" and demand_state="已提交";
     </select>
